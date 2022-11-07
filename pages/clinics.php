@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Work Log | Files </title>
+  <title>Cl&iacute;nicas</title>
   
   <!-- Stylesheets -->
   <?php include_once $base.'fragments/Stylesheets.php' ?>
@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-1">
           <div class="col-sm-12">
-            <h1 class="m-0">Starter Page</h1>
+            <h1 class="m-0">Clinicas</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -47,13 +47,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-bordered table-striped" id="files">
+                <table class="table table-bordered table-striped" id="clinics">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Extesion</th>
-                            <th>Actions</th>
+                            <th>Cl&iacute;nica</th>
+                            <th>Telefono</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -80,10 +80,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 <!-- Modal -->
-<?php include_once 'modals/fileModals.php' ?>
+<?php include_once 'modals/clinicModals.php' ?>
 <!-- REQUIRED SCRIPTS -->
 <?php include_once $base.'fragments/scripts.php' ?>
 <!-- Data table files -->
-<script src=<?php echo $base."dist/js/files.js" ?>></script>
+<script src=<?php echo $base."dist/js/clinics.js" ?>></script>
 </body>
 </html>

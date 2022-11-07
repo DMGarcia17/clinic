@@ -1,2 +1,2 @@
 <?php
-define('base_path', '/work_flow/');
+define('base_path', '/clinic/');

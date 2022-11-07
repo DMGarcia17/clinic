@@ -29,7 +29,10 @@ $(document).ready(function() {
                     title: ('Loggin Success!')
                   });
   
-                  window.location.href = "http://localhost/work_log/";
+                  setTimeout(() => {
+                    window.location.href = "http://localhost/clinic/";
+                  }, 1000)
+                  
                 }
             }
           });
