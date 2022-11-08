@@ -18,3 +18,6 @@
 <script src=<?php echo $base."plugins/sweetalert2/sweetalert2.min.js"?>></script>
 <!-- Toastr -->
 <script src=<?php echo $base."plugins/toastr/toastr.min.js"?>></script>
+<!-- JQuery Validate -->
+<script src=<?php echo $base."plugins/jquery-validation/jquery.validate.min.js"?>></script>
+<script src=<?php echo $base."dist/js/validateMethods.js"?>></script>

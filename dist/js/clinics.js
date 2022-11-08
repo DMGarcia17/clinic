@@ -1,32 +1,5 @@
 const process = '../Controllers/ClinicController.php';
-$(document).ready(function() {
-    $('#clinicsTagMenu').addClass('active');
-    $('#clinics').dataTable({
-        "ajax" : process,
-        "columns" : [
-            {"data" : "cod_clinic"},
-            {"data" : "clinic_name"},
-            {"data" : "phone_number"},
-            {"data" : null, render : function (data, type, row, meta) {
-                return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="editClinic('+data['cod_clinic']+')"><i class="fa fa-edit"></i></button>'+
-                '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_clinic']+')"><i class="fas fa-trash-alt"></i></button></div>';
-            } }
-        ],
-        autoWidth: false,
-        dom: 'Bfrtip',
-        "buttons" : [
-            {
-                text: 'Add',
-                action: function (e, dt, node, config) {
-                    $('#addClinic').modal('toggle');
-                }
-            }
-        ]
-    });
-});
-
-
-let saveClinic = () => {
+let saveClinic = (msg) => {
     $.ajax({
         type  : 'post',
         url   : process,
@@ -123,3 +96,61 @@ let resetForm = ()=>{
     $('#clinicName').val(null);
     $('#clinicPhone').val(null);
 }
+
+$(document).ready(function() {
+    $('#clinicsTagMenu').addClass('active');
+    $('#clinics').dataTable({
+        "ajax" : process,
+        "columns" : [
+            {"data" : "cod_clinic"},
+            {"data" : "clinic_name"},
+            {"data" : "phone_number"},
+            {"data" : null, render : function (data, type, row, meta) {
+                return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="editClinic('+data['cod_clinic']+')"><i class="fa fa-edit"></i></button>'+
+                '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_clinic']+')"><i class="fas fa-trash-alt"></i></button></div>';
+            } }
+        ],
+        autoWidth: false,
+        dom: 'Bfrtip',
+        "buttons" : [
+            {
+                text: 'Add',
+                action: function (e, dt, node, config) {
+                    $('#addClinic').modal('toggle');
+                }
+            }
+        ]
+    });
+
+
+    $('#addClinicForm').validate({
+        onfocusout: false,
+        rules: {
+            clinicName: {
+                required: true,
+                minlength: 10,
+                maxlength: 500
+            },
+            clinicAddress: {
+                required: true,
+                minlength: 10,
+                maxlength: 500
+            },
+            clinicPhone: {
+                required: true,
+                phoneSV: true
+            }
+        },
+        messages: {
+            clinicName: "Por favor ingrese un nombre valido, con un ancho entre 10 y 500 caracteres.",
+            clinicAddress: "Por favor ingrese una dirección valida, con un ancho entre 10 y 500 caracteres.",
+            clinicPhone: {
+                required: "Este campo es requerido"
+            }
+        },
+        submitHandler: function(form) {
+            saveClinic();
+          }
+    });
+
+});

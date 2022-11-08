@@ -12,3 +12,10 @@ create table users (
 	user_mod timestamp,
 	last_pass_up timestamp
 );
+
+Create table clinics (
+	cod_clinic int auto_increment primary key,
+	clinic_name varchar(200),
+	address varchar(1000),
+	phone_number varchar(15)
+);

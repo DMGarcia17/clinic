@@ -8,16 +8,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <form id="addClinicForm">
       <div class="modal-body">
-        <form id="addClinic">
           <div class="form-group">
-            <label for="name">Nombre de la cl&iacute;nica</label>
-            <input type="text" name="name" id="clinicName" class="form-control">
+            <label for="clinicName">Nombre de la cl&iacute;nica</label>
+            <input type="text" name="clinicName" id="clinicName" class="form-control">
           </div>
           <input type="hidden" name="clinicId" id="clinicId">
           <div class="form-group">
-            <label for="address">Direcci&oacute;n de la cl&iacute;nica</label>
-            <input type="text" name="address" id="clinicAddress" class="form-control" required>
+            <label for="clinicAddress">Direcci&oacute;n de la cl&iacute;nica</label>
+            <input type="text" name="clinicAddress" id="clinicAddress" class="form-control">
               <?php
                 /*require_once $base.'core/Connection.php';
 
@@ -30,15 +31,16 @@
               ?>
           </div>
           <div class="form-group">
-            <label for="phone">N&uacute;mero telef&oacute;nico</label>
-            <input type="text" name="phone" id="clinicPhone" class="form-control">
+            <label for="clinicPhone">N&uacute;mero telef&oacute;nico</label>
+            <input type="text" name="clinicPhone" id="clinicPhone" class="form-control">
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancel</button>
-        <button type="button" class="btn btn-primary" onClick="saveClinic()">Save</button>
+        <button type="submit" class="btn btn-primary" >Save</button>
       </div>
+      
+      </form>
     </div>
   </div>
 </div>
