@@ -10,7 +10,7 @@ require_once '../core/Connection.php';
         $db = new DatabaseConnection();
         $res = $db->insert('users', 
                             'username, password, complete_name, cod_rol, add_date, user_add, mod_date, user_mod, last_pass_up',
-                            "'{$user}', md5('{$password}'), '{$firstName}', '{$secondName}', '{$lastName}', '{$familyName}', now(), now()");
+                            "'{$user}', md5('{$password}'), '{$completeName}', now(), now()");
         echo $res;
     }
 

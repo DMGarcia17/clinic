@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-bordered table-striped" id="clinics">
+                <table class="table table-bordered table-striped" id="clinics" area-label="Clinics table">
                     <thead>
                         <tr>
                             <th>ID</th>

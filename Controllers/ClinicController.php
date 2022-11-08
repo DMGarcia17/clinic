@@ -1,6 +1,6 @@
 <?php
 require_once '../core/Connection.php';
-function saveClinic($id, $name, $extension){
+function saveClinic($id){
     $db = new DatabaseConnection();
     if ($id == null) {
         $res = $db->insert('clinics', 'clinic_name, address, phone_number', "'{$_POST['clinicName']}', '{$_POST['address']}', '{$_POST['phone']}'");
@@ -36,7 +36,7 @@ if (isset($_POST['function'])){
 
 switch ($key){
     case 'sc':
-        echo saveClinic($_POST['ID'], $_POST['clinicName'],$_POST['address'],$_POST['phone']);
+        echo saveClinic($_POST['ID']);
         break;
     case 'ec':
         loadClinic($_POST['ID']);
