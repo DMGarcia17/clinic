@@ -52,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <tr>
                             <th>ID</th>
                             <th>Cl&iacute;nica</th>
-                            <th>Telefono</th>
+                            <th>Tel&eacute;fono</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

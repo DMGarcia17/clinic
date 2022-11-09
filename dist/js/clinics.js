@@ -20,11 +20,11 @@ let saveClinic = (msg) => {
 
                 Toast.fire({
                 icon: 'success',
-                title: 'Data saved successful!'
+                title: 'Datos guardados!'
                 });
 
                 
-                $('#addClinic').modal('toggle');
+                $('#add').modal('toggle');
 
                 $('#clinics').DataTable().ajax.reload();
 
@@ -33,7 +33,7 @@ let saveClinic = (msg) => {
 };
 
 let editClinic = (id) => {
-    $('#addClinic').modal('toggle');
+    $('#add').modal('toggle');
     $.ajax({
         type  : 'post',
         url   : process,
@@ -72,11 +72,11 @@ let deleteClinic = (id) => {
 
                   Toast.fire({
                     icon: 'success',
-                    title: 'Clinic deleted successful!'
+                    title: 'Eliminaci&oacute;n Exitosa!'
                   });
 
                   
-                  $('#delClinic').modal('toggle');
+                  $('#del').modal('toggle');
 
                   $('#clinics').DataTable().ajax.reload();
             }
@@ -87,7 +87,7 @@ let deleteClinic = (id) => {
 
 let showDelClinic = (id) => {
     $('#idClinicDel').val(id);
-    $('#delClinic').modal('toggle');
+    $('#del').modal('toggle');
 }
 
 let resetForm = ()=>{
@@ -114,16 +114,16 @@ $(document).ready(function() {
         dom: 'Bfrtip',
         "buttons" : [
             {
-                text: 'Add',
+                text: 'Agregar',
                 action: function (e, dt, node, config) {
-                    $('#addClinic').modal('toggle');
+                    $('#add').modal('toggle');
                 }
             }
         ]
     });
 
 
-    $('#addClinicForm').validate({
+    $('#addForm').validate({
         onfocusout: false,
         rules: {
             clinicName: {
@@ -150,6 +150,7 @@ $(document).ready(function() {
         },
         submitHandler: function(form) {
             saveClinic();
+            resetForm();
           }
     });
 

@@ -1,15 +1,15 @@
 <!-- Add or modify modal -->
-<div class="modal fade" id="addClinic" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addClinicLabel" aria-hidden="true">
+<div class="modal fade" id="add" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addClinicLabel">Add / Modify Clinic</h5>
+        <h5 class="modal-title" id="addLabel">Agregar / Modificar Cl&iacute;nica</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
-      <form id="addClinicForm">
+      <form id="addForm">
       <div class="modal-body">
           <div class="form-group">
             <label for="clinicName">Nombre de la cl&iacute;nica</label>
@@ -36,8 +36,8 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancel</button>
-        <button type="submit" class="btn btn-primary" >Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" >Guardar</button>
       </div>
       
       </form>
@@ -46,11 +46,11 @@
 </div>
 
 <!-- Delete modal -->
-<div class="modal fade" id="delClinic" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="delClinicLabel" aria-hidden="true">
+<div class="modal fade" id="del" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="delLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="delClinicLabel">Eliminar Cl&iacute;nica</h5>
+        <h5 class="modal-title" id="delLabel">Eliminar Cl&iacute;nica</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
