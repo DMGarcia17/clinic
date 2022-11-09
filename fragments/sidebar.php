@@ -30,32 +30,26 @@
             <a href="#" class="nav-link active">
                 <em class="nav-icon fas fa-tachometer-alt"></em>
                 <p>
-                Main Menu
+                Cat&aacute;logos
                 <em class="right fas fa-angle-left"></em>
                 </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="./pages/files.php" class="nav-link" id="filesTagMenu">
-                    <em class="far fa-file nav-icon"></em>
-                    <p>Files</p>
+                <a href="http://localhost/clinic/pages/clinics.php" class="nav-link" id="filesTagMenu">
+                    <em class="fal fa-hospitals nav-icon"></em>
+                    <p>Cl&iacute;nicas</p>
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./pages/dailyLog.php" class="nav-link" id="dsTagMenu">
-                        <em class="far fa-file nav-icon"></em>
-                        <p>Daily Summary</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="./pages/states.php" class="nav-link">
-                        <em class="far fa-check-square nav-icon" id="stTagMenu"></em>
-                        <p>States</p>
+                    <a href="http://localhost/clinic/pages/diseases.php" class="nav-link" id="dsTagMenu">
+                        <em class="fal fa-disease nav-icon"></em>
+                        <p>Enfermedades</p>
                     </a>
                 </li>
             </ul>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
             <a href="#" class="nav-link">
                 <em class="nav-icon fas fa-th"></em>
                 <p>
@@ -71,7 +65,7 @@
                 <span class="right badge badge-danger">New</span>
                 </p>
             </a>
-            </li>
+            </li>-->
         </ul>
         </nav>
         <!-- /.sidebar-menu -->
