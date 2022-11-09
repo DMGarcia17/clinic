@@ -19,3 +19,10 @@ Create table clinics (
 	address varchar(1000),
 	phone_number varchar(15)
 );
+
+create table diseases(
+	cod_disease int auto_increment primary key,
+	name varchar(500),
+	pr_order int,
+	description varchar(500)
+);
