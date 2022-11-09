@@ -1,0 +1,5 @@
+label.error{
+    color: #ff0000;
+    font-style: italic !important;
+    font-weight: normal !important;
+}

@@ -11,3 +11,4 @@
 <link rel="stylesheet" href=<?php echo $base."plugins/toastr/toastr.min.css"?>>
 <!-- Theme style -->
 <link rel="stylesheet" href=<?php echo $base."dist/css/adminlte.min.css"?>>
+<link rel="stylesheet" href=<?php echo $base."dist/css/validate.errors.css"?>>
