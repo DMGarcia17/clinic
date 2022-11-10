@@ -97,7 +97,6 @@ let resetForm = ()=>{
 }
 
 $(document).ready(function() {
-    $('#clinicsTagMenu').addClass('active');
     $('#allergies').dataTable({
         "ajax" : process,
         "columns" : [
@@ -155,5 +154,6 @@ $(document).ready(function() {
             resetForm();
           }
     });
+    $('#allergiesTagMenu').addClass('active');
 
 });

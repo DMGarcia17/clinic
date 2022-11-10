@@ -36,25 +36,25 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="http://localhost/clinic/pages/clinics.php" class="nav-link" id="filesTagMenu">
+                <a href="http://localhost/clinic/pages/clinics.php" class="nav-link" id="clinicsTagMenu">
                     <em class="fal fa-hospitals nav-icon"></em>
                     <p>Cl&iacute;nicas</p>
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a href="http://localhost/clinic/pages/diseases.php" class="nav-link" id="dsTagMenu">
+                    <a href="http://localhost/clinic/pages/diseases.php" class="nav-link" id="diseasesTagMenu">
                         <em class="fal fa-disease nav-icon"></em>
                         <p>Enfermedades</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="http://localhost/clinic/pages/allergies.php" class="nav-link" id="dsTagMenu">
+                    <a href="http://localhost/clinic/pages/allergies.php" class="nav-link" id="allergiesTagMenu">
                         <em class="fal fa-disease nav-icon"></em>
                         <p>Alergias</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="http://localhost/clinic/pages/treatments.php" class="nav-link" id="dsTagMenu">
+                    <a href="http://localhost/clinic/pages/treatments.php" class="nav-link" id="treatmentsTagMenu">
                         <em class="fal fa-disease nav-icon"></em>
                         <p>Tratamientos</p>
                     </a>

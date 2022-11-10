@@ -98,7 +98,6 @@ let resetForm = ()=>{
 }
 
 $(document).ready(function() {
-    $('#clinicsTagMenu').addClass('active');
     $('#clinics').dataTable({
         "ajax" : process,
         "columns" : [
@@ -153,5 +152,6 @@ $(document).ready(function() {
             resetForm();
           }
     });
+    $('#clinicsTagMenu').addClass('active');
 
 });
