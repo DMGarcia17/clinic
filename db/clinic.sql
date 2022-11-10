@@ -26,3 +26,10 @@ create table diseases(
 	pr_order int,
 	description varchar(500)
 );
+
+create table allergies(
+	cod_allergie int auto_increment primary key,
+	name varchar(500),
+	pr_order int,
+	description varchar(500)
+);

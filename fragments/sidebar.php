@@ -47,6 +47,12 @@
                         <p>Enfermedades</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="http://localhost/clinic/pages/allergies.php" class="nav-link" id="dsTagMenu">
+                        <em class="fal fa-disease nav-icon"></em>
+                        <p>Alergias</p>
+                    </a>
+                </li>
             </ul>
             </li>
             <!--<li class="nav-item">
