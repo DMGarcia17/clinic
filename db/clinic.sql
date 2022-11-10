@@ -33,3 +33,12 @@ create table allergies(
 	pr_order int,
 	description varchar(500)
 );
+
+create table treatments(
+	cod_treatment int auto_increment primary key,
+	name varchar(500),
+	pr_order int,
+	description varchar(500),
+	show_rp varchar(1) default 'N',
+	paediatric_treatment varchar(1) default 'N'
+);

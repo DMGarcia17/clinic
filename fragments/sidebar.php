@@ -53,6 +53,12 @@
                         <p>Alergias</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="http://localhost/clinic/pages/treatments.php" class="nav-link" id="dsTagMenu">
+                        <em class="fal fa-disease nav-icon"></em>
+                        <p>Tratamientos</p>
+                    </a>
+                </li>
             </ul>
             </li>
             <!--<li class="nav-item">
