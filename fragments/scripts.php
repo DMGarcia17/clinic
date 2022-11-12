@@ -2,6 +2,10 @@
 <script src=<?php echo $base."plugins/jquery/jquery.min.js"?>></script>
 <!-- Bootstrap 4 -->
 <script src=<?php echo $base."plugins/bootstrap/js/bootstrap.bundle.min.js"?>></script>
+<!-- JQuery UI -->
+<script src=<?php echo $base."plugins/jquery-ui/jquery-ui.min.js"?>></script>
+<!-- Moment JS -->
+<script src=<?php echo $base."plugins/moment/moment.min.js"?>></script>
 <!-- jQuery DataTable-->
 <script src=<?php echo $base."plugins/datatables/jquery.dataTables.min.js"?>></script>
 <script src=<?php echo $base."plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"?>></script>

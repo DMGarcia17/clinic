@@ -6497,6 +6497,7 @@ var FullCalendar = (function (exports) {
     function parseSection(sectionStr, calendarOptions, // defaults+overrides, then refined
     calendarOptionOverrides, // overrides only!, unrefined :(
     theme, viewSpecs, calendarApi) {
+        sectionStr = sectionStr+'';
         var isRtl = calendarOptions.direction === 'rtl';
         var calendarCustomButtons = calendarOptions.customButtons || {};
         var calendarButtonTextOverrides = calendarOptionOverrides.buttonText || {};
