@@ -16,7 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <?php include_once $base.'fragments/Stylesheets.php' ?>
   <!-- Toastr -->
   <link rel="stylesheet" href=<?php echo $base."plugins/fullcalendar/main.css"?>>
-
+  
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -43,8 +43,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-5">
             <div class="btn-group float-right" role="group">
-              <button class="btn btn-secondary">Agendar Visita</button>
-              <button class="btn btn-secondary">Agendar Evento</button>
+              <button class="btn btn-primary" id="btnAddVisit">Agendar Visita</button>
+              <button class="btn btn-primary" id="btnAddEvent">Agendar Evento</button>
             </div>
           </div>
         </div><!-- /.row -->
@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 <!-- Modal -->
-<?php include_once 'modals/treatmentsModals.php' ?>
+<?php include_once 'modals/calendarModals.php' ?>
 <!-- REQUIRED SCRIPTS -->
 <?php include_once $base.'fragments/scripts.php' ?>
 <!-- FullCalendar 2.2.5 -->

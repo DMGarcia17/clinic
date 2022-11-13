@@ -18,11 +18,11 @@
           <input type="hidden" name="id" id="id">
           <div class="form-group">
             <label for="startv">Hora de inicio</label>
-            <input type="text" name="startv" id="startv" class="form-control">              
+            <input type="datetime-local" name="startv" id="startv" class="form-control">              
           </div>
           <div class="form-group">
             <label for="endv">Hora de fin</label>
-            <input type="text" name="endv" id="endv" class="form-control">
+            <input type="datetime-local" name="endv" id="endv" class="form-control">
           </div>
       </div>
       <div class="modal-footer">

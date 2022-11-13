@@ -30,7 +30,7 @@ $(document).ready(function() {
                   });
   
                   setTimeout(() => {
-                    window.location.href = "http://localhost/clinic/";
+                    window.location.href = "http://localhost/clinic/pages/calendar.php";
                   }, 1000)
                   
                 }
