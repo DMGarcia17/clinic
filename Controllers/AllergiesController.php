@@ -1,11 +1,11 @@
 <?php
 require_once '../core/Connection.php';
-function save($id){
+function save($id, $name, $order, $description){
     $db = new DatabaseConnection();
     if ($id == null) {
-        $res = $db->insert('allergies', 'name, pr_order, description', "'{$_POST['name']}', '{$_POST['order']}', '{$_POST['description']}'");
+        $res = $db->insert('allergies', 'name, pr_order, description', "'{$name}', '{$order}', '{$description}'");
     }else{
-        $res = $db->update('allergies', "cod_allergie={$_POST['ID']}", "name='{$_POST['name']}', pr_order='{$_POST['order']}', description='{$_POST['description']}'");
+        $res = $db->update('allergies', "cod_allergie={$id}", "name='{$name}', pr_order='{$order}', description='{$description}'");
     }
     return $res;
 }
@@ -29,6 +29,64 @@ function query(){
     echo json_encode($formated);
 }
 
+function findOrder($order){
+    $db = new DatabaseConnection();
+    $res = $db->filteredOQuery('allergies', 'cod_allergie, pr_order', 'pr_order>='.$order, 'pr_order desc');
+    if(isset($res[0]['pr_order'])){
+        return $res;
+    }else{
+        return 0;
+    }
+}
+
+function findAllOrdered(){
+    $db = new DatabaseConnection();
+    $res = $db->blankectOQuery('allergies', '*', 'pr_order asc');
+    if(isset($res[0]['pr_order'])){
+        return $res;
+    }else{
+        return 0;
+    }
+}
+
+function reOrder($order){
+    $db = new DatabaseConnection();
+    $toFix=findOrder($order);
+
+    if ($toFix != 0){
+        foreach($toFix as $item){
+            $newVal = $item['pr_order']+1;
+            $db->update('allergies', "cod_allergie={$item['cod_allergie']}", "pr_order='{$newVal}'");
+        }
+    }
+}
+
+function verifyOrder(){
+    $db = new DatabaseConnection();
+    $toVerify = findAllOrdered();
+
+    if ($toVerify != 0){
+        $currentOrder = 0;
+        foreach($toVerify as $row){
+            if($currentOrder == 0){
+                $currentOrder = $row['pr_order'];
+            }
+
+            echo '</br>currentOrder: '.$currentOrder;
+            $next = $currentOrder + 1;
+
+            echo '</br>next: '.$next;
+            echo '</br>pr_order: '.$row['pr_order'];
+            if ($row['pr_order'] != 1 && $row['pr_order'] != $next){
+                $db->update('allergies', "cod_allergie={$row['cod_allergie']}", "pr_order='{$next}'");
+                $currentOrder = $next;
+            }elseif ($row['pr_order'] != 1){
+                $currentOrder = $next;
+            }
+        }
+    }
+}
+
 $key="";
 if (isset($_POST['function'])){
     $key=$_POST['function'];
@@ -36,7 +94,10 @@ if (isset($_POST['function'])){
 
 switch ($key){
     case 'sa':
-        echo save($_POST['ID']);
+        reOrder($_POST['order']);
+        $result = save($_POST['ID'], $_POST['name'], $_POST['order'], $_POST['description']);
+        verifyOrder();
+        echo $result;
         break;
     case 'ea':
         load($_POST['ID']);

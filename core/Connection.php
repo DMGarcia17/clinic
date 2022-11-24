@@ -24,9 +24,25 @@ class DatabaseConnection
         return $res;
     }
 
+    public function blankectOQuery($table, $fields, $order)
+    {
+        $query = $this->db->prepare('select '.$fields.' from '.$table.' order by '.$order);
+        $query->execute();
+        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
     public function filtered_query($table, $fields, $condition)
     {
         $query = $this->db->prepare('select '.$fields.' from '.$table.' where '.$condition);
+        $query->execute();
+        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function filteredOQuery($table, $fields, $condition, $order)
+    {
+        $query = $this->db->prepare('select '.$fields.' from '.$table.' where '.$condition.' order by '.$order);
         $query->execute();
         $res = $query->fetchAll(PDO::FETCH_ASSOC);
         return $res;
