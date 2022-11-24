@@ -13,16 +13,16 @@
       <div class="modal-body">
           <div class="form-group">
             <label for="namev">Nombre del paciente</label>
-            <input type="text" name="namev" id="namev" class="form-control">
+            <input type="text" name="namev" id="namev" autocomplete="off" class="form-control">
           </div>
-          <input type="hidden" name="id" id="id">
+          <input type="hidden" name="id" autocomplete="off" id="id">
           <div class="form-group">
             <label for="startv">Hora de inicio</label>
-            <input type="datetime-local" name="startv" id="startv" class="form-control">              
+            <input type="datetime-local" name="startv" id="startv" autocomplete="off" class="form-control">              
           </div>
           <div class="form-group">
             <label for="endv">Hora de fin</label>
-            <input type="datetime-local" name="endv" id="endv" class="form-control">
+            <input type="datetime-local" name="endv" id="endv" autocomplete="off" class="form-control">
           </div>
       </div>
       <div class="modal-footer">

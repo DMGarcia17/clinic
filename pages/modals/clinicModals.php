@@ -13,26 +13,16 @@
       <div class="modal-body">
           <div class="form-group">
             <label for="clinicName">Nombre de la cl&iacute;nica</label>
-            <input type="text" name="clinicName" id="clinicName" class="form-control">
+            <input type="text" name="clinicName" id="clinicName" autocomplete="off" class="form-control">
           </div>
           <input type="hidden" name="clinicId" id="clinicId">
           <div class="form-group">
             <label for="clinicAddress">Direcci&oacute;n de la cl&iacute;nica</label>
-            <input type="text" name="clinicAddress" id="clinicAddress" class="form-control">
-              <?php
-                /*require_once $base.'core/Connection.php';
-
-                $db = new DatabaseConnection();
-
-                $res = $db->blankect_query('clinic_extensions', '*');
-                foreach($res as $r){
-                  echo '<option value="'.$r['ID'].'">'.$r['extension'].'</option>';
-                }*/
-              ?>
+            <input type="text" name="clinicAddress" id="clinicAddress" autocomplete="off" class="form-control">
           </div>
           <div class="form-group">
             <label for="clinicPhone">N&uacute;mero telef&oacute;nico</label>
-            <input type="text" name="clinicPhone" id="clinicPhone" class="form-control">
+            <input type="text" name="clinicPhone" id="clinicPhone" autocomplete="off" class="form-control">
           </div>
       </div>
       <div class="modal-footer">

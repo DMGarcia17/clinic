@@ -13,16 +13,16 @@
       <div class="modal-body">
           <div class="form-group">
             <label for="name">Nombre de la enfermedad</label>
-            <input type="text" name="name" id="name" class="form-control">
+            <input type="text" name="name" id="name" autocomplete="off" class="form-control">
           </div>
           <input type="hidden" name="id" id="id">
           <div class="form-group">
             <label for="description">Descripci&oacute;n de la enfermedad</label>
-            <input type="text" name="description" id="description" class="form-control">              
+            <input type="text" name="description" id="description" autocomplete="off" class="form-control">              
           </div>
           <div class="form-group">
             <label for="order">Orden de visualizaci&oacute;n</label>
-            <input type="text" name="order" id="order" class="form-control">
+            <input type="text" name="order" id="order" autocomplete="off" class="form-control">
           </div>
       </div>
       <div class="modal-footer">
