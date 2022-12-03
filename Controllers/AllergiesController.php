@@ -7,8 +7,6 @@ function save($id, $name, $order, $description){
     }else{
         $res = $db->update('allergies', "cod_allergie={$id}", "name='{$name}', pr_order='{$order}', description='{$description}'");
     }
-
-    echo "id: {$id} name: {$name} order:{$order} description:{$description}";
     return $res;
 }
 
@@ -67,7 +65,7 @@ function reOrder($id, $order){
     $currentItem = findCurrentOrder($id);
     if ($toFix != 0 and $currentItem != 0){
         foreach($toFix as $item){
-            if ($item['pr_order'] == (intval($currentItem[0]['pr_order']) + 1)){
+            if ($order == (intval($currentItem[0]['pr_order']) + 1) || ($item['pr_order'] == $order && $order > $currentItem[0]['pr_order'])){
                 $newVal = $item['pr_order']-1;
                 $db->update('allergies', "cod_allergie={$item['cod_allergie']}", "pr_order='{$newVal}'");
             }else{
@@ -111,7 +109,7 @@ switch ($key){
     case 'sa':
         reOrder($_POST['ID'], $_POST['order']);
         $result = save($_POST['ID'], $_POST['name'], $_POST['order'], $_POST['description']);
-        verifyOrder();
+        //verifyOrder();
         echo $result;
         break;
     case 'ea':
