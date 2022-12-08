@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tratamientos</title>
+  <title>Enfermedades</title>
   
   <!-- Stylesheets -->
   <?php include_once $base.'fragments/Stylesheets.php' ?>
@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-1">
           <div class="col-sm-12">
-            <h1 class="m-0">Tratamientos</h1>
+            <h1 class="m-0">Pacientes</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -47,12 +47,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-bordered table-striped" id="treatments" area-label="A table">
+                <table class="table table-bordered table-striped" id="patients" area-label="A table">
                     <thead>
                         <tr>
-                            <th>Orden</th>
-                            <th>Nombre</th>
-                            <th>Descripci&oacute;n</th>
+                            <th>ID</th>
+                            <th>Nombre del Paciente</th>
+                            <th>Motivo de la &Uacute;ltima Visita</th>
+                            <th>Fecha de la &Uacute;ltima Visita</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -80,10 +81,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 <!-- Modal -->
-<?php include_once 'modals/treatmentsModals.php' ?>
+<?php include_once 'modals/patientsModals.php' ?>
 <!-- REQUIRED SCRIPTS -->
 <?php include_once $base.'fragments/scripts.php' ?>
 <!-- Data table files -->
-<script src=<?php echo $base."dist/js/treatments.js" ?>></script>
+<script src=<?php echo $base."dist/js/patients.js" ?>></script>
 </body>
 </html>

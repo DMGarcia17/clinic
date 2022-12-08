@@ -29,10 +29,13 @@
             <li class="nav-item">
             <a href="http://localhost/clinic/pages/calendar.php" class="nav-link" id="calendarTag">
                 <em class="nav-icon fa fa-calendar"></em>
-                <p>
-                Calendar
-                
-                </p>
+                <p>Calendar</p>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a href="http://localhost/clinic/pages/patients.php" class="nav-link" id="patientTag">
+                <em class="nav-icon fa fa-person"></em>
+                <p>Pacientes</p>
             </a>
             </li>
             <li class="nav-item menu-open">
