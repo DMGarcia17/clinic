@@ -49,7 +49,7 @@ create table medical_conditions (
 	question_type varchar(10)
 );
 
-create table patients{
+create table patients(
 	cod_patient int auto_increment primary key,
 	first_name varchar(50),
 	second_name varchar(50),
@@ -93,7 +93,7 @@ create table patients{
 	antibiotics_telephone varchar(15),
 	disease_extra varchar(500),
 	comentarios varchar(1000)
-}
+);
 
 create table answer_mq (
 	cod_patient int,

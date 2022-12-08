@@ -68,6 +68,12 @@
                         <p>Tratamientos</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="http://localhost/clinic/pages/medicalQuestions.php" class="nav-link" id="medicalQuestionsTagMenu">
+                        <em class="fa fa-question nav-icon"></em>
+                        <p>Preguntas Medicas</p>
+                    </a>
+                </li>
             </ul>
             </li>
             <!--<li class="nav-item">
