@@ -12,7 +12,7 @@ function save($id, $name, $order, $description){
 
 function load($id){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('allergies', 'cod_allergie, name, pr_order, description', 'cod_allergie='.$id);
+    $res = $db->filtered_query('patients p', 'p.cod_patient, p.first_name, p.second_name, p.first_surname, p.second_surname, p.phone_number, p.cellphone_numer, p.address, p.city, p.state, p.postal_code, p.occupation, p.height, p.weight, p.birthday, p.gender, p.num_id_patient, p.emergency_call, p.related, p.phone_emergency, p.cellphone_emergency, p.filled_by, p.related_fb, p.doctors_care, p.doctors_name, p.doctors_phone, p.doctors_address, p.doctors_city, p.doctors_state, p.doctors_zip, p.healthy_patients, p.stable_health, p.doctors_condition, p.exams_date, p.past_years, p.disease_past, p.taken_medicine, p.medicine, p.antibiotics, p.antibiotics_doctor, p.antibiotics_telephone, p.disease_extra, p.comentarios', 'cod_patient='.$id);
     echo json_encode($res);
 }
 
@@ -106,16 +106,16 @@ if (isset($_POST['function'])){
 }
 
 switch ($key){
-    case 'sa':
+    case 'sp':
         //reOrder($_POST['ID'], $_POST['order']);
         $result = save($_POST['ID'], $_POST['name'], $_POST['order'], $_POST['description']);
         //verifyOrder();
         echo $result;
         break;
-    case 'ea':
+    case 'ep':
         load($_POST['ID']);
         break;
-    case 'da':
+    case 'dp':
         delete($_POST['ID']);
         break;
     default:

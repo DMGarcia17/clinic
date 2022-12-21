@@ -39,14 +39,30 @@ let edit = (id) => {
         url   : process,
         data  : {
                   'ID': id,
-                  'function' : 'ea'
+                  'function' : 'ep'
                 },
         success: function (res) {
             let json = JSON.parse(res);
-            $('#id').val(json[0]['cod_allergie']);
-            $('#name').val(json[0]['name']);
-            $('#order').val(json[0]['pr_order']);
-            $('#description').val(json[0]['description']);
+            $('#id').val(json[0]['cod_patient']);
+            $('#firstName').val(json[0]['first_name']);
+            $('#secondName').val(json[0]['second_name']);
+            $('#firstSurname').val(json[0]['first_surname']);
+            $('#secondSurname').val(json[0]['second_surname']);
+            $('#phoneNumber').val(json[0]['phone_number']);
+            $('#cellphoneNumber').val(json[0]['cellphone_number']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
+            $('#').val(json[0]['']);
 
         }
       });

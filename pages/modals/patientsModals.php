@@ -184,6 +184,146 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h5>Informaci&oacute;n M&eacute;dica</h5>
+              <hr>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="doctorsCare">Se encuentra ahora bajo el cuidado de un m&eacute;dico?</label>
+                      <select name="doctorsCare" id="doctorsCare" class="form-control">
+                        <option value="S">S&iacute;</option>
+                        <option value="N">No</option>
+                        <option value="NS">No S&eacute;</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label for="doctorsName">M&eacute;dico</label>
+                      <input type="text" name="doctorsName" id="doctorsName" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="doctorsPhone">Tel&eacute;fono</label>
+                      <input type="text" name="doctorsPhone" id="doctorsPhone" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="doctorsAddress">Direcci&oacute;n</label>
+                      <input type="text" name="doctorsAddress" id="doctorsAddress" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="doctorsCity">Ciudad/Estado</label>
+                      <input type="text" name="doctorsCity" id="doctorsCity" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label for="doctorsZip">C&oacute;digo</label>
+                      <input type="text" name="doctorsZip" id="doctorsZip" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                      <label for="healthyPatient">Se encuentra usted sano/a?</label>
+                      <select name="healthyPatient" id="healthyPatient" class="form-control">
+                        <option value="S">S&iacute;</option>
+                        <option value="N">No</option>
+                        <option value="NS">No S&eacute;</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="stableHealth">Ha habido alg&uacute;n cambio en su salud generaldurante el &uacute;ltimo a&ntilde;o?</label>
+                      <select name="stableHealth" id="stableHealth" class="form-control">
+                        <option value="S">S&iacute;</option>
+                        <option value="N">No</option>
+                        <option value="NS">No S&eacute;</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="doctorsCondition">Si es as&iacute; qu&eacute; condici&oacute;n le esta trantando?</label>
+                      <input type="text" name="doctorsCondition" id="doctorsCondition" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="examsDate">Fecha de &uacute;ltimo examen m&eacute;dico:</label>
+                      <input type="text" name="examsDate" id="examsDate" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="pastYears">Ha tenido alguna enfermedad grave, operaci&oacute;n o ha sido hospitalizado/a en los &uacute;ltimos 5 a&ntilde;os?</label>
+                      <select name="pastYears" id="pastYears" class="form-control">
+                        <option value="S">S&iacute;</option>
+                        <option value="N">No</option>
+                        <option value="NS">No S&eacute;</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="diseasePast">Si es as&iacute; cual fue el problema?</label>
+                      <input type="text" name="diseasePast" id="diseasePast" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="takenMedicine">Est&aacute; tomando o ha tomado recientemente alg&uacute;n medicamento recetado o sin receta?</label>
+                      <select name="takenMedicine" id="takenMedicine" class="form-control">
+                        <option value="S">S&iacute;</option>
+                        <option value="N">No</option>
+                        <option value="NS">No S&eacute;</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="medicine">Si es as&iacute;, por favor indique cu&aacute;les son, incluyendo vitaminas, preparados naturales, o a base de hierbas y/o suplementos diet&eacute;ticos:</label>
+                      <input type="text" name="medicine" id="medicine" autocomplete="off" class="form-control">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
