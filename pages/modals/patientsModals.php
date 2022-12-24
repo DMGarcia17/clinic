@@ -322,8 +322,36 @@
               </div>
             </div>
 
-            
+            <?php
+              $db = new DatabaseConnection();
 
+              $res = $db->filtered_query("medical_conditions", "cod_medical, question, question_type", "question_type != 'S'");
+              $counter = 0;
+              $printed = '';
+              foreach($res as $r){
+                //echo '<option value="'.$r['ID'].'">'.$r['name'].'</option>';
+                echo '<div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="'.$r['cod_medical'].'question">'.$r['question'].'</label>
+                            <select name="'.$r['cod_medical'].'question" id="'.$r['cod_medical'].'question" class="form-control">
+                              <option value="S">S&iacute;</option>
+                              <option value="N">No</option>
+                              <option value="NS" selected>No S&eacute;</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>';
+                $counter++;
+                if($printed != ''){
+                  $printed .= ',';
+                }
+                $printed .= $r['cod_medical'];
+              }
+              echo '<input type="hidden" name="mq" id="mq" value="'.$printed.'">';
+
+
+            ?>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">

@@ -1,53 +1,64 @@
 const process = '../Controllers/PatientsController.php';
 let save = (msg) => {
+    let data = {
+        'ID' : $('#id').val(),
+        'firstName' : $('#firstName').val(),
+        'secondName' : $('#secondName').val(),
+        'firstSurname' : $('#firstSurname').val(),
+        'secondSurname' : $('#secondSurname').val(),
+        'phoneNumber' : $('#phoneNumber').val(),
+        'cellphoneNumber' : $('#cellphoneNumber').val(),
+        'address' : $('#address').val(),
+        'city' : $('#city').val(),
+        'state' : $('#state').val(),
+        'postalCode' : $('#postalCode').val(),
+        'occupation' : $('#occupation').val(),
+        'height' : $('#height').val(),
+        'weight' : $('#weight').val(),
+        'birthday' : $('#birthday').val(),
+        'gender' : $('#gender').val(),
+        'numIdPatient' : $('#numIdPatient').val(),
+        'emergencyCall' : $('#emergencyCall').val(),
+        'related' : $('#related').val(),
+        'phoneEmergency' : $('#phoneEmergency').val(),
+        'cellphoneEmergency' : $('#cellphoneEmergency').val(),
+        'filledBy' : $('#filledBy').val(),
+        'relatedFb' : $('#relatedFb').val(),
+        'doctorsCare' : $('#doctorsCare').val(),
+        'doctorsName' : $('#doctorsName').val(),
+        'doctorsPhone' : $('#doctorsPhone').val(),
+        'doctorsAddress' : $('#doctorsAddress').val(),
+        'doctorsCity' : $('#doctorsCity').val(),
+        'doctorsZip' : $('#doctorsZip').val(),
+        'healthyPatient' : $('#healthyPatient').val(),
+        'stableHealth' : $('#stableHealth').val(),
+        'doctorsCondition' : $('#doctorsCondition').val(),
+        'examsDate' : $('#examsDate').val(),
+        'pastYears' : $('#pastYears').val(),
+        'diseasePast' : $('#diseasePast').val(),
+        'takenMedicine' : $('#takenMedicine').val(),
+        'medicine' : $('#medicine').val(),
+        'antibiotics' : $('#antibiotics').val(),
+        'antibioticsDoctor' : $('#antibioticsDoctor').val(),
+        'antibioticsTelephone' : $('#antibioticsTelephone').val(),
+        'diseaseExtra' : $('#diseaseExtra').val(),
+        'comments' : $('#comments').val(),
+        'function' : 'sp'
+    };
+
+    let printed = $('#mq').val();
+    $.each(printed.split(','), function(i, v){
+        console.log(v);
+        data[v]=$(('#'+v+'question')).val();
+    });
+    data['printed']=$('#mq').val();
+
+    console.log(data);
+
     $.ajax({
         type  : 'post',
         url   : process,
-        data  : {
-                    'ID' : $('#id').val(),
-                    'firstName' : $('#firstName').val(),
-                    'secondName' : $('#secondName').val(),
-                    'firstSurname' : $('#firstSurname').val(),
-                    'secondSurname' : $('#secondSurname').val(),
-                    'phoneNumber' : $('#phoneNumber').val(),
-                    'cellphoneNumber' : $('#cellphoneNumber').val(),
-                    'address' : $('#address').val(),
-                    'city' : $('#city').val(),
-                    'state' : $('#state').val(),
-                    'postalCode' : $('#postalCode').val(),
-                    'occupation' : $('#occupation').val(),
-                    'height' : $('#height').val(),
-                    'weight' : $('#weight').val(),
-                    'birthday' : $('#birthday').val(),
-                    'gender' : $('#gender').val(),
-                    'numIdPatient' : $('#numIdPatient').val(),
-                    'emergencyCall' : $('#emergencyCall').val(),
-                    'related' : $('#related').val(),
-                    'phoneEmergency' : $('#phoneEmergency').val(),
-                    'cellphoneEmergency' : $('#cellphoneEmergency').val(),
-                    'filledBy' : $('#filledBy').val(),
-                    'relatedFb' : $('#relatedFb').val(),
-                    'doctorsCare' : $('#doctorsCare').val(),
-                    'doctorsName' : $('#doctorsName').val(),
-                    'doctorsPhone' : $('#doctorsPhone').val(),
-                    'doctorsAddress' : $('#doctorsAddress').val(),
-                    'doctorsCity' : $('#doctorsCity').val(),
-                    'doctorsZip' : $('#doctorsZip').val(),
-                    'healthyPatient' : $('#healthyPatient').val(),
-                    'stableHealth' : $('#stableHealth').val(),
-                    'doctorsCondition' : $('#doctorsCondition').val(),
-                    'examsDate' : $('#examsDate').val(),
-                    'pastYears' : $('#pastYears').val(),
-                    'diseasePast' : $('#diseasePast').val(),
-                    'takenMedicine' : $('#takenMedicine').val(),
-                    'medicine' : $('#medicine').val(),
-                    'antibiotics' : $('#antibiotics').val(),
-                    'antibioticsDoctor' : $('#antibioticsDoctor').val(),
-                    'antibioticsTelephone' : $('#antibioticsTelephone').val(),
-                    'diseaseExtra' : $('#diseaseExtra').val(),
-                    'comments' : $('#comments').val(),
-                    'function' : 'sp'
-                },
+        data,
         success: function (res) {
             let Toast = Swal.mixin({
                 toast: true,
@@ -135,7 +146,7 @@ let del = (id) => {
         url   : process,
         data  : {
                   'ID': id,
-                  'function' : 'da'
+                  'function' : 'dp'
                 },
         success: function (res) {
             if (res == 'true'){
@@ -167,10 +178,11 @@ let showDelClinic = (id) => {
 }
 
 let resetForm = ()=>{
-    $('#id').val(null);
+    /*$('#id').val(null);
     $('#name').val(null);
     $('#order').val(null);
-    $('#description').val(null);
+    $('#description').val(null);*/
+    $('#addForm').trigger("reset");
 }
 
 $(document).ready(function() {

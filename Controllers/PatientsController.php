@@ -72,7 +72,6 @@ function save($id,
                             doctors_phone, 
                             doctors_address, 
                             doctors_city, 
-                            doctors_state, 
                             doctors_zip, 
                             healthy_patients, 
                             stable_health, 
@@ -170,6 +169,7 @@ function save($id,
                                         antibiotics_telephone='{$antibioticsTelephone}', 
                                         disease_extra='{$diseaseExtra}', 
                                         comments='{$comments}'");
+        $res = $id;
     }
     return $res;
 }
@@ -191,6 +191,14 @@ function query(){
     $res = $db->blankect_query("patients p", "cod_patient, concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name, null last_reason, null last_visit");
     $formated = array('data' => $res);
     echo json_encode($formated);
+}
+
+function insertQuestions($id, $printed){
+    $db = new DatabaseConnection();
+    $res = $db->delete('answer_mq', 'cod_patient='.$id);
+    foreach(explode(',', $printed) as $val){
+        $res = $db->insert('answer_mq', 'cod_patient, cod_question, answer', "'{$id}', '{$val}', '{$_POST[$val]}'");
+    }
 }
 
 $key="";
@@ -243,7 +251,7 @@ switch ($key){
         $_POST['antibioticsTelephone'],
         $_POST['diseaseExtra'],
         $_POST['comments']);
-        //verifyOrder();
+        insertQuestions($result, $_POST['printed']);
         echo $result;
         break;
     case 'ep':

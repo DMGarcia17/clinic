@@ -1,5 +1,7 @@
 <?php
     $base = '../';
+    
+    require_once '../core/Connection.php';
 ?>
 <!DOCTYPE html>
 <!--

@@ -65,6 +65,7 @@ class DatabaseConnection
     $query = $this->db->prepare("insert into {$table}({$fields}) values ({$values})");
     try{
       $res = $query->execute();
+      $res = $this->db->lastInsertId();
     }catch (PDOException $e){
       $res = $e->getMessage();
     }
