@@ -56,7 +56,7 @@ create table patients(
 	first_surname varchar(50),
 	second_surname varchar(50),
 	phone_number varchar(15),
-	cellphone_numer varchar(15),
+	cellphone_number varchar(15),
 	address varchar(250),
 	city varchar(250),
 	state varchar(250),
@@ -92,7 +92,7 @@ create table patients(
 	antibiotics_doctor varchar(500),
 	antibiotics_telephone varchar(15),
 	disease_extra varchar(500),
-	comentarios varchar(1000)
+	comments varchar(1000)
 );
 
 create table answer_mq (

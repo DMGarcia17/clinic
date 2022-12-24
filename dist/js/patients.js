@@ -5,10 +5,48 @@ let save = (msg) => {
         url   : process,
         data  : {
                     'ID' : $('#id').val(),
-                    'name' : $('#name').val(),
-                    'order' : $('#order').val(),
-                    'description' : $('#description').val(),
-                    'function' : 'sa'
+                    'firstName' : $('#firstName').val(),
+                    'secondName' : $('#secondName').val(),
+                    'firstSurname' : $('#firstSurname').val(),
+                    'secondSurname' : $('#secondSurname').val(),
+                    'phoneNumber' : $('#phoneNumber').val(),
+                    'cellphoneNumber' : $('#cellphoneNumber').val(),
+                    'address' : $('#address').val(),
+                    'city' : $('#city').val(),
+                    'state' : $('#state').val(),
+                    'postalCode' : $('#postalCode').val(),
+                    'occupation' : $('#occupation').val(),
+                    'height' : $('#height').val(),
+                    'weight' : $('#weight').val(),
+                    'birthday' : $('#birthday').val(),
+                    'gender' : $('#gender').val(),
+                    'numIdPatient' : $('#numIdPatient').val(),
+                    'emergencyCall' : $('#emergencyCall').val(),
+                    'related' : $('#related').val(),
+                    'phoneEmergency' : $('#phoneEmergency').val(),
+                    'cellphoneEmergency' : $('#cellphoneEmergency').val(),
+                    'filledBy' : $('#filledBy').val(),
+                    'relatedFb' : $('#relatedFb').val(),
+                    'doctorsCare' : $('#doctorsCare').val(),
+                    'doctorsName' : $('#doctorsName').val(),
+                    'doctorsPhone' : $('#doctorsPhone').val(),
+                    'doctorsAddress' : $('#doctorsAddress').val(),
+                    'doctorsCity' : $('#doctorsCity').val(),
+                    'doctorsZip' : $('#doctorsZip').val(),
+                    'healthyPatient' : $('#healthyPatient').val(),
+                    'stableHealth' : $('#stableHealth').val(),
+                    'doctorsCondition' : $('#doctorsCondition').val(),
+                    'examsDate' : $('#examsDate').val(),
+                    'pastYears' : $('#pastYears').val(),
+                    'diseasePast' : $('#diseasePast').val(),
+                    'takenMedicine' : $('#takenMedicine').val(),
+                    'medicine' : $('#medicine').val(),
+                    'antibiotics' : $('#antibiotics').val(),
+                    'antibioticsDoctor' : $('#antibioticsDoctor').val(),
+                    'antibioticsTelephone' : $('#antibioticsTelephone').val(),
+                    'diseaseExtra' : $('#diseaseExtra').val(),
+                    'comments' : $('#comments').val(),
+                    'function' : 'sp'
                 },
         success: function (res) {
             let Toast = Swal.mixin({
@@ -50,19 +88,42 @@ let edit = (id) => {
             $('#secondSurname').val(json[0]['second_surname']);
             $('#phoneNumber').val(json[0]['phone_number']);
             $('#cellphoneNumber').val(json[0]['cellphone_number']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
-            $('#').val(json[0]['']);
+            $('#address').val(json[0]['address']);
+            $('#city').val(json[0]['city']);
+            $('#state').val(json[0]['state']);
+            $('#postalCode').val(json[0]['postal_code']);
+            $('#occupation').val(json[0]['occupation']);
+            $('#height').val(json[0]['height']);
+            $('#weight').val(json[0]['weight']);
+            $('#birthday').val(json[0]['birthday']);
+            $('#gender').val(json[0]['gender']).change();
+            $('#numIdPatient').val(json[0]['num_id_patient']);
+            $('#emergencyCall').val(json[0]['emergency_call']);
+            $('#related').val(json[0]['related']);
+            $('#phoneEmergency').val(json[0]['phone_emergency']);
+            $('#cellphoneEmergency').val(json[0]['cellphone_emergency']);
+            $('#filledBy').val(json[0]['filled_by']);
+            $('#relatedFb').val(json[0]['related_fb']);
+            $('#doctorsCare').val(json[0]['doctors_care']).change();
+            $('#doctorsName').val(json[0]['doctors_name']);
+            $('#doctorsPhone').val(json[0]['doctors_phone']);
+            $('#doctorsAddress').val(json[0]['doctors_address']);
+            $('#doctorsCity').val(json[0]['doctors_city']);
+            $('#doctorsState').val(json[0]['doctors_state']);
+            $('#doctorsZip').val(json[0]['doctors_zip']);
+            $('#healthyPatients').val(json[0]['healthy_patients']);
+            $('#stableHealth').val(json[0]['stable_health']);
+            $('#doctorsCondition').val(json[0]['doctors_condition']);
+            $('#examsDate').val(json[0]['exams_date']);
+            $('#pastYears').val(json[0]['past_years']);
+            $('#diseasePast').val(json[0]['disease_past']);
+            $('#takenMedicine').val(json[0]['taken_medicine']);
+            $('#medicine').val(json[0]['medicine']);
+            $('#antibiotics').val(json[0]['antibiotics']);
+            $('#antibioticsDoctor').val(json[0]['antibioticsDoctor']);
+            $('#antibioticsTelephone').val(json[0]['antibioticsTelephone']);
+            $('#diseaseExtra').val(json[0]['diseaseExtra']);
+            $('#comments').val(json[0]['comments']);
 
         }
       });

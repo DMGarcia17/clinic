@@ -1,24 +1,188 @@
 <?php
 require_once '../core/Connection.php';
-function save($id, $name, $order, $description){
+function save($id,
+                $firstName,
+                $secondName,
+                $firstSurname,
+                $secondSurname,
+                $phoneNumber,
+                $cellphoneNumber,
+                $address,
+                $city,
+                $state,
+                $postalCode,
+                $occupation,
+                $height,
+                $weight,
+                $birthday,
+                $gender,
+                $numIdPatient,
+                $emergencyCall,
+                $related,
+                $phoneEmergency,
+                $cellphoneEmergency,
+                $filledBy,
+                $relatedFb,
+                $doctorsCare,
+                $doctorsName,
+                $doctorsPhone,
+                $doctorsAddress,
+                $doctorsCity,
+                $doctorsZip,
+                $healthyPatient,
+                $stableHealth,
+                $doctorsCondition,
+                $examsDate,
+                $pastYears,
+                $diseasePast,
+                $takenMedicine,
+                $medicine,
+                $antibiotics,
+                $antibioticsDoctor,
+                $antibioticsTelephone,
+                $diseaseExtra,
+                $comments){
     $db = new DatabaseConnection();
     if ($id == null) {
-        $res = $db->insert('allergies', 'name, pr_order, description', "'{$name}', '{$order}', '{$description}'");
+        $res = $db->insert('patients', 
+                            'first_name, 
+                            second_name, 
+                            first_surname, 
+                            second_surname, 
+                            phone_number, 
+                            cellphone_number, 
+                            address, 
+                            city, 
+                            state, 
+                            postal_code, 
+                            occupation, 
+                            height, 
+                            weight, 
+                            birthday, 
+                            gender, 
+                            num_id_patient, 
+                            emergency_call, 
+                            related, 
+                            phone_emergency, 
+                            cellphone_emergency, 
+                            filled_by, 
+                            related_fb, 
+                            doctors_care, 
+                            doctors_name, 
+                            doctors_phone, 
+                            doctors_address, 
+                            doctors_city, 
+                            doctors_state, 
+                            doctors_zip, 
+                            healthy_patients, 
+                            stable_health, 
+                            doctors_condition, 
+                            exams_date, 
+                            past_years, 
+                            disease_past, 
+                            taken_medicine, 
+                            medicine, 
+                            antibiotics, 
+                            antibiotics_doctor, 
+                            antibiotics_telephone, 
+                            disease_extra, 
+                            comments', "first_name='{$firstName}', 
+                            second_name='{$secondName}', 
+                            first_surname='{$firstSurname}', 
+                            second_surname='{$secondSurname}', 
+                            phone_number='{$phoneNumber}', 
+                            cellphone_number='{$cellphoneNumber}', 
+                            address='{$address}', 
+                            city='{$city}', 
+                            state='{$state}', 
+                            postal_code='{$postalCode}', 
+                            occupation='{$occupation}', 
+                            height='{$height}', 
+                            weight='{$weight}', 
+                            birthday='{$birthday}', 
+                            gender='{$gender}', 
+                            num_id_patient='{$numIdPatient}', 
+                            emergency_call='{$emergencyCall}', 
+                            related='{$related}', 
+                            phone_emergency='{$phoneEmergency}', 
+                            cellphone_emergency='{$cellphoneEmergency}', 
+                            filled_by='{$filledBy}', 
+                            related_fb='{$relatedFb}', 
+                            doctors_care='{$doctorsCare}', 
+                            doctors_name='{$doctorsName}', 
+                            doctors_phone='{$doctorsPhone}', 
+                            doctors_address='{$doctorsAddress}', 
+                            doctors_city='{$doctorsCity}', 
+                            doctors_zip='{$doctorsZip}', 
+                            healthy_patients='{$healthyPatient}', 
+                            stable_health='{$stableHealth}', 
+                            doctors_condition='{$doctorsCondition}', 
+                            exams_date='{$examsDate}', 
+                            past_years='{$pastYears}', 
+                            disease_past='{$diseasePast}', 
+                            taken_medicine='{$takenMedicine}', 
+                            medicine='{$medicine}', 
+                            antibiotics='{$antibiotics}', 
+                            antibiotics_doctor='{$antibioticsDoctor}', 
+                            antibiotics_telephone='{$antibioticsTelephone}', 
+                            disease_extra='{$diseaseExtra}', 
+                            comments='{$comments}'");
     }else{
-        $res = $db->update('allergies', "cod_allergie={$id}", "name='{$name}', pr_order='{$order}', description='{$description}'");
+        $res = $db->update('patients', "cod_patient={$id}", 
+                                        "first_name='{$firstName}', 
+                                        second_name='{$secondName}', 
+                                        first_surname='{$firstSurname}', 
+                                        second_surname='{$secondSurname}', 
+                                        phone_number='{$phoneNumber}', 
+                                        cellphone_number='{$cellphoneNumber}', 
+                                        address='{$address}', 
+                                        city='{$city}', 
+                                        state='{$state}', 
+                                        postal_code='{$postalCode}', 
+                                        occupation='{$occupation}', 
+                                        height='{$height}', 
+                                        weight='{$weight}', 
+                                        birthday='{$birthday}', 
+                                        gender='{$gender}', 
+                                        num_id_patient='{$numIdPatient}', 
+                                        emergency_call='{$emergencyCall}', 
+                                        related='{$related}', 
+                                        phone_emergency='{$phoneEmergency}', 
+                                        cellphone_emergency='{$cellphoneEmergency}', 
+                                        filled_by='{$filledBy}', 
+                                        related_fb='{$relatedFb}', 
+                                        doctors_care='{$doctorsCare}', 
+                                        doctors_name='{$doctorsName}', 
+                                        doctors_phone='{$doctorsPhone}', 
+                                        doctors_address='{$doctorsAddress}', 
+                                        doctors_city='{$doctorsCity}', 
+                                        doctors_zip='{$doctorsZip}', 
+                                        healthy_patients='{$healthyPatient}', 
+                                        stable_health='{$stableHealth}', 
+                                        doctors_condition='{$doctorsCondition}', 
+                                        exams_date='{$examsDate}', 
+                                        past_years='{$pastYears}', 
+                                        disease_past='{$diseasePast}', 
+                                        taken_medicine='{$takenMedicine}', 
+                                        medicine='{$medicine}', 
+                                        antibiotics='{$antibiotics}', 
+                                        antibiotics_doctor='{$antibioticsDoctor}', 
+                                        antibiotics_telephone='{$antibioticsTelephone}', 
+                                        disease_extra='{$diseaseExtra}', 
+                                        comments='{$comments}'");
     }
     return $res;
 }
 
 function load($id){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('patients p', 'p.cod_patient, p.first_name, p.second_name, p.first_surname, p.second_surname, p.phone_number, p.cellphone_numer, p.address, p.city, p.state, p.postal_code, p.occupation, p.height, p.weight, p.birthday, p.gender, p.num_id_patient, p.emergency_call, p.related, p.phone_emergency, p.cellphone_emergency, p.filled_by, p.related_fb, p.doctors_care, p.doctors_name, p.doctors_phone, p.doctors_address, p.doctors_city, p.doctors_state, p.doctors_zip, p.healthy_patients, p.stable_health, p.doctors_condition, p.exams_date, p.past_years, p.disease_past, p.taken_medicine, p.medicine, p.antibiotics, p.antibiotics_doctor, p.antibiotics_telephone, p.disease_extra, p.comentarios', 'cod_patient='.$id);
+    $res = $db->filtered_query('patients p', 'p.cod_patient, p.first_name, p.second_name, p.first_surname, p.second_surname, p.phone_number, p.cellphone_number, p.address, p.city, p.state, p.postal_code, p.occupation, p.height, p.weight, p.birthday, p.gender, p.num_id_patient, p.emergency_call, p.related, p.phone_emergency, p.cellphone_emergency, p.filled_by, p.related_fb, p.doctors_care, p.doctors_name, p.doctors_phone, p.doctors_address, p.doctors_city, p.doctors_state, p.doctors_zip, p.healthy_patients, p.stable_health, p.doctors_condition, p.exams_date, p.past_years, p.disease_past, p.taken_medicine, p.medicine, p.antibiotics, p.antibiotics_doctor, p.antibiotics_telephone, p.disease_extra, p.comments', 'cod_patient='.$id);
     echo json_encode($res);
 }
 
 function delete($id){
     $db = new DatabaseConnection();
-    $res = $db->delete('allergies', 'cod_allergie='.$id);
+    $res = $db->delete('patients', 'cod_patient='.$id);
     echo json_encode($res);
 }
 
@@ -29,77 +193,6 @@ function query(){
     echo json_encode($formated);
 }
 
-function findOrder($order){
-    $db = new DatabaseConnection();
-    $res = $db->filteredOQuery('allergies', 'cod_allergie, pr_order', 'pr_order>='.$order, 'pr_order desc');
-    if(isset($res[0]['pr_order'])){
-        return $res;
-    }else{
-        return 0;
-    }
-}
-
-function findCurrentOrder($id){
-    $db = new DatabaseConnection();
-    $res = $db->filteredOQuery('allergies', 'cod_allergie, pr_order', "cod_allergie = '{$id}'", 'pr_order desc');
-    if(isset($res[0]['pr_order'])){
-        return $res;
-    }else{
-        return 0;
-    }
-}
-
-function findAllOrdered(){
-    $db = new DatabaseConnection();
-    $res = $db->blankectOQuery('allergies', '*', 'pr_order asc');
-    if(isset($res[0]['pr_order'])){
-        return $res;
-    }else{
-        return 0;
-    }
-}
-
-function reOrder($id, $order){
-    $db = new DatabaseConnection();
-    $toFix=findOrder($order);
-    $currentItem = findCurrentOrder($id);
-    if ($toFix != 0 and $currentItem != 0){
-        foreach($toFix as $item){
-            if ($order == (intval($currentItem[0]['pr_order']) + 1) || ($item['pr_order'] == $order && $order > $currentItem[0]['pr_order'])){
-                $newVal = $item['pr_order']-1;
-                $db->update('allergies', "cod_allergie={$item['cod_allergie']}", "pr_order='{$newVal}'");
-            }else{
-                $newVal = $item['pr_order']+1;
-                $db->update('allergies', "cod_allergie={$item['cod_allergie']}", "pr_order='{$newVal}'");
-            }
-        }
-    }
-}
-
-function verifyOrder(){
-    $db = new DatabaseConnection();
-    $toVerify = findAllOrdered();
-
-    if ($toVerify != 0){
-        $currentOrder = 0;
-        foreach($toVerify as $row){
-            if($currentOrder == 0 && $row['pr_order'] == 1){
-                $currentOrder = 1;
-            }else if ($currentOrder == 0 && $row['pr_order'] != 1){
-                $currentOrder = 0;
-            }
-            $next = $currentOrder + 1;
-
-            if ($row['pr_order'] != 1 && $row['pr_order'] != $next){
-                $db->update('allergies', "cod_allergie={$row['cod_allergie']}", "pr_order='{$next}'");
-                $currentOrder = $next;
-            }elseif ($row['pr_order'] != 1){
-                $currentOrder = $next;
-            }
-        }
-    }
-}
-
 $key="";
 if (isset($_POST['function'])){
     $key=$_POST['function'];
@@ -108,7 +201,48 @@ if (isset($_POST['function'])){
 switch ($key){
     case 'sp':
         //reOrder($_POST['ID'], $_POST['order']);
-        $result = save($_POST['ID'], $_POST['name'], $_POST['order'], $_POST['description']);
+        $result = save($_POST['ID'],
+        $_POST['firstName'],
+        $_POST['secondName'],
+        $_POST['firstSurname'],
+        $_POST['secondSurname'],
+        $_POST['phoneNumber'],
+        $_POST['cellphoneNumber'],
+        $_POST['address'],
+        $_POST['city'],
+        $_POST['state'],
+        $_POST['postalCode'],
+        $_POST['occupation'],
+        $_POST['height'],
+        $_POST['weight'],
+        $_POST['birthday'],
+        $_POST['gender'],
+        $_POST['numIdPatient'],
+        $_POST['emergencyCall'],
+        $_POST['related'],
+        $_POST['phoneEmergency'],
+        $_POST['cellphoneEmergency'],
+        $_POST['filledBy'],
+        $_POST['relatedFb'],
+        $_POST['doctorsCare'],
+        $_POST['doctorsName'],
+        $_POST['doctorsPhone'],
+        $_POST['doctorsAddress'],
+        $_POST['doctorsCity'],
+        $_POST['doctorsZip'],
+        $_POST['healthyPatient'],
+        $_POST['stableHealth'],
+        $_POST['doctorsCondition'],
+        $_POST['examsDate'],
+        $_POST['pastYears'],
+        $_POST['diseasePast'],
+        $_POST['takenMedicine'],
+        $_POST['medicine'],
+        $_POST['antibiotics'],
+        $_POST['antibioticsDoctor'],
+        $_POST['antibioticsTelephone'],
+        $_POST['diseaseExtra'],
+        $_POST['comments']);
         //verifyOrder();
         echo $result;
         break;

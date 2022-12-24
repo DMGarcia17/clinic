@@ -108,7 +108,7 @@
               <div class="col-md-2">
                 <div class="form-group">
                   <label for="birthday">Fecha de Nacimiento</label>
-                  <input type="text" name="birthday" id="birthday" autocomplete="off" class="form-control">
+                  <input type="date" name="birthday" id="birthday" autocomplete="off" class="form-control">
                 </div>
               </div>
               <div class="col-md-2">
@@ -273,7 +273,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="examsDate">Fecha de &uacute;ltimo examen m&eacute;dico:</label>
-                      <input type="text" name="examsDate" id="examsDate" autocomplete="off" class="form-control">
+                      <input type="date" name="examsDate" id="examsDate" autocomplete="off" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -318,6 +318,51 @@
                       <input type="text" name="medicine" id="medicine" autocomplete="off" class="form-control">
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="antibiotics">Le ha recomendado alg&uacute;n m&eacute;dico o su dentista anterior que tome antibi&oacute;ticos antes de su tratamiento dental?</label>
+                  <select name="antibiotics" id="antibiotics" class="form-control">
+                    <option value="S">S&iacute;</option>
+                    <option value="N">No</option>
+                    <option value="NS">No S&eacute;</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="antibioticsDoctor">Nombre del m&eacute;dico o dentista que se lo recomendo</label>
+                  <input type="text" name="antibioticsDoctor" id="antibioticsDoctor" autocomplete="off" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="antibioticsTelephone">Tel&eacute;fono</label>
+                  <input type="text" name="antibioticsTelephone" id="antibioticsTelephone" autocomplete="off" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="diseaseExtra">Tiene alguna enfermedad, condici&oacute;n o problema que no figure m&aacute;s arriba y que cree que yo deber&iacute;a saber? Explique por favor</label>
+                  <input type="text" name="diseaseExtra" id="diseaseExtra" autocomplete="off" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="comments">Comentarios</label>
+                  <input type="text" name="comments" id="comments" autocomplete="off" class="form-control">
                 </div>
               </div>
             </div>
