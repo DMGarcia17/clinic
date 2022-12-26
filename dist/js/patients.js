@@ -194,7 +194,7 @@ $(document).ready(function() {
             {"data" : "last_reason"},
             {"data" : "last_visit"},
             {"data" : null, render : function (data, type, row, meta) {
-                return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_patient']+')"><i class="fa fa-edit"></i></button>'+
+                return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_patient']+')"><i class="fa fa-edit"></i></button><div class="btn-group" role="group"><button class="btn btn-xs btn-warning" onClick="window.location.href=\'http://localhost/clinic/pages/appointments.php?ID='+data['cod_patient']+'\'"><i class="fa fa-tooth"></i></button>'+
                 '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_patient']+')"><i class="fas fa-trash-alt"></i></button></div>';
             } }
         ],

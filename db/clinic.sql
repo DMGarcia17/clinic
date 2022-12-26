@@ -101,3 +101,16 @@ create table answer_mq (
 	answer varchar(2),
 	unique(cod_patient, cod_question)
 );
+
+create table appointment (
+	cod_appointment int auto_increment primary key,
+	cod_patient int not null,
+	reason varchar(1500),
+	visited_on datetime,
+	comments varchar(4000),
+	diagnosis_resume varchar(250),
+	treatment varchar(2000),
+	description varchar(2000),
+	disability_days int,
+	constraint `fk_patients` foreign key (cod_patient) references patients(cod_patient)
+);

@@ -33,10 +33,16 @@
             </a>
             </li>
             <li class="nav-item">
-            <a href="http://localhost/clinic/pages/patients.php" class="nav-link" id="patientTag">
-                <em class="nav-icon fa fa-person"></em>
-                <p>Pacientes</p>
-            </a>
+                <a href="http://localhost/clinic/pages/patients.php" class="nav-link" id="patientTag">
+                    <em class="nav-icon fa fa-person"></em>
+                    <p>Pacientes</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://localhost/clinic/pages/appointments.php" class="nav-link" id="appointmentTag">
+                    <em class="nav-icon fa fa-user-nurse"></em>
+                    <p>Citas M&eacute;dicas</p>
+                </a>
             </li>
             <li class="nav-item menu-open">
                 <a href="#" class="nav-link">
@@ -85,23 +91,6 @@
                 <p>Cerrar Sesi&oacute;n</p>
             </a>
             </li>
-            <!--<li class="nav-item">
-            <a href="#" class="nav-link">
-                <em class="nav-icon fas fa-th"></em>
-                <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-                </p>
-            </a>
-            </li><li class="nav-item">
-            <a href="#" class="nav-link">
-                <em class="nav-icon fas fa-th"></em>
-                <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-                </p>
-            </a>
-            </li>-->
         </ul>
         </nav>
         <!-- /.sidebar-menu -->
