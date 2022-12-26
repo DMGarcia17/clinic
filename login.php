@@ -1,5 +1,8 @@
 <?php
     $base = '../';
+    if(isset($_GET['error']) and $_GET['error'] != ""){
+        echo "<input type='hidden' name='error' id='error' value='{$_GET['error']}'>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,11 +33,11 @@
                 <form>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" id="username" class="form-control">
+                        <input type="text" name="username" id="username" autocomplete="off" class="form-control" >
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-control">
+                        <input type="password" name="password" id="password" autocomplete="off" class="form-control">
                     </div>
                     <div class="mb-3">
                         <a class="btn btn-primary mx-auto" id="logIn">Log In</a>

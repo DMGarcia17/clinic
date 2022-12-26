@@ -1,6 +1,11 @@
 <?php
     $base = '../';
     
+    session_start();
+    if(!isset($_SESSION['user']) || $_SESSION['user'] == ''){
+      header("Location: http://localhost/clinic/login.php?error=1"); 
+    }
+    
     require_once '../core/Connection.php';
 ?>
 <!DOCTYPE html>

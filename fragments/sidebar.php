@@ -39,45 +39,51 @@
             </a>
             </li>
             <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
-                <em class="nav-icon fas fa-tachometer-alt"></em>
-                <p>
-                Cat&aacute;logos
-                <em class="right fas fa-angle-left"></em>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                <a href="http://localhost/clinic/pages/clinics.php" class="nav-link" id="clinicsTagMenu">
-                    <em class="fa fa-hospital nav-icon"></em>
-                    <p>Cl&iacute;nicas</p>
+                <a href="#" class="nav-link">
+                    <em class="nav-icon fas fa-tachometer-alt"></em>
+                    <p>
+                    Cat&aacute;logos
+                    <em class="right fas fa-angle-left"></em>
+                    </p>
                 </a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://localhost/clinic/pages/diseases.php" class="nav-link" id="diseasesTagMenu">
-                        <em class="fa fa-disease nav-icon"></em>
-                        <p>Enfermedades</p>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a href="http://localhost/clinic/pages/clinics.php" class="nav-link" id="clinicsTagMenu">
+                        <em class="fa fa-hospital nav-icon"></em>
+                        <p>Cl&iacute;nicas</p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://localhost/clinic/pages/allergies.php" class="nav-link" id="allergiesTagMenu">
-                        <em class="fa fa-hand-dots nav-icon"></em>
-                        <p>Alergias</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://localhost/clinic/pages/treatments.php" class="nav-link" id="treatmentsTagMenu">
-                        <em class="fa fa-syringe nav-icon"></em>
-                        <p>Tratamientos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://localhost/clinic/pages/medicalQuestions.php" class="nav-link" id="medicalQuestionsTagMenu">
-                        <em class="fa fa-question nav-icon"></em>
-                        <p>Preguntas Medicas</p>
-                    </a>
-                </li>
-            </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://localhost/clinic/pages/diseases.php" class="nav-link" id="diseasesTagMenu">
+                            <em class="fa fa-disease nav-icon"></em>
+                            <p>Enfermedades</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://localhost/clinic/pages/allergies.php" class="nav-link" id="allergiesTagMenu">
+                            <em class="fa fa-hand-dots nav-icon"></em>
+                            <p>Alergias</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://localhost/clinic/pages/treatments.php" class="nav-link" id="treatmentsTagMenu">
+                            <em class="fa fa-syringe nav-icon"></em>
+                            <p>Tratamientos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://localhost/clinic/pages/medicalQuestions.php" class="nav-link" id="medicalQuestionsTagMenu">
+                            <em class="fa fa-question nav-icon"></em>
+                            <p>Preguntas Medicas</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+            <a href="http://localhost/clinic/controllers/SessionController.php?function=D" class="nav-link" id="patientTag">
+                <em class="nav-icon fa fa-power-off"></em>
+                <p>Cerrar Sesi&oacute;n</p>
+            </a>
             </li>
             <!--<li class="nav-item">
             <a href="#" class="nav-link">

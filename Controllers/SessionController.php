@@ -15,7 +15,12 @@ require_once '../core/Connection.php';
     }
 
     if(isset($_POST['function'])){
-        switch($_POST['function']){
+        $function = $_POST['function'];
+    }else if(isset($_GET['function'])){
+        $function = $_GET['function'];
+    }
+    if(isset($function)){
+        switch($function){
             case 'L':
                 $user = findUser($_POST['username'], $_POST['password']);
                 if (isset($user[0]['username']) && strlen($user[0]['username'])>0){
@@ -34,5 +39,10 @@ require_once '../core/Connection.php';
                     echo json_encode($error);
                 }
                 break;
+            case 'D':
+                session_start();
+                session_unset();
+                session_destroy();
+                header("Location: http://localhost/clinic/login.php?error=0"); 
         }
     }

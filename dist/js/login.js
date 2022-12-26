@@ -1,4 +1,24 @@
 $(document).ready(function() {
+  let Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });
+    switch($('#error').val()){
+      case '1':
+        Toast.fire({
+          icon: 'error',
+          title: ('Por favor inicie sesi&oacute;n!')
+        });
+      break;
+      case '0':
+        Toast.fire({
+          icon: 'success',
+          title: ('Sesi&oacute;n cerrada de forma exitosa!')
+        });
+      break;
+    }
     $('#logIn').click(() => {
         $.ajax({
             type  : 'post',
