@@ -55,9 +55,10 @@ let edit = (id) => {
             $('#comments').val(json[0]['comments']);
             $('#diagnosisResume').val(json[0]['diagnosis_resume']);
             //$('#treatment').val(json[0]['treatment']);
-            $.each(json[0]['treatment'].split(","), function(i,e){
-                $("#treatmentField option[value='" + e + "']").prop("selected", true);
-            });
+            //$.each(json[0]['treatment'].split(","), function(i,e){
+                //$("#treatmentField option[value='" + e + "']").prop("selected", true);
+                $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
+            //});
             $('#description').val(json[0]['description']);
             $('#disabilityDays').val(json[0]['disability_days']);
             $('#visitedOn').val(json[0]['visited_on']);
@@ -205,5 +206,6 @@ $(document).ready(function() {
     });
 
     $('#appointmentTag').addClass('active');
+    $('#treatmentField').select2();
 
 });

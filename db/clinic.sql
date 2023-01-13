@@ -114,3 +114,23 @@ create table appointment (
 	disability_days int,
 	constraint `fk_patients` foreign key (cod_patient) references patients(cod_patient)
 );
+
+
+create table medicines (
+	cod_medicine int auto_increment primary key,
+	description varchar(500)
+);
+
+
+create table prescriptions (
+	cod_presciption int auto_increment primary key,
+	cod_appointment int,
+	constraint `fk_appointment` foreign key (cod_appointment) references appointment (cod_appointment)
+);
+
+create table mpp (
+	cod_prescription int,
+	cod_medicine int,
+	amount varchar(500),
+	indication varchar(500)
+);

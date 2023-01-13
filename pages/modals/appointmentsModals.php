@@ -43,9 +43,9 @@
             <label for="diagnosisResume">Diagnostico</label>
             <input type="text" name="diagnosisResume" id="diagnosisResume" autocomplete="off" class="form-control">
           </div>
-          <div class="form-group">
-            <label for="treatmentField">Mostrar en receta</label>
-            <select name="treatmentField" id="treatmentField" multiple class="form-control">
+          <div class="form-group select2-purple">
+            <label for="treatmentField">Mostrar en receta</label><br>
+            <select name="treatmentField" id="treatmentField" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
 
               <?php
                 $db = new DatabaseConnection();
@@ -55,7 +55,6 @@
                   echo '<option value="'.$r['cod_treatment'].'">'.$r['name'].'</option>';
                   //echo '<div class="row">';
                 }
-                echo '<input type="hidden" name="mq" id="mq" value="'.$printed.'">';
 
 
               ?>
