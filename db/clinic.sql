@@ -129,6 +129,7 @@ create table prescriptions (
 );
 
 create table mpp (
+	cod_mpp int auto_increment primary key,
 	cod_prescription int,
 	cod_medicine int,
 	amount varchar(500),

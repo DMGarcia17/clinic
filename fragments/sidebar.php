@@ -83,6 +83,12 @@
                             <p>Preguntas Medicas</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="http://localhost/clinic/pages/medicines.php" class="nav-link" id="medicinesTagMenu">
+                            <em class="fa fa-tablets nav-icon"></em>
+                            <p>Medicamentos</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">
