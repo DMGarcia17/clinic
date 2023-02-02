@@ -100,3 +100,181 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="addPr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addPrLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addPrLabel">Agregar / Modificar Receta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="container p-3">
+          <div class="row">
+            <div class="col-md-12">
+              <input type="hidden" name="idAppointment" id="idAppointment">
+              <table class="table table-bordered table-stripped" id="prescriptions">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cantidad de Medicamentos</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="addMedicines" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addMedicinesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addMedicinesLabel">Agregar / Modificar Medicamentos Recetados</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container p-3">
+            <div class="row" id="prescriptionModal">
+              <div class="col-md-12">
+                  <form id="prescriptionForm">
+                    <div class="form-group">
+                      <label for="idPrescription">ID de la receta</label>
+                      <input type="text" disabled name="idPrescription" id="idPrescription" autocomplete="off" class="form-control">
+                    </div>
+                    <button class="btn btn-primary float-sm-right" type="button" onClick="createNewPrescription();" id='createPr'>Crear receta</button>
+                  </form>
+              </div>
+            </div>
+            <div class="row" id="medicinesContainer">
+              <div class="col-md-12">
+                <table class="table table-bordered table-stripped" id="medicines">
+                  <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Medicamento</th>
+                          <th>Cantidad</th>
+                          <th>Indicaci&oacute;n</th>
+                          <th>Acciones</th>
+                      </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-default">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Delete modal -->
+<div class="modal fade" id="delPrescription" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="delPrescriptionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="delPrescriptionLabel">Eliminar Medicamento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="idDelPrescription" id="idDelPrescription">
+        <p>¿Esta usted seguro que desea eliminar este medicamento de la receta?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" onClick="delPrescription($('#idDelPrescription').val())">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add or modify modal -->
+<div class="modal fade" id="addMedicine" data-backdrop="static" data-keyboard="false" aria-labelledby="addMedicineLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addMedicineLabel">Agregar / Modificar Medicamento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form id="addMedicineForm">
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="medicine">Medicamento</label><br>
+            <select name="medicine" id="medicine" class="select2" style="width: 100%;">
+
+              <?php
+                $db = new DatabaseConnection();
+
+                $res = $db->blankectOQuery("medicines", "cod_medicine, description", "cod_medicine asc");
+                foreach($res as $r){
+                  echo '<option value="'.$r['cod_medicine'].'">'.$r['description'].'</option>';
+                  //echo '<div class="row">';
+                }
+
+
+              ?>
+            </select>
+          </div>
+          <input type="hidden" name="idMpp" id="idMpp">
+          <div class="form-group">
+            <label for="amount">Cantidad</label>
+            <input type="number" name="amount" autocomplete="off" id="amount" class="form-control">              
+          </div>
+          <div class="form-group">
+            <label for="indication">Indicaci&oacute;n</label>
+            <input type="text" name="indication" autocomplete="off" id="indication" class="form-control">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" >Aceptar</button>
+      </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Delete modal -->
+<div class="modal fade" id="delMedicine" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="delMedicineLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="delMedicineLabel">Eliminar Medicamento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="idDelMedicine" id="idDelMedicine">
+        <p>¿Esta usted seguro que desea eliminar este medicamento de la receta?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" onClick="delMedicine($('#idDelMedicine').val())">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

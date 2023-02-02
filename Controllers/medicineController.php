@@ -25,7 +25,7 @@ function delete($id){
 
 function query(){
     $db = new DatabaseConnection();
-    $res = $db->blankect_query('medicines', 'cod_medicine, description');
+    $res = $db->blankectOQuery('medicines', 'row_number() over (order by cod_medicine) id_medicine, cod_medicine, description', 'cod_medicine');
     $formated = array('data' => $res);
     echo json_encode($formated);
 }

@@ -123,9 +123,9 @@ create table medicines (
 
 
 create table prescriptions (
-	cod_presciption int auto_increment primary key,
+	cod_prescription int primary key,
 	cod_appointment int,
-	constraint `fk_appointment` foreign key (cod_appointment) references appointment (cod_appointment)
+	constraint `fk_appointment` foreign key (cod_appointment) references appointment (cod_appointment)  on delete cascade
 );
 
 create table mpp (
@@ -133,5 +133,7 @@ create table mpp (
 	cod_prescription int,
 	cod_medicine int,
 	amount varchar(500),
-	indication varchar(500)
+	indication varchar(500),
+	constraint fk_prescription foreign key (cod_prescription) references prescriptions(cod_prescription) on delete cascade,
+	constraint `fk_medicine` foreign key (cod_medicine) references medicines (cod_medicine) on delete cascade
 );

@@ -26,6 +26,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <?php include_once $base.'fragments/Stylesheets.php' ?>
   <link rel="stylesheet" href=<?php echo $base."plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" ?>>
   <link rel="stylesheet" href=<?php echo $base."plugins/select2/css/select2.min.css" ?>>
+  <style>
+    .select2-selection {
+      height: calc(1.5em + 0.75rem + 2px) !important;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -97,8 +102,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <?php include_once 'modals/appointmentsModals.php' ?>
 <!-- REQUIRED SCRIPTS -->
 <?php include_once $base.'fragments/scripts.php' ?>
-<script src=<?php echo $base."plugins/select2/js/select2.min.js"?>></script>
+<script src='<?php echo $base."plugins/select2/js/select2.min.js"?>'></script>
 <!-- Data table files -->
-<script src=<?php echo $base."dist/js/appointments.js" ?>></script>
+<script src='<?php echo $base."dist/js/prescriptions.js" ?>'></script>
+<script src='<?php echo $base."dist/js/appointments.js" ?>'></script>
 </body>
 </html>

@@ -54,11 +54,7 @@ let edit = (id) => {
             $('#patient').val(json[0]['cod_patient']);
             $('#comments').val(json[0]['comments']);
             $('#diagnosisResume').val(json[0]['diagnosis_resume']);
-            //$('#treatment').val(json[0]['treatment']);
-            //$.each(json[0]['treatment'].split(","), function(i,e){
-                //$("#treatmentField option[value='" + e + "']").prop("selected", true);
-                $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
-            //});
+            $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
             $('#description').val(json[0]['description']);
             $('#disabilityDays').val(json[0]['disability_days']);
             $('#visitedOn').val(json[0]['visited_on']);
@@ -147,6 +143,7 @@ $(document).ready(function() {
             {"data" : "diagnosis_resume"},
             {"data" : null, render : function (data, type, row, meta) {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_appointment']+')"><i class="fa fa-edit"></i></button>'+
+                '<button class="btn btn-xs btn-default" onClick="mpp('+data['cod_appointment']+')"><i class="fas fa-prescription-bottle-medical"></i></button>'+
                 '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_appointment']+')"><i class="fas fa-trash-alt"></i></button></div>';
             } }
         ],

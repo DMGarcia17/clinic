@@ -93,7 +93,7 @@ $(document).ready(function() {
     $('#medicines').dataTable({
         "ajax" : process,
         "columns" : [
-            {"data" : "cod_medicine"},
+            {"data" : "id_medicine"},
             {"data" : "description"},
             {"data" : null, render : function (data, type, row, meta) {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_medicine']+')"><i class="fa fa-edit"></i></button>'+
@@ -123,7 +123,7 @@ $(document).ready(function() {
             }
         },
         messages: {
-            medicine: "Por favor ingrese una pregunta v&aacute;lida, con un ancho entre 1 y 500 caracteres."
+            medicine: "Por favor ingrese un nombre de medicamento v&aacute;lido, con un ancho entre 1 y 500 caracteres."
         },
         submitHandler: function(form) {
             save();
@@ -131,6 +131,6 @@ $(document).ready(function() {
           }
     });
 
-    $('#medicalQuestionsTagMenu').addClass('active');
+    $('#medicinesTagMenu').addClass('active');
 
 });
