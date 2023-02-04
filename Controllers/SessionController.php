@@ -28,6 +28,7 @@ require_once '../core/Connection.php';
                     $_SESSION['user'] = $user[0]['username'];
                     $_SESSION['completeName'] = $user[0]['complete_name'];
                     $_SESSION['codRol'] = $user[0]['cod_rol'];
+                    $_SESSION['codClinic'] = 1;
                     $error = array( "success" => "Loggin success", "err" => "");
                     echo json_encode($error);
                     

@@ -1,42 +1,4 @@
 const presciptions = '../Controllers/PrescriptionsController.php';
-/*let save = (msg) => {
-    $.ajax({
-        type  : 'post',
-        url   : presciptions,
-        data  : {
-                    'ID' : $('#id').val(),
-                    'reason' : $('#reason').val(),
-                    'comments' : $('#comments').val(),
-                    'patient' : $('#patient').val(),
-                    'diagnosisResume' : $('#diagnosisResume').val(),
-                    'description' : $('#description').val(),
-                    'disabilityDays' : $('#disabilityDays').val(),
-                    'visitedOn' : $('#visitedOn').val(),
-                    'treatment' : $('#treatmentField').val().join(','),
-                    'function' : 'sa'
-                },
-        success: function (res) {
-            let Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-                });
-
-                Toast.fire({
-                icon: 'success',
-                title: 'Datos guardados!'
-                });
-
-                
-                $('#add').modal('toggle');
-
-                $('#appointments').DataTable().ajax.reload();
-
-        }
-        });
-};
-*/
 
 let saveMedicine = (msg) => {
     $.ajax({
@@ -248,6 +210,7 @@ let mpp = (id) => {
                 {"data" : "amount"},
                 {"data" : null, render : function (data, type, row, meta) {
                     return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="medicines('+data['cod_prescription']+')"><i class="fa fa-edit"></i></button>'+
+                    '<a class="btn btn-xs btn-default" target="_blank" href="http://localhost/clinic/pages/prescription.php?id='+data['cod_prescription']+'&p='+data['cod_patient']+'"><i class="fas fa-print"></i></a>'+
                     '<button class="btn btn-xs btn-danger" onClick="showDelPresciption('+data['cod_prescription']+')"><i class="fas fa-trash-alt"></i></button></div>';
                 }}
             ],
@@ -270,50 +233,6 @@ let mpp = (id) => {
 }
 
 $(document).ready(function() {
-    /*$('#addForm').validate({
-        onfocusout: false,
-        rules: {
-            name: {
-                required: true,
-                minlength: 1,
-                maxlength: 500
-            },
-            description: {
-                required: true,
-                minlength: 1,
-                maxlength: 500
-            },
-            order: {
-                required: true,
-                number: true,
-                min: 1
-            },
-            showRP: {
-                required: true
-            },
-            pappointment: {
-                required: true
-            }
-        },
-        messages: {
-            name: "Por favor ingrese un nombre de alergia v&aacute;lido, con un ancho entre 1 y 500 caracteres.",
-            description: "Por favor ingrese una descripci&oacute;n valida, con un ancho entre 1 y 500 caracteres.",
-            order: {
-                required: "Este campo es requerido",
-                number: "Por favor, ingrese un valor num&eacute;rico",
-                min: "Por favor ingrese un n&uacute;mero mayor o acaso igual a 1"
-            },
-            showRP: "Por favor seleccione una opci&oacute;n",
-            pappointment: "Por favor seleccione una opci&oacute;n"
-        },
-        submitHandler: function(form) {
-            save();
-            resetForm();
-          }
-    });
-
-    $('#appointmentTag').addClass('active');
-*/
 $('#addMedicineForm').validate({
     onfocusout: false,
     rules: {

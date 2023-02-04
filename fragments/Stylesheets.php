@@ -1,3 +1,5 @@
+<!-- Bootstrap -->
+<link rel="stylesheet" href='<?php echo $base."plugins/bootstrap/css/bootstrap.min.css" ?>'>
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href='<?php echo $base."plugins/fontawesome-free/css/all.min.css" ?>'>
 <!-- JQuery Datatables -->

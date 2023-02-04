@@ -55,7 +55,7 @@ function deleteMedicine($id){
 
 function query(){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('prescriptions p', "p.cod_prescription, concat((select count(m.cod_mpp) from mpp m where m.cod_prescription=p.cod_prescription), ' Medicamentos Recetados') amount", "cod_appointment={$_GET['p']}");
+    $res = $db->filtered_query('prescriptions p inner join appointment a on p.cod_appointment = a.cod_appointment', "a.cod_patient, p.cod_prescription, concat((select count(m.cod_mpp) from mpp m where m.cod_prescription=p.cod_prescription), ' Medicamentos Recetados') amount", "p.cod_appointment={$_GET['p']}");
     $formated = array('data' => $res);
     echo json_encode($formated);
 }

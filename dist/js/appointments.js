@@ -143,6 +143,7 @@ $(document).ready(function() {
             {"data" : "diagnosis_resume"},
             {"data" : null, render : function (data, type, row, meta) {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_appointment']+')"><i class="fa fa-edit"></i></button>'+
+                '<a class="btn btn-xs btn-default" target="_blank" href="http://localhost/clinic/pages/odontograma.php?id='+data['cod_patient']+'"><i class="fas fa-tooth"></i></a>'+
                 '<button class="btn btn-xs btn-default" onClick="mpp('+data['cod_appointment']+')"><i class="fas fa-prescription-bottle-medical"></i></button>'+
                 '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_appointment']+')"><i class="fas fa-trash-alt"></i></button></div>';
             } }
@@ -163,6 +164,9 @@ $(document).ready(function() {
     $('#addForm').validate({
         onfocusout: false,
         rules: {
+            patient: {
+                required: true
+            },
             name: {
                 required: true,
                 minlength: 1,
