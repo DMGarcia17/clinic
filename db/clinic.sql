@@ -137,3 +137,12 @@ create table mpp (
 	constraint fk_prescription foreign key (cod_prescription) references prescriptions(cod_prescription) on delete cascade,
 	constraint `fk_medicine` foreign key (cod_medicine) references medicines (cod_medicine) on delete cascade
 );
+
+create table files (
+	cod_file int auto_increment primary key,
+	cod_patient int not null,
+	cod_appointment int,
+	name varchar(1000),
+	constraint fk_patient foreign key (cod_patient) references patients(cod_patient),
+	constraint fk_appointment_f foreign key (cod_appointment) references appointment(cod_appointment)
+);

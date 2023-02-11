@@ -116,12 +116,6 @@ let showDelClinic = (id) => {
 }
 
 let resetForm = ()=>{
-    /*$('#id').val(null);
-    $('#name').val(null);
-    $('#order').val(null);
-    $('#description').val(null);
-    $('#pappointment').val('N').change();
-    $('#showRP').val('N').change();*/
     $('#addForm').trigger("reset");
 }
 
@@ -145,6 +139,7 @@ $(document).ready(function() {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_appointment']+')"><i class="fa fa-edit"></i></button>'+
                 '<a class="btn btn-xs btn-default" target="_blank" href="http://localhost/clinic/pages/odontograma.php?id='+data['cod_patient']+'"><i class="fas fa-tooth"></i></a>'+
                 '<button class="btn btn-xs btn-default" onClick="mpp('+data['cod_appointment']+')"><i class="fas fa-prescription-bottle-medical"></i></button>'+
+                '<button class="btn btn-xs btn-default" onClick="showUploadModal('+data['cod_appointment']+', '+data['cod_patient']+')"><i class="fas fa-archive"></i></button>'+
                 '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_appointment']+')"><i class="fas fa-trash-alt"></i></button></div>';
             } }
         ],
