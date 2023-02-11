@@ -16,6 +16,7 @@
             <input type="text" name="namev" id="namev" autocomplete="off" class="form-control">
           </div>
           <input type="hidden" name="id" autocomplete="off" id="id">
+          <input type="hidden" name="color" autocomplete="off" id="color">
           <div class="form-group">
             <label for="startv">Hora de inicio</label>
             <input type="datetime-local" name="startv" id="startv" autocomplete="off" class="form-control">              

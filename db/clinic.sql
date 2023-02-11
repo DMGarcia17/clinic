@@ -146,3 +146,11 @@ create table files (
 	constraint fk_patient foreign key (cod_patient) references patients(cod_patient),
 	constraint fk_appointment_f foreign key (cod_appointment) references appointment(cod_appointment)
 );
+
+create table events (
+	cod_event int auto_increment primary key,
+	name varchar(500) not null,
+	start_at datetime,
+	end_at datetime,
+	clinic int
+);
