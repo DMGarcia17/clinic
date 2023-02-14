@@ -188,7 +188,7 @@ function delete($id){
 
 function query(){
     $db = new DatabaseConnection();
-    $res = $db->blankect_query("patients p", "p.cod_patient, concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name, (select x.reason from appointment x where x.cod_patient = p.cod_patient and x.visited_on = (select max(c.visited_on) from appointment c where c.cod_patient = x.cod_patient)) last_reason, (select max(c.visited_on) from appointment c where c.cod_patient = p.cod_patient) last_visit");
+    $res = $db->blankect_query("patients p", "p.cod_patient, concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name, (select x.reason from appointment x where x.cod_patient = p.cod_patient and x.cod_appointment  = (select max(c.cod_appointment) from appointment c where c.cod_patient = x.cod_patient)) last_reason, (select max(c.visited_on) from appointment c where c.cod_patient = p.cod_patient) last_visit");
     $formated = array('data' => $res);
     echo json_encode($formated);
 }

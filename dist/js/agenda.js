@@ -25,6 +25,7 @@ let createEvent = () => {
                     'name' : $('#namev').val(),
                     'start' : $('#startv').val(),
                     'end' : $('#endv').val(),
+                    'eventType' : $('#eventType').val(),
                     'function' : 'sc'
                 },
         success: function (res) {
@@ -41,8 +42,54 @@ let createEvent = () => {
                 title: 'Datos guardados!'
                 });
 
-                
+                restore();
                 $('#add').modal('toggle');
+
+
+        }
+        });
+}
+
+let validateAndCreate = () => {
+    let id = ($('#id').val()) ? $('#id').val() : '0';
+    $.ajax({
+        type  : 'post',
+        url   : process,
+        data  : {
+                    'ID' : id,
+                    'start' : $('#startv').val(),
+                    'end' : $('#endv').val(),
+                    'function' : 'cde'
+                },
+        success: function (res) {
+            
+            if(res=='0'){
+                createEvent();
+            }else{
+                Swal.fire({
+                    title: 'Hay eventos o citas ya creados en este horario, ¿Desea crearlo de todas formas?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Guardar',
+                    cancelButtonText: `Cerrar`,
+                  }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      createEvent();
+                    } else if (result.isDenied) {
+                        let Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                            });
+            
+                            Toast.fire({
+                            icon: 'error',
+                            title: 'Por favor revise los horarios antes de guardar de nuevo'
+                            });
+                    }
+                  });
+            }
 
 
         }
@@ -56,7 +103,8 @@ let load = () => {
         success: function (res) {
             let json = JSON.parse(res);
             $.each(json, (i, item) => {
-                addEventToCalendar(item['cod_event']+' - '+item['name'], item['start_at'], item['end_at'], '#32a8a2');
+                let color = (item['event_type'] == '1') ? '#32a8a2' : '#f57b0a';
+                addEventToCalendar(item['cod_event']+' - '+item['name'], item['start_at'], item['end_at'], color);
             });
         }
       });
@@ -104,10 +152,36 @@ let init = () => {
             loadEvent(info.event.title.split('-')[0].trim());
             // change the border color just for fun
             info.el.style.borderColor = 'red';
+        },
+        dateClick: function(date, jsEvent, view) {
+            agenda.changeView('timeGridDay', date.dateStr);
           }
     });
 
     agenda.render();
+}
+
+let restore = () => {
+    $('#addVisitForm').trigger("reset");
+    $('#id').val('');
+    $('#eventType').val('');
+    agenda.destroy();
+    init();
+    load();
+}
+
+let deleteEvent = () => {
+    $.ajax({
+        type  : 'post',
+        url   : process,
+        data  : {
+            ID : $('#id').val(),
+            function : 'dc'
+        },
+        success: function (res) {
+            restore();
+        }
+      });
 }
 
 $(() => {
@@ -133,12 +207,7 @@ $(() => {
             namev: "Por favor ingrese un nombre v&aacute;lido, con un ancho entre 1 y 200 caracteres."
         },
         submitHandler: function(form) {
-            createEvent();
-            
-            //addEventToCalendar($('#namev').val(), $('#startv').val(), $('#endv').val(), '#32a8a2');
-            agenda.Destroy();
-            init();
-            $('#addVisitForm').trigger("reset");
+            validateAndCreate();
         $('#addVisit').modal('toggle');
             //resetForm();
           }
@@ -146,11 +215,17 @@ $(() => {
 
     /** Add toggle function for buttons */
     $('#btnAddVisit').click(()=>{
+        $('#addLabel').text('Agregar Paciente');
+        $('#nameLabel').text('Nombre del paciente');
         $('#addVisit').modal('toggle');
+        $('#eventType').val('1');
     });
 
     /** Add toggle function for buttons */
     $('#btnAddEvent').click(()=>{
+        $('#eventType').val('2');
+        $('#addLabel').text('Agregar Evento');
+        $('#nameLabel').text('Nombre del evento');
         $('#addVisit').modal('toggle');
     });
 

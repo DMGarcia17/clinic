@@ -152,5 +152,6 @@ create table events (
 	name varchar(500) not null,
 	start_at datetime,
 	end_at datetime,
-	clinic int
+	clinic int,
+	event_type varchar(10)
 );

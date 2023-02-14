@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addLabel">Agregar Visita</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="$('#addVisitForm').trigger('reset')">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -12,11 +12,11 @@
       <form id="addVisitForm">
       <div class="modal-body">
           <div class="form-group">
-            <label for="namev">Nombre del paciente</label>
+            <label for="namev" id="nameLabel">Nombre del paciente</label>
             <input type="text" name="namev" id="namev" autocomplete="off" class="form-control">
           </div>
           <input type="hidden" name="id" autocomplete="off" id="id">
-          <input type="hidden" name="color" autocomplete="off" id="color">
+          <input type="hidden" name="eventType" autocomplete="off" id="eventType">
           <div class="form-group">
             <label for="startv">Hora de inicio</label>
             <input type="datetime-local" name="startv" id="startv" autocomplete="off" class="form-control">              
@@ -27,8 +27,15 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
-        <button type="submit" class="btn btn-primary" >Guardar</button>
+        <div style="width: 100%;">
+          <div class="float-left">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="deleteEvent()">Eliminar</button>
+          </div>
+          <div class="float-right">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="$('#addVisitForm').trigger('reset')">Cancelar</button>
+            <button type="submit" class="btn btn-primary" >Guardar</button>
+          </div>
+        </div>
       </div>
       
       </form>

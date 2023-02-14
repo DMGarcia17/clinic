@@ -34,10 +34,14 @@ class DatabaseConnection
 
     public function filtered_query($table, $fields, $condition)
     {
-        $query = $this->db->prepare('select '.$fields.' from '.$table.' where '.$condition);
-        $query->execute();
-        $res = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
+        try{
+          $query = $this->db->prepare('select '.$fields.' from '.$table.' where '.$condition);
+          $query->execute();
+          $res = $query->fetchAll(PDO::FETCH_ASSOC);
+          return $res;
+        }catch(Exception $e){
+          return [$e->getMessage()];
+        }
     }
 
     public function filteredOQuery($table, $fields, $condition, $order)

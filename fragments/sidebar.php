@@ -29,7 +29,7 @@
             <li class="nav-item">
             <a href="http://localhost/clinic/pages/calendar.php" class="nav-link" id="calendarTag">
                 <em class="nav-icon fa fa-calendar"></em>
-                <p>Calendar</p>
+                <p>Agenda</p>
             </a>
             </li>
             <li class="nav-item">
