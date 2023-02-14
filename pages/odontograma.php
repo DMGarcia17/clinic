@@ -138,5 +138,6 @@
     <script src="../plugins/moment/moment.min.js"></script>
     <script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
     <script src="../plugins/toastr/toastr.min.js"></script>
+    <script src="../dist/js/numbers.js"></script>
     <script src="../dist/js/odontograma.js"></script>
 </body>

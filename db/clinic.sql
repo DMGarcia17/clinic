@@ -4,13 +4,14 @@ use clinic;
 create table users (
 	username varchar(20) not null primary key,
 	password varchar(70),
-	complete_name varchar(20),
+	complete_name varchar(500),
 	cod_rol varchar(10),
 	add_date timestamp,
 	user_add varchar(20),
 	mod_date timestamp,
-	user_mod timestamp,
-	last_pass_up timestamp
+	user_mod varchar(20),
+	last_pass_up timestamp,
+	default_clinic int
 );
 
 Create table clinics (

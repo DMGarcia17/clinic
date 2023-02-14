@@ -439,7 +439,7 @@ for (x=0; x<16; x++){
     context.font = '10pt Calibri';
     context.textAlign = 'center';
     context.fillStyle = 'blue';
-    context.fillText(x+1, iniciar_x+(medida/2), (iniciar_y/2)+5);
+    context.fillText(/*x+1*/tags['data'][x].text, iniciar_x+(medida/2), (iniciar_y/2)+5);
 }
 // 17 - 32 dientes
 iniciar_x = 0;
@@ -452,7 +452,7 @@ for (x=0; x<16; x++){
         context.font = '10pt Calibri';
         context.textAlign = 'center';
         context.fillStyle = 'blue';
-        context.fillText(x+17, iniciar_x+(medida/2), (iniciar_y-10)+5);
+        context.fillText(/*x+1*/tags['data'][x+16].text, iniciar_x+(medida/2), (iniciar_y-10)+5);
     }
 }
 // 33 - 48 dientes
@@ -466,7 +466,7 @@ for (x=0; x<16; x++){
         context.font = '10pt Calibri';
         context.textAlign = 'center';
         context.fillStyle = 'blue';
-        context.fillText(x+33, iniciar_x+(medida/2), (iniciar_y-10)+5);
+        context.fillText(/*x+1*/tags['data'][x+32].text, iniciar_x+(medida/2), (iniciar_y-10)+5);
     }
 }
 // 49 - 64 dientes
@@ -479,7 +479,7 @@ for (x=0; x<16; x++){
     context.font = '10pt Calibri';
     context.textAlign = 'center';
     context.fillStyle = 'blue';
-    context.fillText(x+49, iniciar_x+(medida/2), (iniciar_y-10)+5);
+    context.fillText(/*x+1*/tags['data'][x+48].text, iniciar_x+(medida/2), (iniciar_y-10)+5);
 }
 window.onload = function(){
     localStorage.clear();

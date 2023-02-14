@@ -89,6 +89,12 @@
                             <p>Medicamentos</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="http://localhost/clinic/pages/users.php" class="nav-link" id="usersTagMenu">
+                            <em class="fa fa-user nav-icon"></em>
+                            <p>Usuarios</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">
