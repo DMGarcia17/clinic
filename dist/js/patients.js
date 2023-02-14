@@ -48,12 +48,10 @@ let save = (msg) => {
 
     let printed = $('#mq').val();
     $.each(printed.split(','), function(i, v){
-        console.log(v);
         data[v]=$(('#'+v+'question')).val();
     });
     data['printed']=$('#mq').val();
 
-    console.log(data);
 
     $.ajax({
         type  : 'post',
@@ -79,6 +77,25 @@ let save = (msg) => {
 
         }
         });
+};
+
+let loadMQ = (id) => {
+    $.ajax({
+        type  : 'post',
+        url   : process,
+        data  : {
+                  'ID': id,
+                  'function' : 'lp'
+                },
+        success: function (res) {
+            let json = JSON.parse(res);
+            $.each(json, function(i, v){
+                //console.log(v['cod_question']);
+                $(('#'+v['cod_question']+'question')).val(v['answer']).change();
+            });
+
+        }
+      });
 };
 
 let edit = (id) => {
@@ -135,6 +152,9 @@ let edit = (id) => {
             $('#antibioticsTelephone').val(json[0]['antibioticsTelephone']);
             $('#diseaseExtra').val(json[0]['diseaseExtra']);
             $('#comments').val(json[0]['comments']);
+
+
+            loadMQ(json[0]['cod_patient']);
 
         }
       });

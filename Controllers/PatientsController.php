@@ -180,6 +180,12 @@ function load($id){
     echo json_encode($res);
 }
 
+function loadMQ($id){
+    $db = new DatabaseConnection();
+    $res = $db->filtered_query('answer_mq', 'cod_question, answer', 'cod_patient='.$id);
+    echo json_encode($res);
+}
+
 function delete($id){
     $db = new DatabaseConnection();
     $res = $db->delete('patients', 'cod_patient='.$id);
@@ -259,6 +265,9 @@ switch ($key){
         break;
     case 'dp':
         delete($_POST['ID']);
+        break;
+    case 'lp':
+        loadMQ($_POST['ID']);
         break;
     default:
         query();
