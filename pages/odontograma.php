@@ -79,8 +79,8 @@
                         <div id="radio" class="btn-group btn-group-toggle mb-md-3 act-rad" data-toggle="buttons">
                             <label for="radio1" class="btn btn-secondary"><input type="radio" id="radio1" name="accion" value="fractura" checked />Fractura</label>
                             <label for="radio2" class="btn btn-secondary"><input type="radio" id="radio2" name="accion" value="restauracion" />Restauracion</label>
-                            <label for="radio3" class="btn btn-secondary"><input type="radio" id="radio3" name="accion" value="borrar" />Borrar</label>
                             <label for="radio4" class="btn btn-secondary"><input type="radio" id="radio4" name="accion" value="extraccion" />Extraccion</label>
+                            <label for="radio3" class="btn btn-secondary"><input type="radio" id="radio3" name="accion" value="borrar" />Borrar</label>
                             <!--<label for="radio5" class="btn btn-secondary"><input type="radio" id="radio5" name="accion" value="puente" />Puente</label>-->
                         </div>
                     </div>
