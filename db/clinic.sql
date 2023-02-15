@@ -156,3 +156,9 @@ create table events (
 	clinic int,
 	event_type varchar(10)
 );
+
+
+ALTER TABLE patients 
+ADD is_allergic VARCHAR(2);
+ALTER TABLE patients 
+ADD allergies VARCHAR(500);

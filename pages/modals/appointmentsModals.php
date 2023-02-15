@@ -44,7 +44,7 @@
             <input type="text" name="diagnosisResume" id="diagnosisResume" autocomplete="off" class="form-control">
           </div>
           <div class="form-group select2-purple">
-            <label for="treatmentField">Mostrar en receta</label><br>
+            <label for="treatmentField">Tratamientos</label><br>
             <select name="treatmentField" id="treatmentField" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
 
               <?php
