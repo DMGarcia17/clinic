@@ -43,6 +43,8 @@ let save = (msg) => {
         'antibioticsTelephone' : $('#antibioticsTelephone').val(),
         'diseaseExtra' : $('#diseaseExtra').val(),
         'comments' : $('#comments').val(),
+        'isAllergic' : $('#isAllergic').val(),
+        'allergies' : $('#allergies').val(),
         'function' : 'sp'
     };
 
@@ -152,6 +154,8 @@ let edit = (id) => {
             $('#antibioticsTelephone').val(json[0]['antibioticsTelephone']);
             $('#diseaseExtra').val(json[0]['diseaseExtra']);
             $('#comments').val(json[0]['comments']);
+            $('#allergies').val(json[0]['allergies']);
+            $('#isAllergic').val(json[0]['is_allergic']);
 
 
             loadMQ(json[0]['cod_patient']);

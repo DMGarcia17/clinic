@@ -41,7 +41,9 @@ function save($id,
                 $antibioticsDoctor,
                 $antibioticsTelephone,
                 $diseaseExtra,
-                $comments){
+                $comments,
+                $isAllergic,
+                $allergies){
     $db = new DatabaseConnection();
     if ($id == null) {
         $res = $db->insert('patients', 
@@ -125,7 +127,9 @@ function save($id,
                             antibiotics_doctor='{$antibioticsDoctor}', 
                             antibiotics_telephone='{$antibioticsTelephone}', 
                             disease_extra='{$diseaseExtra}', 
-                            comments='{$comments}'");
+                            comments='{$comments}', 
+                            is_allergic='{$isAllergic}', 
+                            allergies='{$allergies}'");
     }else{
         $res = $db->update('patients', "cod_patient={$id}", 
                                         "first_name='{$firstName}', 
@@ -168,7 +172,9 @@ function save($id,
                                         antibiotics_doctor='{$antibioticsDoctor}', 
                                         antibiotics_telephone='{$antibioticsTelephone}', 
                                         disease_extra='{$diseaseExtra}', 
-                                        comments='{$comments}'");
+                                        comments='{$comments}', 
+                                        is_allergic='{$isAllergic}', 
+                                        allergies='{$allergies}'");
         $res = $id;
     }
     return $res;
@@ -176,7 +182,7 @@ function save($id,
 
 function load($id){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('patients p', 'p.cod_patient, p.first_name, p.second_name, p.first_surname, p.second_surname, p.phone_number, p.cellphone_number, p.address, p.city, p.state, p.postal_code, p.occupation, p.height, p.weight, p.birthday, p.gender, p.num_id_patient, p.emergency_call, p.related, p.phone_emergency, p.cellphone_emergency, p.filled_by, p.related_fb, p.doctors_care, p.doctors_name, p.doctors_phone, p.doctors_address, p.doctors_city, p.doctors_state, p.doctors_zip, p.healthy_patients, p.stable_health, p.doctors_condition, p.exams_date, p.past_years, p.disease_past, p.taken_medicine, p.medicine, p.antibiotics, p.antibiotics_doctor, p.antibiotics_telephone, p.disease_extra, p.comments', 'cod_patient='.$id);
+    $res = $db->filtered_query('patients p', 'p.cod_patient, p.first_name, p.second_name, p.first_surname, p.second_surname, p.phone_number, p.cellphone_number, p.address, p.city, p.state, p.postal_code, p.occupation, p.height, p.weight, p.birthday, p.gender, p.num_id_patient, p.emergency_call, p.related, p.phone_emergency, p.cellphone_emergency, p.filled_by, p.related_fb, p.doctors_care, p.doctors_name, p.doctors_phone, p.doctors_address, p.doctors_city, p.doctors_state, p.doctors_zip, p.healthy_patients, p.stable_health, p.doctors_condition, p.exams_date, p.past_years, p.disease_past, p.taken_medicine, p.medicine, p.antibiotics, p.antibiotics_doctor, p.antibiotics_telephone, p.disease_extra, p.comments, p.is_allergic, p.allergies', 'cod_patient='.$id);
     echo json_encode($res);
 }
 
@@ -256,7 +262,9 @@ switch ($key){
         $_POST['antibioticsDoctor'],
         $_POST['antibioticsTelephone'],
         $_POST['diseaseExtra'],
-        $_POST['comments']);
+        $_POST['comments'],
+        $_POST['isAllergic'],
+        $_POST['allergies']);
         insertQuestions($result, $_POST['printed']);
         echo $result;
         break;

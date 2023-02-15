@@ -321,6 +321,25 @@
                 </div>
               </div>
             </div>
+            
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="isAllergic">¿Es usted al&eacute;rgico?</label>
+                  <select name="isAllergic" id="isAllergic" class="form-control">
+                    <option value="S">S&iacute;</option>
+                    <option value="N">No</option>
+                    <option value="NS">No S&eacute;</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="allergies">Alerg&iacute;as</label>
+                  <input type="text" name="allergies" id="allergies" autocomplete="off" class="form-control">
+                </div>
+              </div>
+            </div>
 
             <?php
               $db = new DatabaseConnection();
