@@ -3,16 +3,16 @@ require_once '../core/Connection.php';
 function save($id){
     $db = new DatabaseConnection();
     if ($id == null) {
-        $res = $db->insert('medicines', 'description', "'{$_POST['medicine']}'");
+        $res = $db->insert('medicines', 'description, chemical_compound, indication', "'{$_POST['medicine']}','{$_POST['chemicalCompound']}','{$_POST['indication']}'");
     }else{
-        $res = $db->update('medicines', "cod_medicine={$_POST['ID']}", "description='{$_POST['medicine']}'");
+        $res = $db->update('medicines', "cod_medicine={$_POST['ID']}", "description='{$_POST['medicine']}',chemical_compound='{$_POST['chemicalCompound']}',indication='{$_POST['indication']}'");
     }
     return $res;
 }
 
 function load($id){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('medicines', 'cod_medicine, description', 'cod_medicine='.$id);
+    $res = $db->filtered_query('medicines', 'cod_medicine, description, chemical_compound, indication', 'cod_medicine='.$id);
     echo json_encode($res);
 }
 

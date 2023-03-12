@@ -222,7 +222,7 @@
           <div class="form-group">
             <label for="medicine">Medicamento</label><br>
             <select name="medicine" id="medicine" class="select2" style="width: 100%;">
-
+                <option value="">Seleccione un valor...</option>
               <?php
                 $db = new DatabaseConnection();
 
@@ -248,7 +248,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
-        <button type="submit" class="btn btn-primary" data-dismiss="modal" >Aceptar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
       
       </form>

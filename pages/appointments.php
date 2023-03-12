@@ -105,7 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 <?php include_once $base.'fragments/scripts.php' ?>
 <script src='<?php echo $base."plugins/select2/js/select2.min.js"?>'></script>
-<script src='<?php echo $base."plugins/jquery/jquery.forms.js"?>'></script>
+
 <!-- Data table files -->
 <script src='<?php echo $base."dist/js/upload.js" ?>'></script>
 <script src='<?php echo $base."dist/js/prescriptions.js" ?>'></script>

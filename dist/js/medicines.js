@@ -6,6 +6,8 @@ let save = (msg) => {
         data  : {
                     'ID' : $('#id').val(),
                     'medicine' : $('#medicine').val(),
+                    'chemicalCompound' : $('#chemicalCompound').val(),
+                    'indication' : $('#indication').val(),
                     'function' : 'sm'
                 },
         success: function (res) {
@@ -43,6 +45,8 @@ let edit = (id) => {
             let json = JSON.parse(res);
             $('#id').val(json[0]['cod_medicine']);
             $('#medicine').val(json[0]['description']);
+            $('#indication').val(json[0]['indication']);
+            $('#chemicalCompound').val(json[0]['chemical_compound']);
 
         }
       });

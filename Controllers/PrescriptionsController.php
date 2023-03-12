@@ -35,6 +35,12 @@ function load($id){
     echo json_encode($res);
 }
 
+function loadIndication($id){
+    $db = new DatabaseConnection();
+    $res = $db->filtered_query('medicines a', "indication", 'cod_medicine='.$id);
+    echo json_encode($res);
+}
+
 function loadName($id){
     $db = new DatabaseConnection();
     $res = $db->filtered_query('patients p', "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", 'cod_patient='.$id);
@@ -96,6 +102,9 @@ switch ($key){
         break;
     case 'dm':
         deleteMedicine($_POST['ID']);
+        break;
+    case 'li':
+        loadIndication($_POST['ID']);
         break;
     default:
         if(isset($_GET['m'])){

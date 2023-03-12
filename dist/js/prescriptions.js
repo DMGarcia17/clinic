@@ -55,6 +55,22 @@ let editPresciption = (id) => {
       });
 };
 
+let loadIndication = (id) => {
+    $.ajax({
+        type  : 'post',
+        url   : presciptions,
+        data  : {
+                  'ID': id,
+                  'function' : 'li'
+                },
+        success: function (res) {
+            let json = JSON.parse(res);
+            $('#indication').val(json[0]['indication']);
+
+        }
+      });
+};
+
 let delMedicine = (id) => {
     $.ajax({
         type  : 'post',
@@ -178,6 +194,7 @@ let createMedicinesDT = (id) => {
 let medicines = (id) =>{
     $('#idPrescription').val(id);
     if($('#idPrescription').val() != '' && $('#idPrescription').val() != null){
+        $('#medicinesContainer').fadeIn();
         $('#createPr').prop('disabled', true);
         if ( ! $.fn.DataTable.isDataTable( '#medicines' ) ) {
             createMedicinesDT(id);
@@ -187,7 +204,7 @@ let medicines = (id) =>{
             medicines(id);
         }
     }else{
-        $('#medicinesContainer').fadeOut();
+        $('#medicinesContainer').fadeOut(0);
     }
     $('#addMedicines').modal('toggle');
     
@@ -242,7 +259,8 @@ $('#addMedicineForm').validate({
         amount: {
             required: true,
             minlength: 1,
-            maxlength: 500
+            maxlength: 500,
+            min: 1
         },
         indication: {
             required: true,
@@ -250,7 +268,7 @@ $('#addMedicineForm').validate({
         }
     },
     messages: {
-        medicine: "Por favor seleccione un medicina",
+        medicine: "Por favor seleccione un medicamento",
         amount: "Por favor ingrese una cantidad valida, con un valor mayor o acaso igual a 1.",
         indication: "Por favor, ingrese una indicaci&oacute;n v&aacute;lida"
     },
@@ -260,5 +278,8 @@ $('#addMedicineForm').validate({
       }
 });
 
-    $('#medicine').select2();
+    $('#medicine').select2()
+    .on('change', () => {
+        loadIndication($('#medicine').val());
+    });
 });

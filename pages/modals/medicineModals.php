@@ -15,6 +15,14 @@
             <label for="medicine">Medicamento</label>
             <input type="text" name="medicine" id="medicine" autocomplete="off" class="form-control">
           </div>
+          <div class="form-group">
+            <label for="chemicalCompound">Componente</label>
+            <input type="text" name="chemicalCompound" id="chemicalCompound" autocomplete="off" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="indication">Indicación sugerida</label>
+            <input type="text" name="indication" id="indication" autocomplete="off" class="form-control">
+          </div>
           <input type="hidden" name="id" id="id">
       </div>
       <div class="modal-footer">
