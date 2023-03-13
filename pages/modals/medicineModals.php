@@ -56,3 +56,38 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="upload" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="uploadLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="uploadLabel">Archivos del Paciente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="container-fluid">
+        <form id="uploadForm" action="../Controllers/UploadController.php" enctype="multipart/form-data" method="post">
+          <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="fileUpload">Archivo</label>
+                    <input type="file" name="fileUpload" id="fileUpload" required autocomplete="off" class="form-control">
+                    <input type="hidden" name="function" id="function" value="bl">
+                  </div>
+                </div>
+              </div>
+              
+            <button type="button" class="btn btn-secondary" onClick="resetForm()">Cancelar</button>
+            <button type="submit" class="btn btn-primary" >Guardar</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
