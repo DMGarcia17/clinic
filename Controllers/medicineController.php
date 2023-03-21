@@ -32,14 +32,14 @@ function query(){
 }
 
 /**
- * 
+ * Feature: Bulk load of medicines
  */
 
 
 function queryRecord($medicine){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('medicines limit 1', 'cod_medicine', 'description='.$medicine);
-    if(intval($res[0]['cod_medicine']) > 0){
+    $res = $db->filtered_query('medicines', 'cod_medicine', "description='{$medicine}' limit 1");
+    if(isset($res[0]) && intval($res[0]['cod_medicine']) > 0){
         return intval($res[0]['cod_medicine']);
     }
     return 0;
@@ -75,11 +75,16 @@ function bulkLoad(){
             $source = $_FILES['fileUpload']['tmp_name'];
             $fileName = $_FILES['fileUpload']['name'];
             $name=basename($_FILES['fileUpload']['name']);
-            $target = __DIR__."/files/{$name}";
+            $target = __DIR__."/../files/{$name}";
             if(!file_exists($target)){
                 if(move_uploaded_file($source, $target)){
-                    readExcel($target);
-                    unlink($target);
+                    try{
+                        readExcel($target);
+                    }catch(Exception $e){
+                        echo $e->getMessage();
+                    }finally{
+                        unlink($target);
+                    }
                 }
             }else{
                 echo "error_file_exists";
@@ -91,6 +96,10 @@ function bulkLoad(){
         echo "Files empty";
     }
 }
+
+/**
+ * End of feature
+ */
 
 
 $key="";

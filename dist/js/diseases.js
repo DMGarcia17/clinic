@@ -116,6 +116,12 @@ $(document).ready(function() {
                 action: function (e, dt, node, config) {
                     $('#add').modal('toggle');
                 }
+            },
+            {
+                text: 'Carga Masiva de Registros',
+                action: function (e, dt, node, config) {
+                    $('#upload').modal('toggle');
+                }
             }
         ]
     });
@@ -152,6 +158,63 @@ $(document).ready(function() {
             resetForm();
           }
     });
+
+    $("#uploadForm").on('submit',(function(e) {
+        let Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1000
+          });
+        e.preventDefault();
+        $.ajax({
+            url: process,
+            type: "POST",
+            data:  new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend : function(){
+                Toast.fire({
+                    icon: 'info',
+                    title: 'Subiendo...'
+                  });
+            },
+            success: function(data, status, jqXHR){
+                if(data=='invalid'){
+                    
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Invalid File'
+                  });
+                }else if(data=='error_file_exists'){
+                    
+                Toast.fire({
+                    icon: 'error',
+                    title: 'El archivo ya existe, por favor cambie el nombre del archivo antes de subirlo!'
+                  });
+                }else{
+                    $("#uploadForm").trigger("reset");
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Exitoso'
+                      });
+                }
+                
+                $('#diseases').DataTable().ajax.reload();
+                $('#upload').modal('toggle');
+            },
+            error: function(e){
+                
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error'
+                  });
+                  console.error(e);
+            }          
+        });
+    }));
+
     $('#diseasesTagMenu').addClass('active');
 
 });

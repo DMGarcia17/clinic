@@ -243,7 +243,8 @@
           </div>
           <div class="form-group">
             <label for="indication">Indicaci&oacute;n</label>
-            <input type="text" name="indication" autocomplete="off" id="indication" class="form-control">
+            <!-- <input type="text" name="indication" autocomplete="off" id="indication" class="form-control"> -->
+            <textarea name="indication" autocomplete="off" id="indication" class="form-control" rows="10"></textarea>
           </div>
       </div>
       <div class="modal-footer">

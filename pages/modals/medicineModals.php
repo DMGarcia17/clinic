@@ -21,7 +21,8 @@
           </div>
           <div class="form-group">
             <label for="indication">Indicación sugerida</label>
-            <input type="text" name="indication" id="indication" autocomplete="off" class="form-control">
+            <!-- <input type="text" name="indication" id="indication" autocomplete="off" class="form-control"> -->
+            <textarea name="indication" autocomplete="off" id="indication" class="form-control" rows="10"></textarea>
           </div>
           <input type="hidden" name="id" id="id">
       </div>
@@ -74,7 +75,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="fileUpload">Archivo</label>
-                    <input type="file" name="fileUpload" id="fileUpload" required autocomplete="off" class="form-control">
+                    <input type="file" name="fileUpload" id="fileUpload" accept=".xlsx" required autocomplete="off" class="form-control">
                     <input type="hidden" name="function" id="function" value="bl">
                   </div>
                 </div>

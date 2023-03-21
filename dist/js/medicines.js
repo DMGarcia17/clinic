@@ -182,7 +182,9 @@ $(document).ready(function() {
                         title: 'Exitoso'
                       });
                 }
-                $('#uploadFiles').DataTable().ajax.reload();
+                
+                $('#medicines').DataTable().ajax.reload();
+                $('#upload').modal('toggle');
             },
             error: function(e){
                 
