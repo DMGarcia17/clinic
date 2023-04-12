@@ -49,9 +49,12 @@ let save = (msg) => {
     };
 
     let printed = $('#mq').val();
-    $.each(printed.split(','), function(i, v){
-        data[v]=$(('#'+v+'question')).val();
-    });
+    
+    if(printed != 'N/A'){
+        $.each(printed.split(','), function(i, v){
+            data[v]=$(('#'+v+'question')).val();
+        });
+    }
     data['printed']=$('#mq').val();
 
 
@@ -91,6 +94,7 @@ let loadMQ = (id) => {
                 },
         success: function (res) {
             let json = JSON.parse(res);
+            console.log(json);
             $.each(json, function(i, v){
                 //console.log(v['cod_question']);
                 $(('#'+v['cod_question']+'question')).val(v['answer']).change();

@@ -1,5 +1,5 @@
 <?php
-    $base = '../';
+    $base = './';
     if(isset($_GET['error']) and $_GET['error'] != ""){
         echo "<input type='hidden' name='error' id='error' value='{$_GET['error']}'>";
     }
@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href='<?php echo $base."dist/css/validate.errors.css"?>'>
     <link rel="stylesheet" href="dist/css/login.css">
     <title>Log In</title>
 </head>
@@ -30,17 +31,17 @@
     <div class="container blackout">
         <div class="card mx-auto pagination-centered" style="width: 23rem;">
             <div class="card-body">
-                <form>
+                <form id="logInForm">
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label">Nombre de usuario</label>
                         <input type="text" name="username" id="username" autocomplete="off" class="form-control" >
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Contrase&ntilde;a</label>
                         <input type="password" name="password" id="password" autocomplete="off" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <a class="btn btn-primary mx-auto" id="logIn">Log In</a>
+                        <button class="btn btn-primary mx-auto" id="logIn" type="submit">Iniciar Sesión</button>
                     </div>
                 </form>
             </div>
@@ -57,6 +58,9 @@
     <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- Toastr -->
     <script src="plugins/toastr/toastr.min.js"></script>
+    <!-- JQuery Validate -->
+    <script src='<?php echo $base."plugins/jquery-validation/jquery.validate.min.js"?>'></script>
+    <script src='<?php echo $base."dist/js/validateMethods.js"?>'></script>
     <!-- Custom -->
     <script src="dist/js/login.js"></script>
 </body>

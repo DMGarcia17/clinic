@@ -61,7 +61,7 @@ create table patients(
 	address varchar(250),
 	city varchar(250),
 	state varchar(250),
-	postal_code varchar(6),
+	postal_code varchar(10),
 	occupation varchar(250),
 	height int,
 	weight int,

@@ -367,6 +367,9 @@
                 }
                 $printed .= $r['cod_medical'];
               }
+              if($printed==''){
+                $printed = 'N/A';
+              }
               echo '<input type="hidden" name="mq" id="mq" value="'.$printed.'">';
 
 
