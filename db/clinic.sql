@@ -190,3 +190,17 @@ INSERT INTO clinic.treatments (name,pr_order,description,show_rp,paediatric_trea
 	 ('Blanqueamiento dental',7,'El blanqueamiento dental es un tratamiento de odontologÃ­a estÃ©tica que tiene por objetivo eliminar las manchas dentales y hacer que la denticiÃ³n adquiera una tonalidad mÃ¡s blanca y brillante. La actual popularidad de la estÃ©tica ha convertido a este procedimiento odontolÃ³gico en uno de los mÃ¡s solicitados de los Ãºltimos aÃ±os.','S','S'),
 	 ('Endodoncia',8,'La endodoncia es un procedimiento que tiene como finalidad preservar las piezas dentales daÃ±adas, evitando asÃ­ su pÃ©rdida. Para ello, se extrae la pulpa dental y la cavidad resultante, se rellena y sella con material inerte y biocompatible.','S','S'),
 	 ('Carillas',9,'Las carillas dentales son uno de los tratamientos con mayor demanda dentro de la especialidad de OdontologÃ­a EstÃ©tica.  Y no es de extraÃ±ar, pues permite mejorar sustancialmente el aspecto de los dientes de forma muy rÃ¡pida y eficaz.  De este modo, la persona no necesita someterse a un tratamiento que requiera mÃ¡s tiempo y consigue la estÃ©tica dental que desea tener. ','S','S');
+
+-- Create function for bulk load disease
+CREATE FUNCTION obt_last_order() RETURNS int 	
+BEGIN
+
+   DECLARE last_order INT;
+
+   SET last_order = 0;
+
+   select ifnull(max(pr_order), 0)+1 new_order into last_order from diseases d;
+
+   RETURN last_order;
+
+END;
