@@ -109,6 +109,7 @@ create table appointment (
 	reason varchar(1500),
 	visited_on datetime,
 	comments varchar(4000),
+	diseases_code varchar(250),
 	diagnosis_resume varchar(250),
 	treatment varchar(2000),
 	description varchar(2000),
@@ -164,6 +165,8 @@ ALTER TABLE patients
 ADD is_allergic VARCHAR(2);
 ALTER TABLE patients 
 ADD allergies VARCHAR(500);
+ALTER TABLE diseases 
+ADD diseases_code VARCHAR(250);
 
 
 /*

@@ -39,9 +39,23 @@
             <label for="comments">Observaciones</label>
             <input type="text" name="comments" id="comments" autocomplete="off" class="form-control">
           </div>
-          <div class="form-group">
+          <div class="form-group select2-purple">
             <label for="diagnosisResume">Diagnostico</label>
-            <input type="text" name="diagnosisResume" id="diagnosisResume" autocomplete="off" class="form-control">
+            <!-- <input type="text" name="diagnosisResume" id="diagnosisResume" autocomplete="off" class="form-control"> -->
+            <select name="diagnosisResume" id="diagnosisResume" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
+
+              <?php
+                $db = new DatabaseConnection();
+
+                $res = $db->blankectOQuery("diseases", "cod_disease, name", "pr_order asc");
+                foreach($res as $r){
+                  echo '<option value="'.$r['cod_disease'].'">'.$r['name'].'</option>';
+                  //echo '<div class="row">';
+                }
+
+
+              ?>
+            </select>
           </div>
           <div class="form-group select2-purple">
             <label for="treatmentField">Tratamientos</label><br>

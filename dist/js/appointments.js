@@ -8,7 +8,7 @@ let save = (msg) => {
                     'reason' : $('#reason').val(),
                     'comments' : $('#comments').val(),
                     'patient' : $('#patient').val(),
-                    'diagnosisResume' : $('#diagnosisResume').val(),
+                    'diagnosisResume' : $('#diagnosisResume').val().join(','),
                     'description' : $('#description').val(),
                     'disabilityDays' : $('#disabilityDays').val(),
                     'visitedOn' : $('#visitedOn').val(),
@@ -55,6 +55,7 @@ let edit = (id) => {
             $('#comments').val(json[0]['comments']);
             $('#diagnosisResume').val(json[0]['diagnosis_resume']);
             $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
+            $("#diagnosisResume").val(json[0]['diagnosis_resume'].split(",")).trigger("change");
             $('#description').val(json[0]['description']);
             $('#disabilityDays').val(json[0]['disability_days']);
             $('#visitedOn').val(json[0]['visited_on']);
@@ -203,5 +204,6 @@ $(document).ready(function() {
 
     $('#appointmentTag').addClass('active');
     $('#treatmentField').select2();
+    $('#diagnosisResume').select2();
 
 });

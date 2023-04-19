@@ -3,9 +3,8 @@ require_once '../core/Connection.php';
 function save($id){
     $db = new DatabaseConnection();
     
-    echo $_POST['visitedOn'];
+    var_dump($_POST);
     if ($id == null) {
-        echo $_POST['visitedOn'];
         $res = $db->insert('appointment', 'cod_patient, reason, comments, diagnosis_resume, treatment, description, disability_days, visited_on', "'{$_POST['patient']}', '{$_POST['reason']}', '{$_POST['comments']}', '{$_POST['diagnosisResume']}', '{$_POST['treatment']}', '{$_POST['description']}', '{$_POST['disabilityDays']}', STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i')");
     }else{
         $res = $db->update('appointment', "cod_appointment={$_POST['ID']}", "cod_patient='{$_POST['patient']}', reason='{$_POST['reason']}', comments='{$_POST['comments']}', diagnosis_resume='{$_POST['diagnosisResume']}', treatment='{$_POST['treatment']}', description='{$_POST['description']}', disability_days='{$_POST['disabilityDays']}', visited_on=STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i')");
@@ -33,7 +32,7 @@ function delete($id){
 
 function query(){
     $db = new DatabaseConnection();
-    $res = $db->blankectOquery('appointment a', "a.cod_appointment, (select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where cod_patient = a.cod_patient)name,a.reason, a.diagnosis_resume, a.visited_on, a.cod_patient", 'visited_on desc');
+    $res = $db->blankectOquery('appointment a', "a.cod_appointment, (select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where cod_patient = a.cod_patient)name,a.reason, (select group_concat(d.name SEPARATOR', ') name from diseases d where a.diagnosis_resume like concat('%', d.cod_disease,'%')) diagnosis_resume, a.visited_on, a.cod_patient", 'visited_on desc');
     $formated = array('data' => $res);
     echo json_encode($formated);
 }
