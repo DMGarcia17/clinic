@@ -209,3 +209,17 @@ BEGIN
    RETURN last_order;
 
 END;
+
+alter table appointment add
+cod_clinic int;
+
+create or replace trigger ins_new_appointment after insert on clinic.appointment
+for each row 
+begin 
+	if new.next_appointment is not null then 
+		insert into 
+			events(name, start_at, end_at, clinic, event_type) 
+		values 
+			((select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) from patients p where cod_patient = new.cod_patient), new.next_appointment, addtime(new.next_appointment, '1:00'), new.cod_clinic, '1');
+	end if;
+end;

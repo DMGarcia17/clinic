@@ -2,9 +2,10 @@
 require_once '../core/Connection.php';
 function save($id){
     $db = new DatabaseConnection();
+    session_start();
     
     if ($id == null) {
-        $res = $db->insert('appointment', 'cod_patient, reason, comments, diagnosis_resume, treatment, description, disability_days, visited_on, next_appointment', "'{$_POST['patient']}', '{$_POST['reason']}', '{$_POST['comments']}', '{$_POST['diagnosisResume']}', '{$_POST['treatment']}', '{$_POST['description']}', '{$_POST['disabilityDays']}', STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i'), STR_TO_DATE('{$_POST['nextAppointment']}', '%Y-%m-%dT%T:%i')");
+        $res = $db->insert('appointment', 'cod_patient, reason, comments, diagnosis_resume, treatment, description, disability_days, visited_on, next_appointment, cod_clinic', "'{$_POST['patient']}', '{$_POST['reason']}', '{$_POST['comments']}', '{$_POST['diagnosisResume']}', '{$_POST['treatment']}', '{$_POST['description']}', '{$_POST['disabilityDays']}', STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i'), STR_TO_DATE('{$_POST['nextAppointment']}', '%Y-%m-%dT%T:%i'), '{$_SESSION['codClinic']}'");
     }else{
         $res = $db->update('appointment', "cod_appointment={$_POST['ID']}", "cod_patient='{$_POST['patient']}', reason='{$_POST['reason']}', comments='{$_POST['comments']}', diagnosis_resume='{$_POST['diagnosisResume']}', treatment='{$_POST['treatment']}', description='{$_POST['description']}', disability_days='{$_POST['disabilityDays']}', visited_on=STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i'), next_appointment=STR_TO_DATE('{$_POST['nextAppointment']}', '%Y-%m-%dT%T:%i')");
     }
