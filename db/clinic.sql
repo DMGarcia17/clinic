@@ -167,6 +167,8 @@ ALTER TABLE patients
 ADD allergies VARCHAR(500);
 ALTER TABLE diseases 
 ADD diseases_code VARCHAR(250);
+alter table appointment 
+add next_appointment DATETIME;
 
 
 /*

@@ -82,6 +82,10 @@
             <label for="disabilityDays">Días de incapacidad</label>
             <input type="text" name="disabilityDays" id="disabilityDays" autocomplete="off" class="form-control">
           </div>
+          <div class="form-group">
+            <label for="nextAppointment">Fecha de la siguiente visita</label>
+            <input type="datetime-local" name="nextAppointment" id="nextAppointment" autocomplete="off" class="form-control">              
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>

@@ -12,6 +12,7 @@ let save = (msg) => {
                     'description' : $('#description').val(),
                     'disabilityDays' : $('#disabilityDays').val(),
                     'visitedOn' : $('#visitedOn').val(),
+                    'nextAppointment' : $('#nextAppointment').val(),
                     'treatment' : $('#treatmentField').val().join(','),
                     'function' : 'sa'
                 },
@@ -57,6 +58,7 @@ let edit = (id) => {
             $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
             $("#diagnosisResume").val(json[0]['diagnosis_resume'].split(",")).trigger("change");
             $('#description').val(json[0]['description']);
+            $('#nextAppointment').val(json[0]['next_appointment']);
             $('#disabilityDays').val(json[0]['disability_days']);
             $('#visitedOn').val(json[0]['visited_on']);
 
