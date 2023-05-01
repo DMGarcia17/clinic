@@ -113,6 +113,20 @@ let del = (id) => {
       });
 }
 
+let showPrintsModal = (appointment, patient, disabilityDays) => {
+    $('#prints').modal('toggle');
+    $('#idMDAppointment').val(appointment);
+    $('#idMDPatient').val(patient);
+    $('#daysOff').val(disabilityDays);
+}
+
+let showIncapabilityModal = (appointment, patient) => {
+    $('#prints').modal('toggle');
+    $('#inability').modal('toggle');
+    $('#inabilityForm').attr('action', 'http://localhost/clinic/pages/inabilityConstance.php?id='+appointment+'&p='+patient);
+    $('#inabilityDays').val($('#daysOff').val());
+}
+
 let showDelClinic = (id) => {
     $('#idDel').val(id);
     $('#del').modal('toggle');
@@ -142,6 +156,7 @@ $(document).ready(function() {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_appointment']+')"><i class="fa fa-edit"></i></button>'+
                 '<a class="btn btn-xs btn-default" target="_blank" href="http://localhost/clinic/pages/odontograma.php?id='+data['cod_patient']+'"><i class="fas fa-tooth"></i></a>'+
                 '<button class="btn btn-xs btn-default" onClick="mpp('+data['cod_appointment']+')"><i class="fas fa-prescription-bottle-medical"></i></button>'+
+                '<button class="btn btn-xs btn-default" onClick="showPrintsModal('+data['cod_appointment']+', '+data['cod_patient']+', '+data['disability_days']+')"><i class="fas fa-print"></i></button>'+
                 '<button class="btn btn-xs btn-default" onClick="showUploadModal('+data['cod_appointment']+', '+data['cod_patient']+')"><i class="fas fa-archive"></i></button>'+
                 '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_appointment']+')"><i class="fas fa-trash-alt"></i></button></div>';
             } }

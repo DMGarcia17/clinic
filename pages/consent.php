@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
                                 <h6>
-                                    CONSENTIMIENTO INFORMADO PARA LA PRACTICA DE TRATAMIENTOS ODONTOLOGICOS, E INTERVENCIONES QUIRÚRGICAS Y/O PROCEDIMIENTOS ESPECIALES
+                                    CONSENTIMIENTO INFORMADO PARA LA PRACTICA DE TRATAMIENTOS ODONTOL&Oacute;GICOS
                                 </h6>
                             </div>
                         </div>
@@ -52,30 +52,52 @@
                     }
                     echo "<span><span class='font-weight-bold'></span>{$res[0]['name']}</span>";
                 ?>
-                identificado (a) como aparece al pie de mi firma, por medio del presente documento, en nombre propio o en mi calidad del representante legal del paciente en pleno y normal uso de mis facultades mentales otorgo en forma libre mi consentimiento al odontólogo (a)
+                autorizo al Cirujano Dentista 
                 <?php echo $resUser[0]['complete_name'] ?> 
-                , asi como de los auxiliares y técnicos en ejercicio legal de su profesión, practiquen el siguiente tratamiento odontológico y/o intervención quirúrgica a través de los siguientes procedimientos: 
+                con registro profesional (COP ________________) a realizarme ___________________________________________________________________________.
+                <br>
+                El tratamiento consistira en:  
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <br>
+                Los beneficios del tratamiento son:
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                y mi negación al tratamiento traer&iacute;an consecuencias tales como:
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                Existen riesgos que pueden surgir en el curso del tratamiento, tales como:
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
                 </p>
                 <br>
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <p style="text-align: justify;">
-                    El pronóstico del tratamiento a realizar es: Bueno: _____, Regular:_____ Malo:_____ .
-                </p>
-                <p>Asi mismo quedan autorizados para llevar a cabo o solicitar la prádica de condudas o procedimientos odontológicos adiciona. a los ya autorizados en el punto anterior, cuando el resultado del tratamiento asi lo requiera. </p>
-                <p>Se informa de la existencia de riesgos asi: </p>
-                <p>Generales:</p>
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <p>Especificos: </p>
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <p>O de aquellos Imprevisibles que por su misma caradenstica no se pueden advertir razonablemente </p>
-                <p>Como paciente o representante legal, dedaro que conozco y comprendo en su totalidad la explicación antes dada y la posibilidad de que .tos eventos se presenten en el d.arrollo del curso del tratamiento y/o del postoperatorio y acepto todos los riesgos que conlleva los tratamientos a realizar. Acepto que la Odontologia no . una ciencia exada y que con la intervención autorizada se buscara la utilizadón de los medios idóneos para el caso y los resultados no dependen exclusivamente del odontólogo </p>
-                <p>Cedifico que el presente documento ha sido leido y aceptado por mi en su integridad. </p>
+                <p>Autorizo que se obtengan (marque la opci&oacute;n que desee):</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-8">- Fotograf&iacute;as</div>
+                            <div class="col-md-2">(Si)</div>
+                            <div class="col-md-2">(No)</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">- Videos</div>
+                            <div class="col-md-2">(Si)</div>
+                            <div class="col-md-2">(No)</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">- Otros registros gr&aacute;ficos</div>
+                            <div class="col-md-2">(Si)</div>
+                            <div class="col-md-2">(No)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+                <p>en el pre - intra y post-operatorio.</p>
             </div>
             </div>
             <div class="row">

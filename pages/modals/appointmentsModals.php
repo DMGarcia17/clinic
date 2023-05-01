@@ -297,3 +297,101 @@
     </div>
   </div>
 </div>
+
+
+<!-- Modal for different documents to print -->
+<div class="modal fade" id="prints" data-backdrop="static" data-keyboard="false" aria-labelledby="printsLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="printsLabel">Documentos Disponibles</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <input type="hidden" name="idMDAppointment" id="idMDAppointment">
+        <input type="hidden" name="idMDPatient" id="idMDPatient">
+        <input type="hidden" name="daysOff" id="daysOff">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-9"><span>Constancia de Incapacidad</span></div>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary" onClick="showIncapabilityModal($('#idMDAppointment').val(), $('#idMDPatient').val())">Abrir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-9"><span>Consentimiento informado para la practica de tratamientos odontologicos, e intervenciones quirúrgicas y/o procedimientos especiales</span></div>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/pages/authorization.php?id="+$("#idMDAppointment").val()+"&p="+$("#idMDPatient").val();'>Abrir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-9"><span>Consentimiento Informado Para Tratamientos Odontol&oacute;gicos</span></div>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/pages/consent.php?id="+$("#idMDAppointment").val()+"&p="+$("#idMDPatient").val();'>Abrir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-9">¿? Constancia de Visita</div>
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary">Abrir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Fill data for inability constance modal -->
+<div class="modal fade" id="inability" data-backdrop="static" data-keyboard="false" aria-labelledby="inabilityLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inabilityLabel">Llenado de datos para constancia de incapacidad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form id="inabilityForm" method="post" action="">
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="inabilityDays">Total de d&iacute;as de incapacidad</label>
+            <input type="number" name="inabilityDays" id="inabilityDays" class="form-control" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="cause">Motivo de la incapacidad</label>
+            <input type="text" name="cause" id="cause" class="form-control" autocomplete="off">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+      </div>
+      
+      </form>
+    </div>
+  </div>
+</div>

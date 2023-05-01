@@ -1,6 +1,5 @@
 var accion = '';
 $(function() {
-    let fecha = new Date();
     $('#fechaOd').text(new moment().format('DD/MM/YYYY'));
     
     $('.info-pt').fadeOut(0);

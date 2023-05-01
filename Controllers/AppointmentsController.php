@@ -32,7 +32,7 @@ function delete($id){
 
 function query(){
     $db = new DatabaseConnection();
-    $res = $db->blankectOquery('appointment a', "a.cod_appointment, (select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where cod_patient = a.cod_patient)name,a.reason, (select group_concat(d.name SEPARATOR', ') name from diseases d where a.diagnosis_resume like concat('%', d.cod_disease,'%')) diagnosis_resume, a.visited_on, a.cod_patient", 'visited_on desc');
+    $res = $db->blankectOquery('appointment a', "a.cod_appointment, (select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where cod_patient = a.cod_patient)name,a.reason, (select group_concat(d.name SEPARATOR', ') name from diseases d where a.diagnosis_resume like concat('%', d.cod_disease,'%')) diagnosis_resume, a.visited_on, a.disability_days, a.cod_patient", 'visited_on desc');
     $formated = array('data' => $res);
     echo json_encode($formated);
 }
