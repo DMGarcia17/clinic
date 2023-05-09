@@ -6,8 +6,8 @@ let save = (msg) => {
         data  : {
                     'ID' : $('#id').val(),
                     'name' : $('#name').val(),
-                    'order' : $('#order').val(),
                     'description' : $('#description').val(),
+                    'oral' : $('#oral').val(),
                     'function' : 'sd'
                 },
         success: function (res) {
@@ -45,9 +45,8 @@ let edit = (id) => {
             let json = JSON.parse(res);
             $('#id').val(json[0]['cod_disease']);
             $('#name').val(json[0]['name']);
-            $('#order').val(json[0]['pr_order']);
             $('#description').val(json[0]['description']);
-
+            $('#oral').val(json[0]['oral']).change();
         }
       });
 };
@@ -90,17 +89,15 @@ let showDelClinic = (id) => {
 }
 
 let resetForm = ()=>{
+    $('#addForm').trigger("reset");
     $('#id').val(null);
-    $('#name').val(null);
-    $('#order').val(null);
-    $('#description').val(null);
 }
 
 $(document).ready(function() {
     $('#diseases').dataTable({
         "ajax" : process,
         "columns" : [
-            {"data" : "pr_order"},
+            {"data" : "cod_disease"},
             {"data" : "name"},
             {"data" : "description"},
             {"data" : null, render : function (data, type, row, meta) {
@@ -139,19 +136,11 @@ $(document).ready(function() {
                 required: true,
                 minlength: 1,
                 maxlength: 500
-            },
-            order: {
-                required: true,
-                number: true
             }
         },
         messages: {
             name: "Por favor ingrese un nombre de enfermedad valido, con un ancho entre 1 y 500 caracteres.",
-            description: "Por favor ingrese una descripci&oacute;n valida, con un ancho entre 1 y 500 caracteres.",
-            order: {
-                required: "Este campo es requerido",
-                number: "Por favor, ingrese un valor num&eacute;rico"
-            }
+            description: "Por favor ingrese una descripci&oacute;n valida, con un ancho entre 1 y 500 caracteres."
         },
         submitHandler: function(form) {
             save();
@@ -205,7 +194,6 @@ $(document).ready(function() {
                 $('#upload').modal('toggle');
             },
             error: function(e){
-                
                 Toast.fire({
                     icon: 'error',
                     title: 'Error'

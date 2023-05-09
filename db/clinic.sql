@@ -212,6 +212,8 @@ END;
 
 alter table appointment add
 cod_clinic int;
+alter table appointment 
+add next_appointment DATETIME;
 
 create or replace trigger ins_new_appointment after insert on clinic.appointment
 for each row 
@@ -223,3 +225,8 @@ begin
 			((select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) from patients p where cod_patient = new.cod_patient), new.next_appointment, addtime(new.next_appointment, '1:00'), new.cod_clinic, '1');
 	end if;
 end;
+
+alter table patients
+add systemic_diagnosis varchar(500);
+alter table appointments
+add oral int;

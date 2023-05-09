@@ -9,6 +9,7 @@ let save = (msg) => {
                     'comments' : $('#comments').val(),
                     'patient' : $('#patient').val(),
                     'diagnosisResume' : $('#diagnosisResume').val().join(','),
+                    'systemicDiagnosis' : $('#systemicDiagnosis').val().join(','),
                     'description' : $('#description').val(),
                     'disabilityDays' : $('#disabilityDays').val(),
                     'visitedOn' : $('#visitedOn').val(),
@@ -49,14 +50,27 @@ let edit = (id) => {
                 },
         success: function (res) {
             let json = JSON.parse(res);
+            console.log(json);
             $('#id').val(json[0]['cod_appointment']);
             $('#reason').val(json[0]['reason']);
             $('#name').val(json[0]['name']);
             $('#patient').val(json[0]['cod_patient']);
             $('#comments').val(json[0]['comments']);
-            $('#diagnosisResume').val(json[0]['diagnosis_resume']);
-            $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
-            $("#diagnosisResume").val(json[0]['diagnosis_resume'].split(",")).trigger("change");
+            try{
+                $('#systemicDiagnosis').val(json[0]['systemic_diagnosis'].split(",")).trigger("change");
+            } catch(err){
+                console.log(err);
+            }
+            try{
+                $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
+            } catch(err){
+                console.log(err);
+            }
+            try{
+                $("#diagnosisResume").val(json[0]['diagnosis_resume'].split(",")).trigger("change");
+            } catch(err){
+                console.log(err);
+            }
             $('#description').val(json[0]['description']);
             $('#nextAppointment').val(json[0]['next_appointment']);
             $('#disabilityDays').val(json[0]['disability_days']);
@@ -221,6 +235,7 @@ $(document).ready(function() {
 
     $('#appointmentTag').addClass('active');
     $('#treatmentField').select2();
+    $('#systemicDiagnosis').select2();
     $('#diagnosisResume').select2();
 
 });

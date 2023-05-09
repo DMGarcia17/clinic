@@ -21,8 +21,11 @@
             <input type="text" name="description" id="description" autocomplete="off" class="form-control">              
           </div>
           <div class="form-group">
-            <label for="order">Orden de visualizaci&oacute;n</label>
-            <input type="text" name="order" id="order" autocomplete="off" class="form-control">
+            <label for="oral">¿Es una enfermedad bucal?</label>
+            <select name="oral" id="oral" class="form-control">
+              <option value="1">Si</option>
+              <option value="0">No</option>
+            </select>
           </div>
       </div>
       <div class="modal-footer">

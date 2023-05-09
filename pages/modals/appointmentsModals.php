@@ -32,22 +32,37 @@
             <input type="datetime-local" value="<?php echo date('Y') . '-' . date('m') . '-' . date('d').'T'.date('H').':'.date('i'); ?>" name="visitedOn" id="visitedOn" autocomplete="off" class="form-control" disabled>              
           </div>
           <div class="form-group">
-            <label for="reason">Motivo de la visita</label>
+            <label for="reason">Motivo de la Consulta</label>
             <input type="text" name="reason" id="reason" autocomplete="off" class="form-control">              
           </div>
           <div class="form-group">
-            <label for="comments">Observaciones</label>
+            <label for="comments">Caracteristicas Cl&iacute;nicas y Radiograficas</label>
             <input type="text" name="comments" id="comments" autocomplete="off" class="form-control">
           </div>
-          <div class="form-group select2-purple">
-            <label for="diagnosisResume">Diagnostico</label>
-            <!-- <input type="text" name="diagnosisResume" id="diagnosisResume" autocomplete="off" class="form-control"> -->
+          <div class="form-group select2-blue">
+            <label for="systemicDiagnosis">Enfermedades Sistemicas</label>
+            <select name="systemicDiagnosis" id="systemicDiagnosis" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
+
+              <?php
+                $db = new DatabaseConnection();
+
+                $res = $db->filteredOQuery("diseases", "cod_disease, name", "oral=0", "pr_order asc");
+                foreach($res as $r){
+                  echo '<option value="'.$r['cod_disease'].'">'.$r['name'].'</option>';
+                }
+
+
+              ?>
+            </select>
+          </div>
+          <div class="form-group select2-blue">
+            <label for="diagnosisResume">Diagnostico Bucal</label>
             <select name="diagnosisResume" id="diagnosisResume" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
 
               <?php
                 $db = new DatabaseConnection();
 
-                $res = $db->blankectOQuery("diseases", "cod_disease, name", "pr_order asc");
+                $res = $db->filteredOQuery("diseases", "cod_disease, name", "oral=1", "pr_order asc");
                 foreach($res as $r){
                   echo '<option value="'.$r['cod_disease'].'">'.$r['name'].'</option>';
                   //echo '<div class="row">';
@@ -57,7 +72,7 @@
               ?>
             </select>
           </div>
-          <div class="form-group select2-purple">
+          <div class="form-group select2-blue">
             <label for="treatmentField">Tratamientos</label><br>
             <select name="treatmentField" id="treatmentField" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
 
