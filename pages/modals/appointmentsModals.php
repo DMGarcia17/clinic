@@ -32,6 +32,10 @@
             <input type="datetime-local" value="<?php echo date('Y') . '-' . date('m') . '-' . date('d').'T'.date('H').':'.date('i'); ?>" name="visitedOn" id="visitedOn" autocomplete="off" class="form-control" disabled>              
           </div>
           <div class="form-group">
+            <label for="visitedOn">Medicamentos recetados</label>
+            <textarea name="medicines" id="medicines" autocomplete="off" class="form-control" rows="3" disabled></textarea>
+          </div>
+          <div class="form-group">
             <label for="reason">Motivo de la Consulta</label>
             <input type="text" name="reason" id="reason" autocomplete="off" class="form-control">              
           </div>

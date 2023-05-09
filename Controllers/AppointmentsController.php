@@ -15,7 +15,26 @@ function save($id){
 
 function load($id){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('appointment a', "(select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where p.cod_patient = a.cod_patient)name, (select p.systemic_diagnosis from patients p where p.cod_patient = a.cod_patient) systemic_diagnosis, a.cod_appointment, a.cod_patient, a.reason, a.comments, a.diagnosis_resume, a.treatment, a.description, a.disability_days, a.visited_on, next_appointment", 'cod_appointment='.$id);
+    $res = $db->filtered_query('appointment a', 
+                                "(select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where p.cod_patient = a.cod_patient)name, 
+                                (select p.systemic_diagnosis from patients p where p.cod_patient = a.cod_patient) systemic_diagnosis, (select
+                                    group_concat(distinct me.description SEPARATOR', ') medicines
+                                from prescriptions p 
+                                    inner join mpp m on p.cod_prescription = m.cod_prescription
+                                    inner join medicines me on m.cod_medicine = me.cod_medicine
+                                where
+                                    p.cod_appointment =a.cod_appointment) medicines, 
+                                a.cod_appointment, 
+                                a.cod_patient, 
+                                a.reason, 
+                                a.comments, 
+                                a.diagnosis_resume, 
+                                a.treatment, 
+                                a.description, 
+                                a.disability_days, 
+                                a.visited_on, 
+                                next_appointment", 
+                                'cod_appointment='.$id);
     echo json_encode($res);
 }
 
