@@ -8,7 +8,6 @@ let saveMedicine = (msg) => {
                     'ID' : $('#idMpp').val(),
                     'codPrescription' : $('#idPrescription').val(),
                     'codMedicine' : $('#medicine').val(),
-                    'amount' : $('#amount').val(),
                     'indication' : $('#indication').val(),
                     'function' : 'sm'
                 },
@@ -47,7 +46,6 @@ let editPresciption = (id) => {
         success: function (res) {
             let json = JSON.parse(res);
             $('#idMpp').val(id);
-            $('#amount').val(json[0]['amount']);
             $('#indication').val(json[0]['indication']);
             $('#medicine').val(json[0]['cod_medicine']).trigger("change");
 
@@ -171,7 +169,6 @@ let createMedicinesDT = (id) => {
         "columns" : [
             {"data" : "id_mpp"},
             {"data" : "medicine"},
-            {"data" : "amount"},
             {"data" : "indication"},
             {"data" : null, render : function (data, type, row, meta) {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="editPresciption('+data['cod_mpp']+')"><i class="fa fa-edit"></i></button>'+
@@ -256,12 +253,6 @@ $('#addMedicineForm').validate({
         medicine: {
             required: true
         },
-        amount: {
-            required: true,
-            minlength: 1,
-            maxlength: 500,
-            min: 1
-        },
         indication: {
             required: true,
             minlength: 1
@@ -269,7 +260,6 @@ $('#addMedicineForm').validate({
     },
     messages: {
         medicine: "Por favor seleccione un medicamento",
-        amount: "Por favor ingrese una cantidad valida, con un valor mayor o acaso igual a 1.",
         indication: "Por favor, ingrese una indicaci&oacute;n v&aacute;lida"
     },
     submitHandler: function(form) {

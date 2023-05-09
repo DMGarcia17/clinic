@@ -195,7 +195,6 @@
                       <tr>
                           <th>ID</th>
                           <th>Medicamento</th>
-                          <th>Cantidad</th>
                           <th>Indicaci&oacute;n</th>
                           <th>Acciones</th>
                       </tr>
@@ -207,8 +206,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-default">Cerrar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -270,10 +268,6 @@
             </select>
           </div>
           <input type="hidden" name="idMpp" id="idMpp">
-          <div class="form-group">
-            <label for="amount">Cantidad</label>
-            <input type="number" name="amount" autocomplete="off" id="amount" class="form-control">              
-          </div>
           <div class="form-group">
             <label for="indication">Indicaci&oacute;n</label>
             <!-- <input type="text" name="indication" autocomplete="off" id="indication" class="form-control"> -->

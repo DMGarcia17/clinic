@@ -90,7 +90,6 @@
                             }
                             foreach($res as $r){
                                 echo "<tr>
-                                        <td>{$r['amount']}</td>
                                         <td>{$r['medicine']}</td>
                                         <td>{$r['indication']}</td>
                                     </tr>";
