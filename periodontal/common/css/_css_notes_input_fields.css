@@ -1,0 +1,190 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Positionen der Eingabefelder */
+
+.input_bemerkung {
+	position: absolute;
+	z-index: 70;
+	height: 17px;
+	border: none;
+	font-family: "Arial Narrow", Sans-Serif;
+	font-size: 14px;
+	text-align: center;
+	padding: 0;
+}
+
+.input_bemerkung:focus {
+	background-color: lightsteelblue;
+    border-radius: 5px;
+	}
+
+.ok_bemerkung_input input {
+	top: 907.8px;
+    outline: none;
+}
+
+#bemerkung_18_txt {
+	left: 288px;
+    width: 49.05px;
+}
+
+#bemerkung_17_txt {
+	left: 343px;
+    width: 49.05px;
+}
+
+#bemerkung_16_txt {
+	left: 397px;
+    width: 52px;
+}
+
+#bemerkung_15_txt {
+	left: 454px;
+    width: 39px;
+}
+
+#bemerkung_14_txt {
+	left: 497.5px;
+    width: 37.5px;
+}
+
+#bemerkung_13_txt {
+	left: 540px;
+    width: 37px;
+}
+
+#bemerkung_12_txt {
+	left: 581.5px;
+    width: 38.5px;
+}
+
+#bemerkung_11_txt {
+	left: 624.5px;
+    width: 41.5px;
+}
+
+#bemerkung_21_txt {
+	left: 690.5px;
+    width: 41.5px;
+}
+
+#bemerkung_22_txt {
+	left: 736.5px;
+    width: 38.5px;
+}
+
+#bemerkung_23_txt {
+	left: 780.5px;
+    width: 37px;
+}
+
+#bemerkung_24_txt {
+	left: 821.5px;
+    width: 37.5px;
+}
+
+#bemerkung_25_txt {
+	left: 864.5px;
+    width: 39px;
+}
+
+#bemerkung_26_txt {
+	left: 908.5px;
+    width: 52px;
+}
+
+#bemerkung_27_txt {
+	left: 965.5px;
+    width: 49.05px;
+}
+
+#bemerkung_28_txt {
+	left: 1019.5px;
+    width: 49.05px;
+}
+
+.uk_bemerkung_input input {
+	top: 967px;
+    outline: none;
+}
+
+#bemerkung_38_txt {
+	left: 1007.5px;
+    width: 59.5px;
+}
+
+#bemerkung_37_txt {
+	left: 946.5px;
+    width: 56.5px;
+}
+
+#bemerkung_36_txt {
+	left: 888px;
+    width: 54px;
+}
+
+#bemerkung_35_txt {
+	left: 845px;
+    width: 38px;
+}
+
+#bemerkung_34_txt {
+	left: 806px;
+    width: 35px;
+}
+
+#bemerkung_33_txt {
+	left: 764.5px;
+    width: 37px;
+}
+
+#bemerkung_32_txt {
+	left: 723.5px;
+    width: 37px;
+}
+
+#bemerkung_31_txt {
+	left: 684.5px;
+    width: 35px;
+}
+
+#bemerkung_41_txt {
+	left: 638.5px;
+    width: 35px;
+}
+
+#bemerkung_42_txt {
+	left: 596.5px;
+    width: 37px;
+}
+
+#bemerkung_43_txt {
+	left: 556px;
+    width: 37px;
+}
+
+#bemerkung_44_txt {
+	left: 515.5px;
+    width: 35px;
+}
+
+#bemerkung_45_txt {
+	left: 474px;
+    width: 38px;
+}
+
+#bemerkung_46_txt {
+	left: 415.5px;
+    width: 54px;
+}
+
+#bemerkung_47_txt {
+	left: 354.5px;
+    width: 56.5px;
+}
+
+#bemerkung_48_txt {
+	left: 290.5px;
+    width: 59.5px;
+}

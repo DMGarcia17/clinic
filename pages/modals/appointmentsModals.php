@@ -360,9 +360,9 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-md-9">¿? Constancia de Visita</div>
+                <div class="col-md-9">Periodontograma</div>
                 <div class="col-md-3">
-                  <button type="button" class="btn btn-primary">Abrir</button>
+                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/periodontal/"'>Abrir</button>
                 </div>
               </div>
             </div>
