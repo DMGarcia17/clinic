@@ -8,6 +8,7 @@ let saveClinic = (msg) => {
                     'clinicName' : $('#clinicName').val(),
                     'address' : $('#clinicAddress').val(),
                     'phone' : $('#clinicPhone').val(),
+                    'wssp' : $('#wsspPhone').val(),
                     'function' : 'sc'
                 },
         success: function (res) {
@@ -47,7 +48,7 @@ let editClinic = (id) => {
             $('#clinicName').val(json[0]['clinic_name']);
             $('#clinicAddress').val(json[0]['address']);
             $('#clinicPhone').val(json[0]['phone_number']);
-
+            $('#wsspPhone').val(json[0]['wssp_phone']);
         }
       });
 };
@@ -91,10 +92,7 @@ let showDelClinic = (id) => {
 }
 
 let resetForm = ()=>{
-    $('#clinicId').val(null);
-    $('#clinicAddress').val(null);
-    $('#clinicName').val(null);
-    $('#clinicPhone').val(null);
+    $('#addForm').trigger('reset');
 }
 
 $(document).ready(function() {
@@ -138,12 +136,19 @@ $(document).ready(function() {
             clinicPhone: {
                 required: true,
                 phoneSV: true
+            },
+            wsspPhone: {
+                required: true,
+                phoneSV: true
             }
         },
         messages: {
             clinicName: "Por favor ingrese un nombre valido, con un ancho entre 10 y 500 caracteres.",
             clinicAddress: "Por favor ingrese una dirección valida, con un ancho entre 10 y 500 caracteres.",
             clinicPhone: {
+                required: "Este campo es requerido"
+            },
+            wsspPhone: {
                 required: "Este campo es requerido"
             }
         },

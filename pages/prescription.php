@@ -26,7 +26,7 @@
                 
                 require_once '../core/Connection.php';
                 $db = new DatabaseConnection();
-                $res = $db->filtered_query("clinics", "clinic_name, address, phone_number", "cod_clinic='{$_SESSION['codClinic']}'");
+                $res = $db->filtered_query("clinics", "clinic_name, address, phone_number, wssp_phone", "cod_clinic='{$_SESSION['codClinic']}'");
                 if (count($res[0]) <= 0 || !isset($_GET['id']) || !isset($_GET['p'])){
                     header("Location: http://localhost/clinic/pages/appointments.php"); 
                 }
@@ -35,7 +35,7 @@
                             <br/>
                             <small class='text-muted'>Estamos ubicados en {$res[0]['address']}</small>
                         </h3>
-                        <h6>Tel&eacute;fono: {$res[0]['phone_number']}</h6>";
+                        <h6>Nuestro n&uacute;mero de tel&eacute;fono: &nbsp;<em class='fas fa-phone'></em> {$res[0]['phone_number']}&nbsp; o si lo prefieres b&uacute;scanos en WhatsApp: &nbsp;<em class='fa-brands fa-whatsapp'></em> {$res[0]['wssp_phone']}</h6>";
                 ?>
             </div>
         </div>
@@ -51,7 +51,7 @@
                     if (count($res[0]) <= 0){
                         header("Location: http://localhost/clinic/pages/appointments.php"); 
                     }
-                    echo "<span><span class='font-weight-bold'>Paciente:&nbsp;</span>{$res[0]['name']}</span>";
+                    echo "<h4><span class='font-weight-bold'>Paciente:&nbsp;</span>{$res[0]['name']}</h4>";
                 ?>
             </div>
             <div class="col-md-2">
@@ -60,7 +60,7 @@
         </div>
         <div class="row">
             <div class="col-md-2 text-muted">
-                <p>Nuestros servicios:</p>
+                <h4>Nuestros servicios:</h4>
                 <?php
                     
                     $res = $db->filteredOquery('treatments', "name treatment", "pr_order<=10", 'pr_order asc');
@@ -68,16 +68,15 @@
                         header("Location: http://localhost/clinic/pages/appointments.php"); 
                     }
                     foreach($res as $r){
-                        echo "<p>- {$r['treatment']}</p>";
+                        echo "<h5>- {$r['treatment']}</h5>";
                     }
                 ?>
-                <p>- Entre otros...</p>
+                <h5>- Entre otros...</h5>
             </div>
             <div class="col-md-10">
                 <table class="table table-borderless">
                     <thead>
                         <tr>
-                            <th style="width: 1em;">Cantidad</th>
                             <th style="width: 20em;">Medicina</th>
                             <th>Indicaciones</th>
                         </tr>

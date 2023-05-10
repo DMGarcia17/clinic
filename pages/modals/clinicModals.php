@@ -24,6 +24,10 @@
             <label for="clinicPhone">N&uacute;mero telef&oacute;nico</label>
             <input type="text" name="clinicPhone" id="clinicPhone" autocomplete="off" class="form-control">
           </div>
+          <div class="form-group">
+            <label for="wsspPhone">N&uacute;mero de WhatsApp</label>
+            <input type="text" name="wsspPhone" id="wsspPhone" autocomplete="off" class="form-control">
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>

@@ -3,16 +3,16 @@ require_once '../core/Connection.php';
 function saveClinic($id){
     $db = new DatabaseConnection();
     if ($id == null) {
-        $res = $db->insert('clinics', 'clinic_name, address, phone_number', "'{$_POST['clinicName']}', '{$_POST['address']}', '{$_POST['phone']}'");
+        $res = $db->insert('clinics', 'clinic_name, address, phone_number, wssp_phone', "'{$_POST['clinicName']}', '{$_POST['address']}', '{$_POST['phone']}', '{$_POST['wssp']}'");
     }else{
-        $res = $db->update('clinics', "cod_clinic={$_POST['ID']}", "clinic_name='{$_POST['clinicName']}', address='{$_POST['address']}', phone_number='{$_POST['phone']}'");
+        $res = $db->update('clinics', "cod_clinic={$_POST['ID']}", "clinic_name='{$_POST['clinicName']}', address='{$_POST['address']}', phone_number='{$_POST['phone']}', wssp_phone='{$_POST['wssp']}'");
     }
     return $res;
 }
 
 function loadClinic($id){
     $db = new DatabaseConnection();
-    $res = $db->filtered_query('clinics a', 'cod_clinic, clinic_name, address, phone_number', 'cod_clinic='.$id);
+    $res = $db->filtered_query('clinics a', 'cod_clinic, clinic_name, address, phone_number, wssp_phone', 'cod_clinic='.$id);
     echo json_encode($res);
 }
 
