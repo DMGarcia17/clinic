@@ -230,3 +230,5 @@ alter table patients
 add systemic_diagnosis varchar(500);
 alter table appointments
 add oral int;
+alter table clinics
+add wssp_phone varchar(15);
