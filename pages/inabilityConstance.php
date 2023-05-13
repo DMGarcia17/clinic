@@ -58,6 +58,7 @@
                                     </div>
                                     <div class="row mt-md-5">
                                         <div class="col-md-8">
+                                        <h6>A quien corresponda:</h6>
                                         </div>
                                         <div class="col-md-4">
                                             <span class="font-weight-bold">Fecha: </span><span class="font-weight-light" id="fechaOd"></span>
@@ -74,7 +75,7 @@
         <div class="container">
         <div class="row pb-5">
             <div class="col-md-12">
-                <h6>A quien corresponda:</h6>
+                <br><br>
                 <p style="text-align: justify;"> Por medio de la presente hago constar que el paciente:  
                 <?php
                     $res = $db->filtered_query("patients p", "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", "p.cod_patient='{$_GET['p']}'");
@@ -94,7 +95,8 @@
                 <div class="col-md-6" style="text-align: center;">
                 </div>
                 <div class="col-md-6" style="text-align: center;">
-                    <p>_________________________________</p>
+                    <span>_________________________________</span><br>
+                    <span><?php echo $resUser[0]['complete_name']; ?></span>
                     <p><?php echo $resUser[0]['complete_name']; ?></p>
                 </div>
             </div>

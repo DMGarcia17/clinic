@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-md-6" style="text-align: center;">
                     <p>_________________________________</p>
-                    <p>Dr. Diego delesús Villalpando Correa</p>
+                    <p>Dr. Diego de Jesús Villalpando Correa</p>
                 </div>
             </div>
             <div class="row">

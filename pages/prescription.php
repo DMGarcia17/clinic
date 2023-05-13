@@ -30,12 +30,13 @@
                 if (count($res[0]) <= 0 || !isset($_GET['id']) || !isset($_GET['p'])){
                     header("Location: http://localhost/clinic/pages/appointments.php"); 
                 }
-                echo "<h3>
-                            {$res[0]['clinic_name']}
+                echo "<h3  style='color:#0a07ba !important; font-family: 'Bernard MT Condensed' !important;'>
+                            DEYCAR<span class='font-weight-light'>DENT</span>
                             <br/>
-                            <small class='text-muted'>Estamos ubicados en {$res[0]['address']}</small>
+                            
                         </h3>
-                        <h6>Nuestro n&uacute;mero de tel&eacute;fono: &nbsp;<em class='fas fa-phone'></em> {$res[0]['phone_number']}&nbsp; o si lo prefieres b&uacute;scanos en WhatsApp: &nbsp;<em class='fa-brands fa-whatsapp'></em> {$res[0]['wssp_phone']}</h6>";
+                        <h3><small class='text-muted'  style='color:#0a07ba !important;'>Estamos ubicados en {$res[0]['address']}</small></h3>
+                        <h6 style='color:#0a07ba !important;'>Nuestro n&uacute;mero de tel&eacute;fono: &nbsp;<em class='fas fa-phone'></em> {$res[0]['phone_number']}&nbsp; o si lo prefieres b&uacute;scanos en WhatsApp: &nbsp;<em class='fa-brands fa-whatsapp' style='color: #04bd04 !important;'></em> {$res[0]['wssp_phone']}</h6>";
                 ?>
             </div>
         </div>
@@ -51,7 +52,7 @@
                     if (count($res[0]) <= 0){
                         header("Location: http://localhost/clinic/pages/appointments.php"); 
                     }
-                    echo "<h4><span class='font-weight-bold'>Paciente:&nbsp;</span>{$res[0]['name']}</h4>";
+                    echo "<h4><span class='font-weight-bold' style='color:#0a07ba !important;'>Paciente:&nbsp;</span>{$res[0]['name']}</h4>";
                 ?>
             </div>
             <div class="col-md-2">
@@ -59,7 +60,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 text-muted">
+            <div class="col-md-2 text-muted" style="color: #0a07ba !important">
                 <h4>Nuestros servicios:</h4>
                 <?php
                     
@@ -67,16 +68,18 @@
                     if (count($res[0]) <= 0){
                         header("Location: http://localhost/clinic/pages/appointments.php"); 
                     }
+                    echo '<ul>';
                     foreach($res as $r){
-                        echo "<h5>- {$r['treatment']}</h5>";
+                        echo "<li style='font-size: 1.25rem;'>{$r['treatment']}</li>";
                     }
                 ?>
-                <h5>- Entre otros...</h5>
+                <li style='font-size: 1.25rem;'>Entre otros...</li>
+                </ul>
             </div>
             <div class="col-md-10">
                 <table class="table table-borderless">
                     <thead>
-                        <tr>
+                        <tr style='color:#0a07ba !important;'>
                             <th style="width: 20em;">Medicina</th>
                             <th>Indicaciones</th>
                         </tr>

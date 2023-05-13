@@ -52,7 +52,7 @@
                     }
                     echo "<span><span class='font-weight-bold'></span>{$res[0]['name']}</span>";
                 ?>
-                identificado (a) como aparece al pie de mi firma, por medio del presente documento, en nombre propio o en mi calidad del representante legal del paciente en pleno y normal uso de mis facultades mentales otorgo en forma libre mi consentimiento al odontólogo (a)
+                identificado (a) como aparece al pie de mi firma, por medio del presente documento, en nombre propio o en mi calidad de representante legal del paciente en pleno y normal uso de mis facultades mentales otorgo en forma libre mi consentimiento al odontólogo (a)
                 <?php echo $resUser[0]['complete_name'] ?> 
                 , asi como de los auxiliares y técnicos en ejercicio legal de su profesión, practiquen el siguiente tratamiento odontológico y/o intervención quirúrgica a través de los siguientes procedimientos: 
                 </p>
@@ -61,7 +61,7 @@
                 <p style="text-align: justify;">
                     El pronóstico del tratamiento a realizar es: Bueno: _____, Regular:_____ Malo:_____ .
                 </p>
-                <p>Asi mismo quedan autorizados para llevar a cabo o solicitar la prádica de condudas o procedimientos odontológicos adiciona. a los ya autorizados en el punto anterior, cuando el resultado del tratamiento asi lo requiera. </p>
+                <p>Asi mismo quedan autorizados para llevar a cabo o solicitar la práctica de conductas o procedimientos odontológicos adicionales a los ya autorizados en el punto anterior, cuando el resultado del tratamiento asi lo requiera. </p>
                 <p>Se informa de la existencia de riesgos asi: </p>
                 <p>Generales:</p>
                 <hr style="border: none; height: 1px; color: #333; background-color: #333;">
@@ -73,9 +73,9 @@
                 <hr style="border: none; height: 1px; color: #333; background-color: #333;">
                 <hr style="border: none; height: 1px; color: #333; background-color: #333;">
                 <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <p>O de aquellos Imprevisibles que por su misma caradenstica no se pueden advertir razonablemente </p>
-                <p>Como paciente o representante legal, dedaro que conozco y comprendo en su totalidad la explicación antes dada y la posibilidad de que .tos eventos se presenten en el d.arrollo del curso del tratamiento y/o del postoperatorio y acepto todos los riesgos que conlleva los tratamientos a realizar. Acepto que la Odontologia no . una ciencia exada y que con la intervención autorizada se buscara la utilizadón de los medios idóneos para el caso y los resultados no dependen exclusivamente del odontólogo </p>
-                <p>Cedifico que el presente documento ha sido leido y aceptado por mi en su integridad. </p>
+                <p>O de aquellos imprevisibles que por su misma caracteristica no se pueden advertir razonablemente </p>
+                <p>Como paciente o representante legal, declaro que conozco y comprendo en su totalidad la explicación antes dada y la posibilidad de que estos eventos se presenten en el desarrollo del curso del tratamiento y/o del postoperatorio y acepto todos los riesgos que conlleva los tratamientos a realizar. Acepto que la Odontologia no es una ciencia exacta y que con la intervención autorizada se busca la utilización de los medios idóneos para el caso y los resultados no dependen exclusivamente del odontólogo </p>
+                <p>Certifico que el presente documento ha sido leido y aceptado por mi en su integridad. </p>
             </div>
             </div>
             <div class="row">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="col-md-6" style="text-align: center;">
                     <p>_________________________________</p>
-                    <p>Dr. Diego delesús Villalpando Correa</p>
+                    <p>Dr. Diego de Jesús Villalpando Correa</p>
                 </div>
             </div>
             <div class="row">
