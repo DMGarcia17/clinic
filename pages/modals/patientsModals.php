@@ -435,18 +435,39 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="delLabel">Eliminar Alergia</h5>
+        <h5 class="modal-title" id="delLabel">Eliminar Paciente</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <input type="hidden" name="idDel" id="idDel">
-        <p>¿Esta usted seguro que desea eliminar esta alergia?</p>
+        <p>¿Esta usted seguro que desea eliminar este paciente?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-danger" onClick="del($('#idDel').val())">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="delConf" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="delConfLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="delConfLabel">Eliminar Paciente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="iddelConf" id="iddelConf">
+        <p>Si continua se perder&aacute;n todos los datos del paciente, esta acci&oacute;n es permanente y no es recuperable ¿desea continuar?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" onClick="delConf($('#idDel').val())">Continuar</button>
       </div>
     </div>
   </div>

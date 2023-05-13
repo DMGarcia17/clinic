@@ -32,8 +32,8 @@
             <input type="datetime-local" value="<?php echo date('Y') . '-' . date('m') . '-' . date('d').'T'.date('H').':'.date('i'); ?>" name="visitedOn" id="visitedOn" autocomplete="off" class="form-control" disabled>              
           </div>
           <div class="form-group">
-            <label for="visitedOn">Medicamentos recetados</label>
-            <textarea name="medicines" id="medicines" autocomplete="off" class="form-control" rows="3" disabled></textarea>
+            <label for="prescribed">Medicamentos recetados</label>
+            <textarea name="prescribed" id="prescribed" autocomplete="off" class="form-control" rows="3" disabled></textarea>
           </div>
           <div class="form-group">
             <label for="reason">Motivo de la Consulta</label>
@@ -59,22 +59,9 @@
               ?>
             </select>
           </div>
-          <div class="form-group select2-blue">
+          <div class="form-group">
             <label for="diagnosisResume">Diagnostico Bucal</label>
-            <select name="diagnosisResume" id="diagnosisResume" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
-
-              <?php
-                $db = new DatabaseConnection();
-
-                $res = $db->filteredOQuery("diseases", "cod_disease, name", "oral=1", "pr_order asc");
-                foreach($res as $r){
-                  echo '<option value="'.$r['cod_disease'].'">'.$r['name'].'</option>';
-                  //echo '<div class="row">';
-                }
-
-
-              ?>
-            </select>
+            <input type="text" name="diagnosisResume" id="diagnosisResume" class="form-control" autocomplete="off">
           </div>
           <div class="form-group select2-blue">
             <label for="treatmentField">Tratamientos</label><br>

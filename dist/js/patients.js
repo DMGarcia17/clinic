@@ -169,6 +169,11 @@ let edit = (id) => {
 };
 
 let del = (id) => {
+    $('#del').modal('toggle');
+    showDelConf(id);
+}
+
+let delConf = (id) => {
     $.ajax({
         type  : 'post',
         url   : process,
@@ -191,7 +196,7 @@ let del = (id) => {
                   });
 
                   
-                  $('#del').modal('toggle');
+                  $('#delConf').modal('toggle');
 
                   $('#patients').DataTable().ajax.reload();
             }
@@ -200,9 +205,14 @@ let del = (id) => {
       });
 }
 
-let showDelClinic = (id) => {
+let showDelPatient = (id) => {
     $('#idDel').val(id);
     $('#del').modal('toggle');
+}
+
+let showDelConf = (id) => {
+    $('#idDelConf').val(id);
+    $('#delConf').modal('toggle');
 }
 
 let resetForm = ()=>{
@@ -223,7 +233,7 @@ $(document).ready(function() {
             {"data" : "last_visit"},
             {"data" : null, render : function (data, type, row, meta) {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_patient']+')"><i class="fa fa-edit"></i></button><div class="btn-group" role="group"><button class="btn btn-xs btn-warning" onClick="window.location.href=\'http://localhost/clinic/pages/appointments.php?ID='+data['cod_patient']+'\'"><i class="fa fa-tooth"></i></button>'+
-                '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_patient']+')"><i class="fas fa-trash-alt"></i></button></div>';
+                '<button class="btn btn-xs btn-danger" onClick="showDelPatient('+data['cod_patient']+')"><i class="fas fa-trash-alt"></i></button></div>';
             } }
         ],
         autoWidth: false,

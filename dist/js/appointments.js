@@ -8,7 +8,7 @@ let save = (msg) => {
                     'reason' : $('#reason').val(),
                     'comments' : $('#comments').val(),
                     'patient' : $('#patient').val(),
-                    'diagnosisResume' : $('#diagnosisResume').val().join(','),
+                    'diagnosisResume' : $('#diagnosisResume').val(),
                     'systemicDiagnosis' : $('#systemicDiagnosis').val().join(','),
                     'description' : $('#description').val(),
                     'disabilityDays' : $('#disabilityDays').val(),
@@ -55,7 +55,7 @@ let edit = (id) => {
             $('#name').val(json[0]['name']);
             $('#patient').val(json[0]['cod_patient']);
             $('#comments').val(json[0]['comments']);
-            $('#medicines').val(json[0]['medicines']);
+            $('#prescribed').val(json[0]['medicines']);
             try{
                 $('#systemicDiagnosis').val(json[0]['systemic_diagnosis'].split(",")).trigger("change");
             } catch(err){
@@ -67,7 +67,7 @@ let edit = (id) => {
                 console.error(err);
             }
             try{
-                $("#diagnosisResume").val(json[0]['diagnosis_resume'].split(",")).trigger("change");
+                $("#diagnosisResume").val(json[0]['diagnosis_resume'].split(","));
             } catch(err){
                 console.error(err);
             }
@@ -236,6 +236,5 @@ $(document).ready(function() {
     $('#appointmentTag').addClass('active');
     $('#treatmentField').select2();
     $('#systemicDiagnosis').select2();
-    $('#diagnosisResume').select2();
 
 });

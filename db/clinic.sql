@@ -147,7 +147,6 @@ create table files (
 	cod_patient int not null,
 	cod_appointment int,
 	name varchar(1000),
-	constraint fk_patient foreign key (cod_patient) references patients(cod_patient),
 	constraint fk_appointment_f foreign key (cod_appointment) references appointment(cod_appointment)
 );
 
@@ -169,20 +168,6 @@ ALTER TABLE diseases
 ADD diseases_code VARCHAR(250);
 alter table appointment 
 add next_appointment DATETIME;
-
-
-/*
-INSERT INTO clinic.treatments (name,pr_order,description,show_rp,paediatric_treatment) VALUES
-	 ('Radiografía',1,'Las radiografías dentales son un tipo de imagen de los dientes y la boca. Los rayos X son una forma de radiación electromagnética de alta energía y penetran el cuerpo para formar una imagen en una película o en una pantalla.','S','S'),
-	 ('Limpiezas dentales (profilaxis)',2,'Prevención o control de la propagación de una infección o enfermedad.','S','S'),
-	 ('Obturaciones',3,'Una obturación dental es una restauración de algún diente que ha sido dañado por caries.','S','S'),
-	 ('Prótesis Fija',4,'Una prótesis dental consiste en un aparato fabricado a medida de la boca del paciente que sustituye una o varias piezas dentales perdidas. ','S','S'),
-	 ('Prótesis removible',5,'Una prótesis removible es una prótesis que se quita y se pone; sustituye las piezas que hemos perdido en boca de una forma removible, es decir, es un aparato de quita y pon al que se le colocan los dientes que hemos perdido','S','S'),
-	 ('Prótesis Total',6,'Las prótesis dentales totales o completas son dispositivos extraibles que pueden usarse para reemplazar los dientes que faltan.','S','S'),
-	 ('Blanqueamiento dental',7,'El blanqueamiento dental es un tratamiento de odontología estética que tiene por objetivo eliminar las manchas dentales y hacer que la dentición adquiera una tonalidad más blanca y brillante. La actual popularidad de la estética ha convertido a este procedimiento odontológico en uno de los más solicitados de los últimos años.','S','S'),
-	 ('Endodoncia',8,'La endodoncia es un procedimiento que tiene como finalidad preservar las piezas dentales dañadas, evitando así su pérdida. Para ello, se extrae la pulpa dental y la cavidad resultante, se rellena y sella con material inerte y biocompatible.','S','S'),
-	 ('Carillas',9,'Las carillas dentales son uno de los tratamientos con mayor demanda dentro de la especialidad de Odontología Estética.  Y no es de extrañar, pues permite mejorar sustancialmente el aspecto de los dientes de forma muy rápida y eficaz.  De este modo, la persona no necesita someterse a un tratamiento que requiera más tiempo y consigue la estética dental que desea tener. ','S','S');
-*/
 	
 	
 INSERT INTO clinic.treatments (name,pr_order,description,show_rp,paediatric_treatment) VALUES
@@ -232,3 +217,30 @@ alter table appointments
 add oral int;
 alter table clinics
 add wssp_phone varchar(15);
+
+/**
+* Recreate of all constraints for adding cascade clause
+*/
+
+alter table files
+drop foreign key fk_patient;
+
+alter table files
+drop foreign key fk_appointment_f;
+
+alter table files
+add constraint fk_appointment_f
+foreign key (cod_appointment) references appointment(cod_appointment)
+on delete cascade;
+
+alter table appointment
+drop foreign key fk_patients;
+
+alter table appointment
+add constraint fk_patients
+foreign key (cod_patient) references patients(cod_patient)
+on delete cascade;
+
+/**
+* End of recreating
+*/
