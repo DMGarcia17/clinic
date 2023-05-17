@@ -5,10 +5,12 @@ function save($id){
     session_start();
     
     if ($id == null) {
-        $res = $db->insert('appointment', 'cod_patient, reason, comments, diagnosis_resume, treatment, description, disability_days, visited_on, next_appointment, cod_clinic', "'{$_POST['patient']}', '{$_POST['reason']}', '{$_POST['comments']}', '{$_POST['diagnosisResume']}', '{$_POST['treatment']}', '{$_POST['description']}', '{$_POST['disabilityDays']}', STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i'), STR_TO_DATE('{$_POST['nextAppointment']}', '%Y-%m-%dT%T:%i'), '{$_SESSION['codClinic']}'");
-        $res = $db->update('patients', "cod_patient='{$_POST['patient']}'", "systemic_diagnosis='{$_POST['systemicDiagnosis']}'");
+        $res = $db->insert('appointment', 'cod_patient, reason, comments, diagnosis_resume, treatment, description, disability_days, visited_on, next_appointment, cod_clinic', "'{$_POST['patient']}', '{$_POST['reason']}', '{$_POST['comments']}', '{$_POST['diagnosisResume']}', '{$_POST['treatment']}', '{$_POST['description']}', if('{$_POST['disabilityDays']}'='', null, '{$_POST['disabilityDays']}'), STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i'), STR_TO_DATE('{$_POST['nextAppointment']}', '%Y-%m-%dT%T:%i'), '{$_SESSION['codClinic']}'");
+        $res .= '|';
+        $res .= $db->update('patients', "cod_patient='{$_POST['patient']}'", "systemic_diagnosis='{$_POST['systemicDiagnosis']}'");
     }else{
-        $res = $db->update('appointment', "cod_appointment={$_POST['ID']}", "cod_patient='{$_POST['patient']}', reason='{$_POST['reason']}', comments='{$_POST['comments']}', diagnosis_resume='{$_POST['diagnosisResume']}', treatment='{$_POST['treatment']}', description='{$_POST['description']}', disability_days='{$_POST['disabilityDays']}', visited_on=STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i'), next_appointment=STR_TO_DATE('{$_POST['nextAppointment']}', '%Y-%m-%dT%T:%i')");
+        $res = $db->update('appointment', "cod_appointment={$_POST['ID']}", "cod_patient='{$_POST['patient']}', reason='{$_POST['reason']}', comments='{$_POST['comments']}', diagnosis_resume='{$_POST['diagnosisResume']}', treatment='{$_POST['treatment']}', description='{$_POST['description']}', disability_days=if('{$_POST['disabilityDays']}'='', null, '{$_POST['disabilityDays']}'), visited_on=STR_TO_DATE('{$_POST['visitedOn']}', '%Y-%m-%dT%T:%i'), next_appointment=STR_TO_DATE('{$_POST['nextAppointment']}', '%Y-%m-%dT%T:%i')");
+        $res = $db->update('patients', "cod_patient='{$_POST['patient']}'", "systemic_diagnosis='{$_POST['systemicDiagnosis']}'");
     }
     return $res;
 }
@@ -44,6 +46,12 @@ function loadName($id){
     echo json_encode($res);
 }
 
+function loadSystemicDiagnosis($id){
+    $db = new DatabaseConnection();
+    $res = $db->filtered_query('patients p', "systemic_diagnosis", 'cod_patient='.$id);
+    echo json_encode($res);
+}
+
 function delete($id){
     $db = new DatabaseConnection();
     $res = $db->delete('appointment', 'cod_appointment='.$id);
@@ -74,6 +82,9 @@ switch ($key){
         break;
     case 'da':
         delete($_POST['ID']);
+        break;
+    case 'lsp':
+        loadSystemicDiagnosis($_POST['ID']);
         break;
     default:
         query();

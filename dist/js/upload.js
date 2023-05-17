@@ -62,6 +62,14 @@ let createFilesDT = (id) => {
     });
 }
 
+let resetUpload = () => {
+    $('#uploadForm').trigger('reset');
+    if(showed == 1){
+        setTimeout(()=>{$('#add').modal('show');}, 300); 
+    }
+    showed = 0;
+}
+
 var showUploadModal = (id, patient) => {
     $('#upload').modal('toggle');
     let appointment = (id != null) ? id : '0';

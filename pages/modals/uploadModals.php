@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="uploadLabel">Archivos del Paciente</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetUpload()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -29,7 +29,7 @@
                 <div id="targetLayer"></div>
               </div>
               
-            <button type="button" class="btn btn-secondary" onClick="resetForm()">Cancelar</button>
+            <button type="button" class="btn btn-secondary" onClick="resetUpload()">Cancelar</button>
             <button type="submit" class="btn btn-primary" >Guardar</button>
           </div>
         </form>
@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetUpload()">Cerrar</button>
       </div>
     </div>
   </div>

@@ -8,6 +8,9 @@
     if(isset($_GET['ID']) and $_GET['ID'] != ""){
         echo "<input type='hidden' name='patientId' id='patientId' value='{$_GET['ID']}'>";
     }
+    if(isset($_GET['app']) and $_GET['app'] != ""){
+        echo "<input type='hidden' name='appIdCurr' id='appIdCurr' value='{$_GET['app']}'>";
+    }
     
     require_once '../core/Connection.php';
 ?>

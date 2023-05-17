@@ -1,4 +1,5 @@
 const process = '../Controllers/AppointmentsController.php';
+var showed = 0;
 let save = (msg) => {
     $.ajax({
         type  : 'post',
@@ -30,6 +31,7 @@ let save = (msg) => {
                 title: 'Datos guardados!'
                 });
 
+                $('#appIdCurr').val(res.split('|')[0]);
                 
                 $('#add').modal('toggle');
 
@@ -37,10 +39,30 @@ let save = (msg) => {
 
         }
         });
+        
 };
 
-let edit = (id) => {
-    $('#add').modal('toggle');
+let loadSystemicDiag = (idPatient) => {
+    $.ajax({
+        type  : 'post',
+        url   : process,
+        data  : {
+                  'ID': idPatient,
+                  'function' : 'lsp'
+                },
+        success: function (res) {
+            let json = JSON.parse(res);
+            try{
+                $('#systemicDiagnosis').val(json[0]['systemic_diagnosis'].split(",")).trigger("change");
+            } catch(err){
+                console.error(err);
+            }
+
+        }
+      });
+};
+
+let edit = (id, show = 0) => {
     $.ajax({
         type  : 'post',
         url   : process,
@@ -75,9 +97,19 @@ let edit = (id) => {
             $('#nextAppointment').val(json[0]['next_appointment']);
             $('#disabilityDays').val(json[0]['disability_days']);
             $('#visitedOn').val(json[0]['visited_on']);
-
+            console.log(show);
+            if(show != 1){
+                $('#add').modal('show');
+            }
         }
       });
+};
+
+let reLocate = () => {
+    if(typeof $('#patient').val() == 'number' && $('#patient').val() > 0){
+        save();
+        window.location.href = "http://localhost/clinic/pages/appointments.php?app="+$('#appIdCurr').val();
+    }
 };
 
 let findName = (id) => {
@@ -93,6 +125,8 @@ let findName = (id) => {
             $('#name').val(json[0]['name']);
         }
       });
+      
+      loadSystemicDiag($('#patientId').val());
 }
 
 let del = (id) => {
@@ -148,6 +182,8 @@ let showDelClinic = (id) => {
 
 let resetForm = ()=>{
     $('#addForm').trigger("reset");
+    $('#systemicDiagnosis').val('').trigger('change');
+    $('#treatmentField').val('').trigger('change');
 }
 
 $(document).ready(function() {
@@ -156,6 +192,10 @@ $(document).ready(function() {
         findName($('#patientId').val());
         $('#add').modal('toggle');
         $('#patient').val($('#patientId').val());
+    }else if($('#appIdCurr').val() != '' && $('#appIdCurr').val() != undefined){
+        edit($('#appIdCurr').val(),1);
+        showed=1;
+        showUploadModal($('#appIdCurr').val(), $('#patient').val());
     }
 
     $('#appointments').dataTable({
@@ -190,7 +230,7 @@ $(document).ready(function() {
 
     $('#addForm').validate({
         onfocusout: false,
-        rules: {
+        rules: {    
             patient: {
                 required: true
             },
@@ -198,34 +238,10 @@ $(document).ready(function() {
                 required: true,
                 minlength: 1,
                 maxlength: 500
-            },
-            description: {
-                required: true,
-                minlength: 1,
-                maxlength: 500
-            },
-            order: {
-                required: true,
-                number: true,
-                min: 1
-            },
-            showRP: {
-                required: true
-            },
-            pappointment: {
-                required: true
             }
         },
         messages: {
-            name: "Por favor ingrese un nombre de alergia v&aacute;lido, con un ancho entre 1 y 500 caracteres.",
-            description: "Por favor ingrese una descripci&oacute;n valida, con un ancho entre 1 y 500 caracteres.",
-            order: {
-                required: "Este campo es requerido",
-                number: "Por favor, ingrese un valor num&eacute;rico",
-                min: "Por favor ingrese un n&uacute;mero mayor o acaso igual a 1"
-            },
-            showRP: "Por favor seleccione una opci&oacute;n",
-            pappointment: "Por favor seleccione una opci&oacute;n"
+            name: "Por favor ingrese un nombre de alergia v&aacute;lido, con un ancho entre 1 y 500 caracteres."
         },
         submitHandler: function(form) {
             save();

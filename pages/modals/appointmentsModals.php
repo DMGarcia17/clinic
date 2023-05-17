@@ -1,6 +1,6 @@
 <!-- Add or modify modal -->
 <div class="modal fade" id="add" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addLabel">Agregar / Modificar Visita</h5>
@@ -108,14 +108,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="delLabel">Eliminar Tratamiento</h5>
+        <h5 class="modal-title" id="delLabel">Eliminar Consulta M&eacute;dica</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <input type="hidden" name="idDel" id="idDel">
-        <p>¿Esta usted seguro que desea eliminar esta tratamiento?</p>
+        <p>¿Esta usted seguro que desea eliminar esta consulta m&eacute;dica?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

@@ -244,3 +244,12 @@ on delete cascade;
 /**
 * End of recreating
 */
+
+create table invoices (
+	cod_invoice int auto_increment primary key,
+	cod_appointment int not null,
+	amount double,
+	created_at date,
+	paid_at date,
+	constraint fk_app_invoi foreign key (cod_appointment) references appointment (cod_appointment)
+);
