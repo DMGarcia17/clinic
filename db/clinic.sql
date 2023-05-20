@@ -248,8 +248,17 @@ on delete cascade;
 create table invoices (
 	cod_invoice int auto_increment primary key,
 	cod_appointment int not null,
+	treatment varchar(250),
 	amount double,
 	created_at date,
 	paid_at date,
 	constraint fk_app_invoi foreign key (cod_appointment) references appointment (cod_appointment)
+);
+
+create table payments (
+	cod_payment int auto_increment primary key,
+	cod_invoice int not null,
+	amount double,
+	paid_at date,
+	constraint fk_payments foreign key (cod_invoice) references invoices (cod_invoice)
 );
