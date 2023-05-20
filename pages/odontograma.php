@@ -76,13 +76,33 @@
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="radio" class="btn-group btn-group-toggle mb-md-3 act-rad" data-toggle="buttons">
-                            <label for="radio1" class="btn btn-secondary"><input type="radio" id="radio1" name="accion" value="fractura"  />Fractura</label>
-                            <label for="radio2" class="btn btn-secondary"><input type="radio" id="radio2" name="accion" value="restauracion" />Restauracion</label>
-                            <label for="radio4" class="btn btn-secondary"><input type="radio" id="radio4" name="accion" value="extraccion" />Extraccion</label>
-                            <label for="radio5" class="btn btn-secondary"><input type="radio" id="radio5" name="accion" value="csecundaria"checked />Caries Secundaria</label>
-                            <label for="radio3" class="btn btn-secondary"><input type="radio" id="radio3" name="accion" value="borrar" />Borrar</label>
-                            <!--<label for="radio5" class="btn btn-secondary"><input type="radio" id="radio5" name="accion" value="puente" />Puente</label>-->
+                        <div id="radio" class="mb-md-3 act-rad" data-toggle="buttons">
+                            <fieldset>
+                            <!--<input type="radio" id="radio1" name="accion" value="fractura"  /><label for="radio1" >Caries</label>
+                            <input type="radio" id="radio2" name="accion" value="restauracion" /><label for="radio2" >Amalgama</label>
+                            <input type="radio" id="radio5" name="accion" value="fract" /><label for="radio5" >Fractura</label>
+                            <input type="radio" id="radio5" name="accion" value="csecundaria" /><label for="radio5" >Caries Secundaria</label>
+                            <input type="radio" id="radio5" name="accion" value="rradiculares" /><label for="radio5" >Restos Radiculares</label>
+                            <input type="radio" id="radio5" name="accion" value="tcaries" /><label for="radio5" >Tratamiento de Caries</label>
+                            <input type="radio" id="radio5" name="accion" value="endodoncia" /><label for="radio5" >Endodoncia</label>
+                            <input type="radio" id="radio5" name="accion" value="iendo" /><label for="radio5" >Indicación por endodoncia</label>
+                            <input type="radio" id="radio5" name="accion" value="pieza" /><label for="radio5" >Ausencia de pieza</label>
+                            <input type="radio" id="radio4" name="accion" value="extraccion" /><label for="radio4" >Indicada para extraccion</label>
+                            <input type="radio" id="radio3" name="accion" value="borrar" /><label for="radio3" >Borrar</label>-->
+                            <select name="accion" id="" class="form-control">
+                                <option value="fractura">Caries</option>
+                                <option value="restauracion">Amalgama</option>
+                                <option value="fract">Fractura</option>
+                                <option value="csecundaria">Caries Secundaria</option>
+                                <option value="rradiculares">Restos Radiculares</option>
+                                <option value="tcaries">Tratamiento de Caries</option>
+                                <option value="endodoncia">Endodoncia</option>
+                                <option value="iendo">Indicación por endodoncia</option>
+                                <option value="pieza">Ausencia de pieza</option>
+                                <option value="extraccion">Indicada para extraccion</option>
+                                <option value="borrar">Borrar</option>
+                            </select>
+                            </fieldset><!--<label for="radio5" class="btn btn-secondary"><input type="radio" id="radio5" name="accion" value="puente" />Puente</label>-->
                         </div>
                     </div>
                 </div>

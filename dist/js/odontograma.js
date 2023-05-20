@@ -4,7 +4,7 @@ $(function() {
     
     $('.info-pt').fadeOut(0);
     $('#radio').change(function () {
-        accion = $("input[name='accion']:checked").val();
+        accion = $("select[name='accion']").val();
         if(accion=='borrar'){
             $("#radio_seccion").fadeIn(200);
         }else{
@@ -507,7 +507,7 @@ function getPosition(event){
     var div=0;
     var color='';
     accion='';
-    seleccion = $("input[name='accion']:checked").val();
+    seleccion = $("select[name='accion']").val();
     if (seleccion == 'fractura'){
         color = 'red';
         accion = 'seccion';
@@ -519,6 +519,34 @@ function getPosition(event){
     else if(seleccion=='extraccion'){
         color = 'black';
         accion = 'marcar';
+    }
+    else if(seleccion=='csecundaria'){
+        color = '#ffea61';
+        accion = 'seccion';
+    }
+    else if(seleccion=='fract'){
+        color = '#5a3825';
+        accion = 'seccion';
+    }
+    else if(seleccion=='rradiculares'){
+        color = '#000000';
+        accion = 'seccion';
+    }
+    else if(seleccion=='tcaries'){
+        color = '#dbc500';
+        accion = 'seccion';
+    }
+    else if(seleccion=='endodoncia'){
+        color = '#db8000';
+        accion = 'seccion';
+    }
+    else if(seleccion=='iendo'){
+        color = '#00db8b';
+        accion = 'seccion';
+    }
+    else if(seleccion=='pieza'){
+        color = '#a400db';
+        accion = 'seccion';
     }
     else if(seleccion=='puente'){
         accion = 'puente';
@@ -730,7 +758,7 @@ function getPosition(event){
                         diente_comp = parseInt(item[0],10);
                         seccion_comp = parseInt(item[1],10);
                         accion_comp = parseInt(item[2],10);
-                        if(diente_comp==diente && seccion_b==seccion_comp && (accion_comp==1 || accion_comp==2)){
+                        if(diente_comp==diente && seccion_b==seccion_comp && (accion_comp==1 || accion_comp==2|| accion_comp==5|| accion_comp==6|| accion_comp==7|| accion_comp==8|| accion_comp==9|| accion_comp==10|| accion_comp==11|| accion_comp==12)){
                             if(ultimo==''){
                                 ultimo=item;
                                 key_cod=key_name;
@@ -793,6 +821,30 @@ function getPosition(event){
         }else if (color=='blue'){
             cod=diente+'-'+seccion+'-'+'2';
             accion_g = 2;
+        }else if (color=='#630000'){
+            cod=diente+'-'+seccion+'-'+'5';
+            accion_g = 5;
+        }else if (color=='#a400db'){
+            cod=diente+'-'+seccion+'-'+'6';
+            accion_g = 6;
+        }else if (color=='#00db8b'){
+            cod=diente+'-'+seccion+'-'+'7';
+            accion_g = 7;
+        }else if (color=='#db8000'){
+            cod=diente+'-'+seccion+'-'+'8';
+            accion_g = 8;
+        }else if (color=='#dbc500'){
+            cod=diente+'-'+seccion+'-'+'9';
+            accion_g = 9;
+        }else if (color=='#000000'){
+            cod=diente+'-'+seccion+'-'+'10';
+            accion_g = 10;
+        }else if (color=='#ffea61'){
+            cod=diente+'-'+seccion+'-'+'11';
+            accion_g = 11;
+        }else if (color=='#5a3825'){
+            cod=diente+'-'+seccion+'-'+'12';
+            accion_g = 12;
         };
         if(cod && !localStorage.getItem(cod)){
             new_array=[diente, seccion, accion_g, Date.now(), 0];
@@ -816,7 +868,7 @@ function getPosition(event){
         }
         
     }
-    if ( 'borrar' == $("input[name='accion']:checked").val()){
+    if ( 'borrar' == $("select[name='accion']").val()){
         //alert("x-> "+x+" y-> "+y);
         //ctx4.clearRect(0, 0, 810, 510);
         
@@ -960,12 +1012,30 @@ function Marcar(event){
     //alert('Altura: '+y);
     //alert('diente: '+diente);
     if (diente) {
-        accion = $("input[name='accion']:checked").val();
+        accion = $("select[name='accion']").val();
         var seleccion = '';
         if (accion == 'fractura'){
             seleccion = 'seccion';
         }
         else if(accion=='restauracion'){
+            seleccion = 'seccion';
+        }
+        else if(accion=='fract'){
+            seleccion = 'seccion';
+        }
+        else if(accion=='rradiculares'){
+            seleccion = 'seccion';
+        }
+        else if(accion=='tcaries'){
+            seleccion = 'seccion';
+        }
+        else if(accion=='endodoncia'){
+            seleccion = 'seccion';
+        }
+        else if(accion=='iendo'){
+            seleccion = 'seccion';
+        }
+        else if(accion=='pieza'){
             seleccion = 'seccion';
         }
         else if(accion=='extraccion'){
@@ -1054,6 +1124,30 @@ function pinta_datos(){
                 dibuja_seccion(ctx2, item[0], item[1], color);
             }else if (acc==2){
                 color='blue';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==5){
+                color='#630000';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==6){
+                color='#a400db';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==7){
+                color='#00db8b';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==8){
+                color='#db8000';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==9){
+                color='#dbc500';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==10){
+                color='#000000';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==11){
+                color='#ffea61';
+                dibuja_seccion(ctx2, item[0], item[1], color);
+            }else if (acc==12){
+                color='#5a3825';
                 dibuja_seccion(ctx2, item[0], item[1], color);
             }else if (acc==3){
                 marcar_extraccion(ctx2, item[0], 'black');
