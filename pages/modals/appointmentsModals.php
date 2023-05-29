@@ -43,21 +43,9 @@
             <label for="comments">Caracteristicas Cl&iacute;nicas y Radiograficas</label>
             <input type="text" name="comments" id="comments" autocomplete="off" class="form-control">
           </div>
-          <div class="form-group select2-blue">
+          <div class="form-group">
             <label for="systemicDiagnosis">Enfermedades Sistemicas</label>
-            <select name="systemicDiagnosis" id="systemicDiagnosis" class="select2 select2-hidden-accessible" style="width: 100%;" multiple>
-
-              <?php
-                $db = new DatabaseConnection();
-
-                $res = $db->filteredOQuery("diseases", "cod_disease, name", "oral=0", "pr_order asc");
-                foreach($res as $r){
-                  echo '<option value="'.$r['cod_disease'].'">'.$r['name'].'</option>';
-                }
-
-
-              ?>
-            </select>
+            <input type="text" name="systemicDiagnosis" id="systemicDiagnosis" class="form-control">
           </div>
           <div class="form-group">
             <label for="diagnosisResume">Diagnostico Bucal</label>

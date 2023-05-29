@@ -135,15 +135,43 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Fractura</td>
+                            <td>Caries</td>
                             <td><div style="background-color: red !important; min-width: 3rem; min-height: 1rem;"></div></td>
                         </tr>
                         <tr>
-                            <td>Restauraci&oacute;n</td>
+                            <td>Amalgama</td>
                             <td><div style="background-color: blue !important; min-width: 3rem; min-height: 1rem;"></div></td>
                         </tr>
                         <tr>
-                            <td>Extracci&oacute;n</td>
+                            <td>Fractura</td>
+                            <td><div style="background-color: #5a3825 !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Caries Secundaria</td>
+                            <td><div style="background-color: #ffea61 !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Restos radiculares</td>
+                            <td><div style="background-color: #000 !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Tratamiento de Caries</td>
+                            <td><div style="background-color: #dbc500 !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Endodoncia</td>
+                            <td><div style="background-color: #db8000 !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Indicación por endodoncia</td>
+                            <td><div style="background-color: #00db8b !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Ausencia de pieza</td>
+                            <td><div style="background-color: #a400db !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                        </tr>
+                        <tr>
+                            <td>Indicada para Extracci&oacute;n</td>
                             <td style="font-size:1.5rem;">&times;</td>
                         </tr>
                     </tbody>

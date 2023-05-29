@@ -1023,6 +1023,9 @@ function Marcar(event){
         else if(accion=='fract'){
             seleccion = 'seccion';
         }
+        else if(accion=='csecundaria'){
+            seleccion = 'seccion';
+        }
         else if(accion=='rradiculares'){
             seleccion = 'seccion';
         }

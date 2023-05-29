@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(!isset($_SESSION['codClinic'])){
+    header("Location: http://localhost/clinic/login.php?error=1"); 
+}
+
+require_once '../core/Connection.php';
+$db = new DatabaseConnection();
+
+
+
+?>
+
 <html lang="es"><!-- Copyright 2020 Christoph A. Ramseier.
      All rights reserved. --><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -76,15 +89,69 @@
         }
     }    
 </script>
+<style>
+    .info-patient{
+        position: absolute;
+        z-index: 90;
+        width: 98.9vw;
+    }
+
+    .font{
+        font-family: Arial;
+    }
+</style>
 </head>
 
 <body>
 <div id="form_periodontal_chart">
 <form autocomplete="off" oninput="calc();">
 
-        <div id="periodontal_chart_teeth">
-            <img src="./img/svg/svg_teeth.svg" height="1600" width="1200">
+    <div id="periodontal_chart_teeth">
+        <img src="./img/svg/svg_teeth.svg" height="1600" width="1200">
+    </div>
+    <div id="periodontal_chart_teeth">
+        <img src="http://localhost/clinic/dist/img/logo_color_trs.png" style="height: 10rem; padding: 3rem;">
+    </div>
+    <div class="info-patient">
+        
+        <?php 
+        $res = $db->filtered_query("clinics", "clinic_name, address, phone_number, wssp_phone", "cod_clinic='{$_SESSION['codClinic']}'");
+        if (count($res[0]) <= 0 || !isset($_GET['id'])){
+            header("Location: http://localhost/clinic/pages/appointments.php"); 
+        }
+        echo "<h3 class='font' style='text-align: center; font-size: 2rem;
+        padding-top: 5vw;'>
+                    {$res[0]['clinic_name']}
+                    <br/>
+                    <small style='color: #6c757d !important;'>Estamos ubicados en {$res[0]['address']}</small>
+                </h3>
+                <h6 style='color:#0a07ba !important;text-align: center;' class='font'>Nuestro n&uacute;mero de tel&eacute;fono: &nbsp;<em class='fas fa-phone'></em> {$res[0]['phone_number']}&nbsp; o si lo prefieres b&uacute;scanos en WhatsApp: &nbsp;<em class='fa-brands fa-whatsapp' style='color: #04bd04 !important;'></em> {$res[0]['wssp_phone']}</h6>";
+        
+        ?>
+        <h3 style="
+        font-family: Arial;
+        font-weight: bold;
+        text-align: center;">Periodontograma</h3>
+        <div class="font">
+            <div style="width: 50vw; float: left;">
+            <?php
+                $res = $db->filtered_query("patients p", "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", "p.cod_patient='{$_GET['id']}'");
+                if (count($res[0]) <= 0){
+                    header("Location: http://localhost/clinic/pages/appointments.php"); 
+                }
+                echo "<span  style='padding-left: 15vw; font-weight: bold;'>Nombre del paciente: </span><span class='Font-weight-normal'>{$res[0]['name']}</span>"
+            ?>
+            
+                <!--<span style="padding-left: 15vw;">Nombre del paciente: </span>-->
+            </div>
+            <div style="width: 30%; float: right;">
+                <?php echo "<span style='font-weight: bold;'>Fecha: ".date('d') . '-' . date('m') . '-' . date('Y')."</span>"; ?>
+            </div>
         </div>
+    </div>
+    <div class="info-patient">
+
+    </div>
         
         <div id="periodontal_chart_grids">
             <img src="./img/svg/en-svg_grids-01.svg" height="1600" width="1200">
