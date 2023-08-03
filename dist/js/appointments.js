@@ -212,6 +212,7 @@ $(document).ready(function() {
                 '<button class="btn btn-xs btn-default" onClick="mpp('+data['cod_appointment']+')"><i class="fas fa-prescription-bottle-medical"></i></button>'+
                 '<button class="btn btn-xs btn-default" onClick="showPrintsModal('+data['cod_appointment']+', '+data['cod_patient']+', '+data['disability_days']+')"><i class="fas fa-print"></i></button>'+
                 '<button class="btn btn-xs btn-default" onClick="showUploadModal('+data['cod_appointment']+', '+data['cod_patient']+')"><i class="fas fa-archive"></i></button>'+
+                '<button class="btn btn-xs btn-default" onClick="showInvoicesModal('+data['cod_appointment']+', '+data['cod_patient']+')"><i class="fas fa-dollar"></i></button>'+
                 '<button class="btn btn-xs btn-danger" onClick="showDelClinic('+data['cod_appointment']+')"><i class="fas fa-trash-alt"></i></button></div>';
             } }
         ],

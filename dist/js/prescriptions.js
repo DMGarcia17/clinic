@@ -145,6 +145,9 @@ let createNewPrescription = () => {
         success: function (res) {
             if (typeof parseInt(res) == 'number'){
                 $('#idPrescription').val(parseInt(res));
+                if ( $.fn.DataTable.isDataTable( '#medicines' ) ) {
+                    $('#medicines').DataTable().destroy();
+                }
                 createMedicinesDT($('#idPrescription').val());
                 $('#medicinesContainer').fadeIn();
                 $('#prescriptions').DataTable().ajax.reload();
@@ -190,7 +193,7 @@ let createMedicinesDT = (id) => {
 
 let medicines = (id) =>{
     $('#idPrescription').val(id);
-    if($('#idPrescription').val() != '' && $('#idPrescription').val() != null){
+    if(id != null){
         $('#medicinesContainer').fadeIn();
         $('#createPr').prop('disabled', true);
         if ( ! $.fn.DataTable.isDataTable( '#medicines' ) ) {
@@ -201,10 +204,16 @@ let medicines = (id) =>{
             medicines(id);
         }
     }else{
+        $('#createPr').prop('disabled', false);
         $('#medicinesContainer').fadeOut(0);
     }
     $('#addMedicines').modal('toggle');
     
+}
+
+let resetOnClose = () => {
+    $('#idPrescription').val('');
+    resetMedicineForm();
 }
 
 let resetMedicineForm = () => {

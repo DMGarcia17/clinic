@@ -95,7 +95,7 @@
                                 <option value="fract">Fractura</option>
                                 <option value="csecundaria">Caries Secundaria</option>
                                 <option value="rradiculares">Restos Radiculares</option>
-                                <option value="tcaries">Tratamiento de Caries</option>
+                                <option value="tcaries">Resina</option>
                                 <option value="endodoncia">Endodoncia</option>
                                 <option value="iendo">Indicación por endodoncia</option>
                                 <option value="pieza">Ausencia de pieza</option>
@@ -148,15 +148,15 @@
                         </tr>
                         <tr>
                             <td>Caries Secundaria</td>
-                            <td><div style="background-color: #ffea61 !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                            <td><div style="background-color: #fa00ab !important; min-width: 3rem; min-height: 1rem;"></div></td>
                         </tr>
                         <tr>
                             <td>Restos radiculares</td>
                             <td><div style="background-color: #000 !important; min-width: 3rem; min-height: 1rem;"></div></td>
                         </tr>
                         <tr>
-                            <td>Tratamiento de Caries</td>
-                            <td><div style="background-color: #dbc500 !important; min-width: 3rem; min-height: 1rem;"></div></td>
+                            <td>Resina</td>
+                            <td><div style="background-color: #fcf403 !important; min-width: 3rem; min-height: 1rem;"></div></td>
                         </tr>
                         <tr>
                             <td>Endodoncia</td>

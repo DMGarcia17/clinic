@@ -105,6 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Modal -->
 <?php include_once 'modals/appointmentsModals.php' ?>
 <?php include_once 'modals/uploadModals.php' ?>
+<?php include_once 'modals/PaymentsModals.php' ?>
 <!-- REQUIRED SCRIPTS -->
 <?php include_once $base.'fragments/scripts.php' ?>
 <script src='<?php echo $base."plugins/select2/js/select2.min.js"?>'></script>
@@ -112,6 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Data table files -->
 <script src='<?php echo $base."dist/js/upload.js" ?>'></script>
 <script src='<?php echo $base."dist/js/prescriptions.js" ?>'></script>
+<script src='<?php echo $base."dist/js/invoices.js" ?>'></script>
 <script src='<?php echo $base."dist/js/appointments.js" ?>'></script>
 </body>
 </html>

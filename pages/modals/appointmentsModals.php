@@ -150,7 +150,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addMedicinesLabel">Agregar / Modificar Medicamentos Recetados</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetOnClose()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -185,7 +185,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" onClick="resetOnClose()">Cerrar</button>
       </div>
     </div>
   </div>
@@ -222,7 +222,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addMedicineLabel">Agregar / Modificar Medicamento</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetMedicineForm()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

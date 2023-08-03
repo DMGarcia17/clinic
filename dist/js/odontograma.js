@@ -521,7 +521,7 @@ function getPosition(event){
         accion = 'marcar';
     }
     else if(seleccion=='csecundaria'){
-        color = '#ffea61';
+        color = '#fa00ab';
         accion = 'seccion';
     }
     else if(seleccion=='fract'){
@@ -533,7 +533,7 @@ function getPosition(event){
         accion = 'seccion';
     }
     else if(seleccion=='tcaries'){
-        color = '#dbc500';
+        color = '#fcf403';
         accion = 'seccion';
     }
     else if(seleccion=='endodoncia'){
@@ -833,13 +833,13 @@ function getPosition(event){
         }else if (color=='#db8000'){
             cod=diente+'-'+seccion+'-'+'8';
             accion_g = 8;
-        }else if (color=='#dbc500'){
+        }else if (color=='#fcf403'){
             cod=diente+'-'+seccion+'-'+'9';
             accion_g = 9;
         }else if (color=='#000000'){
             cod=diente+'-'+seccion+'-'+'10';
             accion_g = 10;
-        }else if (color=='#ffea61'){
+        }else if (color=='#fa00ab'){
             cod=diente+'-'+seccion+'-'+'11';
             accion_g = 11;
         }else if (color=='#5a3825'){
@@ -1141,13 +1141,13 @@ function pinta_datos(){
                 color='#db8000';
                 dibuja_seccion(ctx2, item[0], item[1], color);
             }else if (acc==9){
-                color='#dbc500';
+                color='#fcf403';
                 dibuja_seccion(ctx2, item[0], item[1], color);
             }else if (acc==10){
                 color='#000000';
                 dibuja_seccion(ctx2, item[0], item[1], color);
             }else if (acc==11){
-                color='#ffea61';
+                color='#fa00ab';
                 dibuja_seccion(ctx2, item[0], item[1], color);
             }else if (acc==12){
                 color='#5a3825';

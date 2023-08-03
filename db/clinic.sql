@@ -252,7 +252,7 @@ create table invoices (
 	amount double,
 	created_at date,
 	paid_at date,
-	constraint fk_app_invoi foreign key (cod_appointment) references appointment (cod_appointment)
+	constraint fk_app_invoi foreign key (cod_appointment) references appointment (cod_appointment) on delete cascade
 );
 
 create table payments (
@@ -260,5 +260,5 @@ create table payments (
 	cod_invoice int not null,
 	amount double,
 	paid_at date,
-	constraint fk_payments foreign key (cod_invoice) references invoices (cod_invoice)
+	constraint fk_payments foreign key (cod_invoice) references invoices (cod_invoice) on delete cascade
 );
