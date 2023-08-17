@@ -50,29 +50,57 @@
                     if (count($res[0]) <= 0){
                         header("Location: http://localhost/clinic/pages/appointments.php"); 
                     }
-                    echo "<span><span class='font-weight-bold'></span>{$res[0]['name']}</span>";
+                    echo "<span class='font-weight-bold'><span ></span>{$res[0]['name']}</span>";
                 ?>
                 identificado (a) como aparece al pie de mi firma, por medio del presente documento, en nombre propio o en mi calidad de representante legal del paciente en pleno y normal uso de mis facultades mentales otorgo en forma libre mi consentimiento al odontólogo (a)
-                <?php echo $resUser[0]['complete_name'] ?> 
+                <span class='font-weight-bold'><?php echo $resUser[0]['complete_name'] ?> </span>
                 , asi como de los auxiliares y técnicos en ejercicio legal de su profesión, practiquen el siguiente tratamiento odontológico y/o intervención quirúrgica a través de los siguientes procedimientos: 
                 </p>
-                <br>
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <p class='font-weight-bold'><?php echo $_POST['procedures'] ?></p>
                 <p style="text-align: justify;">
-                    El pronóstico del tratamiento a realizar es: Bueno: _____, Regular:_____ Malo:_____ .
+                    <?php 
+                        switch($_POST['prognosis']){
+                            case 'B':
+                                echo "El pronóstico del tratamiento a realizar es: Bueno: __<span class='font-weight-bold'>X</span>__, Regular:_____, Malo:_____ .";
+                                break;
+                            case 'R':
+                                echo "El pronóstico del tratamiento a realizar es: Bueno: _____, Regular:__<span class='font-weight-bold'>X</span>__, Malo:_____ .";
+                                break;
+                            case 'M':
+                                echo "El pronóstico del tratamiento a realizar es: Bueno: _____, Regular:_____, Malo:__<span class='font-weight-bold'>X</span>__ .";
+                                break;
+                            default:
+                                echo "El pronóstico del tratamiento a realizar es: Bueno: _____, Regular:_____, Malo:_____ .";
+                                break;
+                        }
+                    ?>    
+                    
                 </p>
                 <p>Asi mismo quedan autorizados para llevar a cabo o solicitar la práctica de conductas o procedimientos odontológicos adicionales a los ya autorizados en el punto anterior, cuando el resultado del tratamiento asi lo requiera. </p>
                 <p>Se informa de la existencia de riesgos asi: </p>
                 <p>Generales:</p>
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <?php 
+                    if (isset($_POST['generalRisk'])){
+                        echo "<p class='font-weight-bold'>{$_POST['generalRisk']}</p>";
+                    }else{
+                        echo '<hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">';
+                    }
+                ?>
+                
                 <p>Especificos: </p>
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <?php 
+                    if (isset($_POST['specificRisk'])){
+                        echo "<p class='font-weight-bold'>{$_POST['specificRisk']}</p>";
+                    }else{
+                        echo '<hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">';
+                    }
+                ?>
                 <p>O de aquellos imprevisibles que por su misma caracteristica no se pueden advertir razonablemente </p>
                 <p>Como paciente o representante legal, declaro que conozco y comprendo en su totalidad la explicación antes dada y la posibilidad de que estos eventos se presenten en el desarrollo del curso del tratamiento y/o del postoperatorio y acepto todos los riesgos que conlleva los tratamientos a realizar. Acepto que la Odontologia no es una ciencia exacta y que con la intervención autorizada se busca la utilización de los medios idóneos para el caso y los resultados no dependen exclusivamente del odontólogo </p>
                 <p>Certifico que el presente documento ha sido leido y aceptado por mi en su integridad. </p>
@@ -80,11 +108,11 @@
             </div>
             <div class="row">
                 <div class="col-md-6" style="text-align: center;">
-                    <p>_________________________________</p>
+                    <span>_________________________________</span>
                     <p>Firma del Paciente</p>
                 </div>
                 <div class="col-md-6" style="text-align: center;">
-                    <p>_________________________________</p>
+                    <span>_________________________________</span>
                     <p>Dr. Diego de Jesús Villalpando Correa</p>
                 </div>
             </div>

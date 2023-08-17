@@ -175,6 +175,18 @@ let showIncapabilityModal = (appointment, patient) => {
     $('#inabilityDays').val($('#daysOff').val());
 }
 
+let showAuth1Modal = (appointment, patient) => {
+    $('#prints').modal('toggle');
+    $('#auth1').modal('toggle');
+    $('#auth1Form').attr('action', 'http://localhost/clinic/pages/authorization.php?id='+appointment+'&p='+patient);
+}
+
+let showAuth2Modal = (appointment, patient) => {
+    $('#prints').modal('toggle');
+    $('#auth2').modal('toggle');
+    $('#auth2Form').attr('action', 'http://localhost/clinic/pages/consent.php?id='+appointment+'&p='+patient);
+}
+
 let showDelClinic = (id) => {
     $('#idDel').val(id);
     $('#del').modal('toggle');

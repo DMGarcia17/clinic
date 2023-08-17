@@ -317,7 +317,7 @@
               <div class="row">
                 <div class="col-md-9"><span>Consentimiento informado para la practica de tratamientos odontologicos, e intervenciones quirúrgicas y/o procedimientos especiales</span></div>
                 <div class="col-md-3">
-                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/pages/authorization.php?id="+$("#idMDAppointment").val()+"&p="+$("#idMDPatient").val();'>Abrir</button>
+                  <button type="button" class="btn btn-primary" onClick="showAuth1Modal($('#idMDAppointment').val(), $('#idMDPatient').val())">Abrir</button>
                 </div>
               </div>
             </div>
@@ -327,7 +327,7 @@
               <div class="row">
                 <div class="col-md-9"><span>Consentimiento Informado Para Tratamientos Odontol&oacute;gicos</span></div>
                 <div class="col-md-3">
-                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/pages/consent.php?id="+$("#idMDAppointment").val()+"&p="+$("#idMDPatient").val();'>Abrir</button>
+                  <button type="button" class="btn btn-primary" onClick="showAuth2Modal($('#idMDAppointment').val(), $('#idMDPatient').val())">Abrir</button>
                 </div>
               </div>
             </div>
@@ -373,6 +373,108 @@
             <label for="cause">Motivo de la incapacidad</label>
             <input type="text" name="cause" id="cause" class="form-control" autocomplete="off">
           </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+      </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Fill data for intervention large modal -->
+<div class="modal fade" id="auth1" data-backdrop="static" data-keyboard="false" aria-labelledby="auth1Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="auth1Label">Llenado de datos para "CONSENTIMIENTO INFORMADO PARA LA PRACTICA DE TRATAMIENTOS ODONTOLOGICOS, E INTERVENCIONES QUIRÚRGICAS Y/O PROCEDIMIENTOS ESPECIALES"</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form id="auth1Form" method="post" action="">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="odontoAuth1">Nombre del Odontologo(a)</label>
+          <input type="text" name="odontoAuth1" id="odontoAuth1" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="procedures">Procedimientos a aplicar</label>
+          <input type="text" name="procedures" id="procedures" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="prognosis">Pron&oacute;stico</label>
+          <select type="text" name="prognosis" id="prognosis" class="form-control" autocomplete="off">
+            <option value="B">Bueno</option>
+            <option value="R">Regular</option>
+            <option value="M">Malo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="generalRisk">Riesgos Generales</label>
+          <input type="text" class="form-control" name="generalRisk" id="generalRisk" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="specificRisk">Riesgos Específicos</label>
+          <input type="text" class="form-control" name="specificRisk" id="specificRisk" autocomplete="off">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+      </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Fill data for Consent small modal -->
+<div class="modal fade" id="auth2" data-backdrop="static" data-keyboard="false" aria-labelledby="auth2Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="auth2Label">Llenado de datos para "CONSENTIMIENTO INFORMADO PARA LA PRACTICA DE TRATAMIENTOS ODONTOL&Oacute;GICOS"</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="resetForm()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form id="auth2Form" method="post" action="">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="odontoAuth2">Nombre del Odontologo(a)</label>
+          <input type="text" name="odontoAuth2" id="odontoAuth2" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="cop">COP</label>
+          <input type="text" name="cop" id="cop" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="proceduresAuth2">Procedimientos a aplicar</label>
+          <input type="text" name="proceduresAuth2" id="proceduresAuth2" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="descProcedures">Descripci&oacute;n de los procedimientos a aplicar</label>
+          <input type="text" name="descProcedures" id="descProcedures" class="form-control" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="benefits">Beneficios del Tratamiento</label>
+          <input type="text" class="form-control" name="benefits" id="benefits" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="consequences">En caso de no realizar el tratamiento, las consecuenias ser&aacute;n</label>
+          <input type="text" class="form-control" name="consequences" id="consequences" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="specificRiskAuth2">Riesgos del Tratamiento</label>
+          <input type="text" class="form-control" name="specificRiskAuth2" id="specificRiskAuth2" autocomplete="off">
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetForm()">Cancelar</button>

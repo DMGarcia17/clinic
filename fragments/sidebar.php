@@ -59,7 +59,7 @@
                         <p>Cl&iacute;nicas</p>
                     </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="http://localhost/clinic/pages/diseases.php" class="nav-link" id="diseasesTagMenu">
                             <em class="fa fa-disease nav-icon"></em>
                             <p>Enfermedades</p>
@@ -70,7 +70,7 @@
                             <em class="fa fa-hand-dots nav-icon"></em>
                             <p>Alergias</p>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a href="http://localhost/clinic/pages/treatments.php" class="nav-link" id="treatmentsTagMenu">
                             <em class="fa fa-syringe nav-icon"></em>

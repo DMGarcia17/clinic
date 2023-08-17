@@ -54,26 +54,66 @@
                 ?>
                 autorizo al Cirujano Dentista 
                 <?php echo $resUser[0]['complete_name'] ?> 
-                con registro profesional (COP ________________) a realizarme ___________________________________________________________________________.
+                con registro profesional (COP
+                <?php
+                    if (isset($_POST['cop'])){
+                        echo $_POST['cop'];
+                    }else{
+                        echo '________________';
+                    }
+                ?>
+                ) a realizarme 
+                <?php
+                    if (isset($_POST['proceduresAuth2'])){
+                        echo $_POST['proceduresAuth2'];
+                    }else{
+                        echo '___________________________________________________________________________';
+                    }
+                ?>.
                 <br>
-                El tratamiento consistira en:  
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <br>
+                El tratamiento consistira en:
+                <?php
+                    if (isset($_POST['descProcedures'])){
+                        echo "<p>{$_POST['descProcedures']}</p>";
+                    }else{
+                        echo '<hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;"><br>';
+                    }
+                ?>
                 Los beneficios del tratamiento son:
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <?php
+                    if (isset($_POST['benefits'])){
+                        echo "<p>{$_POST['benefits']
+                        }</p>";
+                    }else{
+                        echo '<hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">';
+                    }
+                ?>
+                
                 y mi negación al tratamiento traer&iacute;an consecuencias tales como:
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <?php
+                    if (isset($_POST['consequences'])){
+                        echo $_POST['consequences'];
+                    }else{
+                        echo '<hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">';
+                    }
+                ?>
                 Existen riesgos que pueden surgir en el curso del tratamiento, tales como:
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
-                <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                <?php
+                    if (isset($_POST['specificRiskAuth2'])){
+                        echo $_POST['specificRiskAuth2'];
+                    }else{
+                        echo '<hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">
+                        <hr style="border: none; height: 1px; color: #333; background-color: #333;">';
+                    }
+                ?>
                 </p>
                 <br>
                 <p>Autorizo que se obtengan (marque la opci&oacute;n que desee):</p>
@@ -102,11 +142,11 @@
             </div>
             <div class="row">
                 <div class="col-md-6" style="text-align: center;">
-                    <p>_________________________________</p>
+                    <span>_________________________________</span>
                     <p>Firma del Paciente</p>
                 </div>
                 <div class="col-md-6" style="text-align: center;">
-                    <p>_________________________________</p>
+                    <span>_________________________________</span>
                     <p>Dr. Diego de Jesús Villalpando Correa</p>
                 </div>
             </div>
