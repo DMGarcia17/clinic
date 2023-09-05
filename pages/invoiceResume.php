@@ -83,7 +83,7 @@
                         header("Location: http://localhost/clinic/pages/appointments.php"); 
                     }
                     foreach($res as $r){
-                        echo "<span class='font-weight-bold'>Tratamiento aplicado: <span class='font-weight-normal'>{$r['treatment']}</span></span>";
+                        echo "<span class='font-weight-bold'>Tratamiento aplicado: <span class='font-weight-normal'>{$r['treatment']}</span> </br>Monto Total por el Tratamiento: <span class='font-weight-normal'>". sprintf('$%01.2f', $r['amount']) ."</span></span>";
 
                         $payments = $db->filteredOquery('payments p', "cod_payment, cod_invoice, amount, date_format(paid_at, '%d/%m/%Y') paid_at", "p.cod_invoice=".$r['cod_invoice'], 'paid_at asc');
                         if (count($res[0]) <= 0){
@@ -92,6 +92,9 @@
                         echo "<h6>Historial de Pagos:</h6>";
                         foreach($payments as $p){
                             echo "<p>&nbsp;&nbsp;&nbsp;Monto: ". sprintf('$%01.2f', $p['amount']) ." - Pago realizado en: {$p['paid_at']}</p>";
+                        }
+                        if (count($payments) == 0) {
+                            echo "<p>*** NO HAY PAGOS A LA FECHA. ***</p>";
                         }
                         echo "<h6>Saldo restante: <span class='font-weight-normal'>".sprintf('$%01.2f', $r['paid'])."</span></h6>";
                     }

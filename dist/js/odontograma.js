@@ -83,22 +83,23 @@ function dibuja_seccion(contexto, num_diente, seccion, color_pas){
     med = medida;
     cua = med/4;
     ter = cua*3;
-    num_diente = num_diente - 1;
+    num_diente = num_diente - 1;console.log('Num diente Antes: '+num_diente);
     color_line = color_pas;
     if (num_diente<16){
         inicio_y = 20;
     }else if(num_diente > 16 && num_diente < 33){
         num_diente = num_diente - 16;
         inicio_y = med + 100;
-    }else if(num_diente > 33 && num_diente < 49){
+    }else if(num_diente > 33 && num_diente < 48){
         num_diente = num_diente - 32;
         inicio_y = med + 220;
         
-    }else if(num_diente > 49){
+    }else if(num_diente >= 48){
         num_diente = num_diente - 48;
         inicio_y = med + 340;
         
     }
+    console.log('Num diente: '+num_diente);
     inicio_x = (num_diente*med) + (separacion_x*num_diente) + separacion_x;
     /* 1ra zona */
     if (seccion==1){
@@ -184,7 +185,8 @@ function marcar_seccion(contexto, num_diente, seccion, color_pas){
     med = medida;
     cua = med/4;
     ter = cua*3;
-    num_diente = num_diente - 1;
+    
+    num_diente = num_diente - 1;console.log('Num diente Antes jkjk: '+num_diente);
     color_line = color_pas;
 
     /**
@@ -197,16 +199,16 @@ function marcar_seccion(contexto, num_diente, seccion, color_pas){
     }else if(num_diente > 16 && num_diente < 33){
         num_diente = num_diente - 16;
         inicio_y = med + 100;
-    }else if(num_diente > 33 && num_diente < 49){
+    }else if(num_diente > 33 && num_diente < 48){
         num_diente = num_diente - 32;
         inicio_y = med + 220;
         
-    }else if(num_diente > 49){
+    }else if(num_diente >= 48){
         num_diente = num_diente - 48;
         inicio_y = med + 340;
         
     }
-    
+    console.log('Num diente: '+num_diente);
     inicio_x = (num_diente*med) + (separacion_x*num_diente) + separacion_x;
     
     /* 1ra zona */
@@ -290,22 +292,23 @@ function marcar_diente(contexto, num_diente, color_pas){
     var ctx = contexto;
     // Definiendo puntos de dibujo
     med = medida;
-    num_diente = num_diente - 1;
+    num_diente = num_diente - 1;console.log('Num diente Antes: '+num_diente);
     color_line = color_pas;
     if (num_diente<16){
         inicio_y = 20;
     }else if(num_diente > 16 && num_diente < 33){
         num_diente = num_diente - 16;
         inicio_y = med + 100;
-    }else if(num_diente > 33 && num_diente < 49){
+    }else if(num_diente > 33 && num_diente < 48){
         num_diente = num_diente - 32;
         inicio_y = med + 220;
         
-    }else if(num_diente > 49){
+    }else if(num_diente >= 48){
         num_diente = num_diente - 48;
         inicio_y = med + 340;
         
     }
+    console.log('Num diente: '+num_diente);
     //alert(num_diente);
     inicio_x = (num_diente*med) + (separacion_x*num_diente) + separacion_x;
 
@@ -325,22 +328,24 @@ function marcar_extraccion(contexto, num_diente, color_pas){
     // Definiendo puntos de dibujo
     med = medida;
     num_diente = num_diente - 1;
+    console.log('Num diente Antes: '+num_diente);
     color_line = color_pas;
     if (num_diente<16){
         inicio_y = 20;
     }else if(num_diente > 16 && num_diente < 33){
         num_diente = num_diente - 16;
         inicio_y = med + 100;
-    }else if(num_diente > 33 && num_diente < 49){
+    }else if(num_diente > 33 && num_diente < 48){
         num_diente = num_diente - 32;
         inicio_y = med + 220;
         
-    }else if(num_diente > 49){
+    }else if(num_diente >= 48){
         num_diente = num_diente - 48;
         inicio_y = med + 340;
         
     }
     //alert(num_diente);
+    console.log('Num diente: '+num_diente);
     inicio_x = (num_diente*med) + (separacion_x*num_diente) + separacion_x;
 
     ctx.fillStyle = color_line;
@@ -388,22 +393,23 @@ function borrar_diente(contexto, num_diente){
     ctx = contexto;
     // Definiendo puntos de dibujo
     med = medida;
-    num_diente = num_diente - 1;
+    num_diente = num_diente - 1;console.log('Num diente Antes: '+num_diente);
     if (num_diente<16){
         inicio_y = 20;
     }else if(num_diente > 16 && num_diente < 33){
         num_diente = num_diente - 16;
         inicio_y = med + 100;
-    }else if(num_diente > 33 && num_diente < 49){
+    }else if(num_diente > 33 && num_diente < 48){
         num_diente = num_diente - 32;
         inicio_y = med + 220;
         
-    }else if(num_diente > 49){
+    }else if(num_diente >= 48){
         num_diente = num_diente - 48;
         inicio_y = med + 340;
         
     }
     //alert(num_diente);
+    console.log('Num diente: '+num_diente);
     inicio_x = (num_diente*med) + (separacion_x*num_diente) + separacion_x;
     ctx.clearRect(inicio_x, inicio_y, med, med);
 }
@@ -642,7 +648,7 @@ function getPosition(event){
             if (diente>33 && diente <49){
                 y = y-240;
             }
-            if (diente>49 && diente <65){
+            if (diente>=49 && diente <65){
                 y = y-360;
             }
             /**
@@ -669,6 +675,7 @@ function getPosition(event){
                 localStorage.setItem(cod, guardar);
                 marcar_extraccion(ctx2, diente, 'black')
             }else{
+                console.log('Cod: '+cod+' Storage: '+localStorage.getItem(cod));
                 //alert("Ya fue marcado");
                 let Toast = Swal.mixin({
                     toast: true,
@@ -709,6 +716,7 @@ function getPosition(event){
                         guardar = new_array.toLocaleString();
                         localStorage.setItem(cod, guardar);
                     }else{
+                        console.log('Cod: '||cod||' Storage: '||localStorage.getItem(cod));
                         //alert("Ya fue marcado");
                         let Toast = Swal.mixin({
                             toast: true,
@@ -744,7 +752,7 @@ function getPosition(event){
                 if (diente>33 && diente <49){
                     y = y-240;
                 }
-                if (diente>49 && diente <65){
+                if (diente>=49 && diente <65){
                     y = y-360;
                 }
                 seccion_b=ubica_seccion(x,y);
@@ -853,6 +861,7 @@ function getPosition(event){
             dibuja_seccion(ctx2, diente, seccion, color);
         }
         else{
+            console.log('Cod: '||cod||' Storage: '||localStorage.getItem(cod));
             //alert("Ya fue marcado");
             let Toast = Swal.mixin({
                 toast: true,
@@ -1065,7 +1074,7 @@ function Marcar(event){
             if (diente>33 && diente <49){
                 y = y-240;
             }
-            if (diente>49 && diente <65){
+            if (diente>=49 && diente <65){
                 y = y-360;
             }
             //alert(y);

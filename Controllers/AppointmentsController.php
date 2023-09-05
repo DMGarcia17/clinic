@@ -19,11 +19,11 @@ function load($id){
     $db = new DatabaseConnection();
     $res = $db->filtered_query('appointment a', 
                                 "(select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where p.cod_patient = a.cod_patient)name, 
-                                (select p.systemic_diagnosis from patients p where p.cod_patient = a.cod_patient) systemic_diagnosis, (select
-                                    group_concat(me.description SEPARATOR', ') medicines
+                                (select p.systemic_diagnosis from patients p where p.cod_patient = a.cod_patient) systemic_diagnosis, 
+                                (select
+                                    group_concat(m.medicine SEPARATOR', ') medicines
                                 from prescriptions p 
                                     inner join mpp m on p.cod_prescription = m.cod_prescription
-                                    inner join medicines me on m.cod_medicine = me.cod_medicine
                                 where
                                     p.cod_appointment =a.cod_appointment) medicines, 
                                 a.cod_appointment, 
@@ -60,7 +60,7 @@ function delete($id){
 
 function query(){
     $db = new DatabaseConnection();
-    $res = $db->blankectOquery('appointment a', "a.cod_appointment, (select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where cod_patient = a.cod_patient)name,a.reason, (select group_concat(d.name SEPARATOR', ') name from diseases d where a.diagnosis_resume like concat('%', d.cod_disease,'%')) diagnosis_resume, a.visited_on, a.disability_days, a.cod_patient", 'visited_on desc');
+    $res = $db->blankectOquery('appointment a', "a.cod_appointment, (select concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name from patients p where cod_patient = a.cod_patient)name,a.reason, diagnosis_resume, a.visited_on, a.disability_days, a.cod_patient", 'visited_on desc');
     $formated = array('data' => $res);
     echo json_encode($formated);
 }

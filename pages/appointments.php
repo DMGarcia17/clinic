@@ -75,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <th>Paciente</th>
                             <th>Fecha</th>
                             <th>Motivo Resumido</th>
-                            <th>Diagnostico</th>
+                            <th>Diagn&oacute;stico</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

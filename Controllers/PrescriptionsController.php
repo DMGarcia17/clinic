@@ -16,16 +16,16 @@ function save($id){
 function saveMedicine($id){
     $db = new DatabaseConnection();
     if ($id == null) {
-        $res = $db->insert('mpp', 'cod_prescription, cod_medicine, indication', "'{$_POST['codPrescription']}', '{$_POST['codMedicine']}', '{$_POST['indication']}'");
+        $res = $db->insert('mpp', 'cod_prescription, medicine, indication', "'{$_POST['codPrescription']}', '{$_POST['codMedicine']}', '{$_POST['indication']}'");
     }else{
-        $res = $db->update('mpp', "cod_mpp={$_POST['ID']}", "cod_prescription='{$_POST['codPrescription']}', cod_medicine='{$_POST['codMedicine']}', indication='{$_POST['indication']}'");
+        $res = $db->update('mpp', "cod_mpp={$_POST['ID']}", "cod_prescription='{$_POST['codPrescription']}', medicine='{$_POST['codMedicine']}', indication='{$_POST['indication']}'");
     }
     return $res;
 }
 
 function loadMedicine($id){
     $db = new DatabaseConnection();
-    $res = $db->filteredOquery('mpp', "cod_medicine, indication, row_number() over (order by cod_mpp) id_mpp", 'cod_mpp='.$id, 'cod_mpp');
+    $res = $db->filteredOquery('mpp', "medicine, indication, row_number() over (order by cod_mpp) id_mpp", 'cod_mpp='.$id, 'cod_mpp');
     echo json_encode($res);
 }
 
@@ -68,7 +68,7 @@ function query(){
 
 function queryMedicines(){
     $db = new DatabaseConnection();
-    $res = $db->filteredOquery('mpp m', "m.cod_mpp, (select a.description from medicines a where a.cod_medicine = m.cod_medicine) medicine, m.indication, row_number() over (order by cod_mpp) id_mpp", "m.cod_prescription={$_GET['m']}", 'cod_mpp');
+    $res = $db->filteredOquery('mpp m', "m.cod_mpp, m.medicine, m.indication, row_number() over (order by cod_mpp) id_mpp", "m.cod_prescription={$_GET['m']}", 'cod_mpp');
     $formated = array('data' => $res);
     echo json_encode($formated);
 }

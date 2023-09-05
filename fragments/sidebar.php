@@ -83,12 +83,12 @@
                             <p>Preguntas Medicas</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="http://localhost/clinic/pages/medicines.php" class="nav-link" id="medicinesTagMenu">
                             <em class="fa fa-tablets nav-icon"></em>
                             <p>Medicamentos</p>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a href="http://localhost/clinic/pages/users.php" class="nav-link" id="usersTagMenu">
                             <em class="fa fa-user nav-icon"></em>

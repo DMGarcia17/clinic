@@ -262,3 +262,12 @@ create table payments (
 	paid_at date,
 	constraint fk_payments foreign key (cod_invoice) references invoices (cod_invoice) on delete cascade
 );
+-- TO APPLY
+alter table mpp
+drop constraint fk_medicine;
+
+alter table mpp
+modify cod_medicine VARCHAR(500);
+
+alter table mpp
+rename column cod_medicine to medicine;

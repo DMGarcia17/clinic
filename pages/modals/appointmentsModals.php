@@ -231,20 +231,7 @@
       <div class="modal-body">
           <div class="form-group">
             <label for="medicine">Medicamento</label><br>
-            <select name="medicine" id="medicine" class="select2" style="width: 100%;">
-                <option value="">Seleccione un valor...</option>
-              <?php
-                $db = new DatabaseConnection();
-
-                $res = $db->blankectOQuery("medicines", "cod_medicine, description", "cod_medicine asc");
-                foreach($res as $r){
-                  echo '<option value="'.$r['cod_medicine'].'">'.$r['description'].'</option>';
-                  //echo '<div class="row">';
-                }
-
-
-              ?>
-            </select>
+            <input type="text" name="medicine" id="medicine" class="form-control" autocomplete="off">
           </div>
           <input type="hidden" name="idMpp" id="idMpp">
           <div class="form-group">
@@ -337,7 +324,7 @@
               <div class="row">
                 <div class="col-md-9">Periodontograma</div>
                 <div class="col-md-3">
-                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/periodontal/"'>Abrir</button>
+                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/periodontal/index.php?id="+$("#idMDPatient").val()'>Abrir</button>
                 </div>
               </div>
             </div>

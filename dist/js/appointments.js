@@ -55,7 +55,7 @@ let loadSystemicDiag = (idPatient) => {
             try{
                 $('#systemicDiagnosis').val(json[0]['systemic_diagnosis']);
             } catch(err){
-                console.error(err);
+                console.log(err);
             }
 
         }
@@ -81,17 +81,17 @@ let edit = (id, show = 0) => {
             try{
                 $('#systemicDiagnosis').val(json[0]['systemic_diagnosis']);
             } catch(err){
-                console.error(err);
+                console.log(err);
             }
             try{
                 $("#treatmentField").val(json[0]['treatment'].split(",")).trigger("change");
             } catch(err){
-                console.error(err);
+                console.log(err);
             }
             try{
                 $("#diagnosisResume").val(json[0]['diagnosis_resume'].split(","));
             } catch(err){
-                console.error(err);
+                console.log(err);
             }
             $('#description').val(json[0]['description']);
             $('#nextAppointment').val(json[0]['next_appointment']);
@@ -182,7 +182,7 @@ let showAuth1Modal = (appointment, patient) => {
 }
 
 let showAuth2Modal = (appointment, patient) => {
-    $('#prints').modal('toggle');
+    $('#prints').hide(300);
     $('#auth2').modal('toggle');
     $('#auth2Form').attr('action', 'http://localhost/clinic/pages/consent.php?id='+appointment+'&p='+patient);
 }

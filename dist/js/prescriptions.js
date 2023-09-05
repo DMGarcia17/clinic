@@ -24,8 +24,10 @@ let saveMedicine = (msg) => {
                 title: 'Datos guardados!'
                 });
 
-                
                 $('#addMedicine').modal('toggle');
+                setTimeout(() => {
+                    $('#addMedicines').modal('toggle');
+                }, 350);
 
                 $('#medicines').DataTable().ajax.reload();
                 $('#prescriptions').DataTable().ajax.reload();
@@ -35,7 +37,10 @@ let saveMedicine = (msg) => {
 };
 
 let editPresciption = (id) => {
-    $('#addMedicine').modal('toggle');
+    $('#addMedicines').modal('toggle'); // Modal with presciption list
+    setTimeout(() => {
+        $('#addMedicine').modal('toggle'); // Modal with medicine info
+    }, 350);
     $.ajax({
         type  : 'post',
         url   : presciptions,
@@ -47,23 +52,7 @@ let editPresciption = (id) => {
             let json = JSON.parse(res);
             $('#idMpp').val(id);
             $('#indication').val(json[0]['indication']);
-            $('#medicine').val(json[0]['cod_medicine']).trigger("change");
-
-        }
-      });
-};
-
-let loadIndication = (id) => {
-    $.ajax({
-        type  : 'post',
-        url   : presciptions,
-        data  : {
-                  'ID': id,
-                  'function' : 'li'
-                },
-        success: function (res) {
-            let json = JSON.parse(res);
-            $('#indication').val(json[0]['indication']);
+            $('#medicine').val(json[0]['medicine']);
 
         }
       });
@@ -199,7 +188,10 @@ let medicines = (id) =>{
         if ( ! $.fn.DataTable.isDataTable( '#medicines' ) ) {
             createMedicinesDT(id);
         }else{
-            $('#addMedicines').modal('toggle');
+            $('#addPr').modal('toggle');
+            setTimeout(() => {
+                $('#addMedicines').modal('toggle');
+            }, 350);
             $('#medicines').DataTable().destroy();
             medicines(id);
         }
@@ -207,7 +199,10 @@ let medicines = (id) =>{
         $('#createPr').prop('disabled', false);
         $('#medicinesContainer').fadeOut(0);
     }
-    $('#addMedicines').modal('toggle');
+    $('#addPr').modal('toggle');
+    setTimeout(() => {
+        $('#addMedicines').modal('toggle');
+    }, 350);
     
 }
 
@@ -277,8 +272,5 @@ $('#addMedicineForm').validate({
       }
 });
 
-    $('#medicine').select2()
-    .on('change', () => {
-        loadIndication($('#medicine').val());
-    });
+    
 });
