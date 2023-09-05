@@ -1,5 +1,7 @@
 <?php
   $base = './';
+  header('Location: http://localhost/clinic/login.php');
+  die();
 ?>
 <!DOCTYPE html>
 <!--

@@ -1,3 +1,24 @@
 div.card {
-    margin-top: 15vw;
+    opacity: 0.9;
+}
+
+#logInForm {
+    opacity: 1 !important;
+}
+
+#image {
+    /* the image you want to 'watermark' */
+    height: 80vh; /* or whatever, equal to the image you want 'watermarked' */
+    width: 98vw; /* as above */
+    position: absolute;
+    background-image: url('../../dist/img/logo_color_trs.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35vw;
+    opacity: 0.5;
+}
+    
+#card-login {
+    position: relative;
+    margin-top: 15vh !important;
 }

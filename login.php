@@ -28,7 +28,10 @@
     <title>Log In</title>
 </head>
 <body>
-    <div class="container blackout">
+    <div id="image">
+        <!-- <img src="./dist/img/logo_color_trs.png" alt="..." /> -->
+    </div>
+    <div class="container blackout" id="card-login">
         <div class="card mx-auto pagination-centered" style="width: 23rem;">
             <div class="card-body">
                 <form id="logInForm">
