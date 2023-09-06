@@ -324,7 +324,7 @@
               <div class="row">
                 <div class="col-md-9">Periodontograma</div>
                 <div class="col-md-3">
-                  <button type="button" class="btn btn-primary" onClick='window.location.href = "http://localhost/clinic/periodontal/index.php?id="+$("#idMDPatient").val()'>Abrir</button>
+                  <button type="button" class="btn btn-primary" <?php echo 'onClick="window.location.href = \'http://'.host.'/clinic/periodontal/index.php?id=\'+$(\'#idMDPatient\').val()"' ?> >Abrir</button>
                 </div>
               </div>
             </div>

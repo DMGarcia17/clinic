@@ -19,16 +19,17 @@
             </div>
             <div class="col-md-10 pl-md-5">
                 <?php
+                require_once './core/public.php';
                 session_start();
                 if(!isset($_SESSION['codClinic'])){
-                    header("Location: http://localhost/clinic/login.php?error=1"); 
+                    header("Location: http://".host."/clinic/login.php?error=1"); 
                 }
                 
                 require_once '../core/Connection.php';
                 $db = new DatabaseConnection();
                 $res = $db->filtered_query("clinics", "clinic_name, address, phone_number, wssp_phone", "cod_clinic='{$_SESSION['codClinic']}'");
                 if (count($res[0]) <= 0 || !isset($_GET['id']) || !isset($_GET['p'])){
-                    header("Location: http://localhost/clinic/pages/appointments.php"); 
+                    header("Location: http://".host."/clinic/pages/appointments.php"); 
                 }
                 echo "<h3  style='color:#0a07ba !important; font-family: 'Bernard MT Condensed' !important;'>
                             DEYCAR<span class='font-weight-light'>DENT</span>
@@ -50,7 +51,7 @@
                 <?php
                     $res = $db->filtered_query("patients p", "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", "p.cod_patient='{$_GET['p']}'");
                     if (count($res[0]) <= 0){
-                        header("Location: http://localhost/clinic/pages/appointments.php"); 
+                        header("Location: http://".host."/clinic/pages/appointments.php"); 
                     }
                     echo "<h4><span class='font-weight-bold' style='color:#0a07ba !important;'>Paciente:&nbsp;</span>{$res[0]['name']}</h4>";
                 ?>
@@ -66,7 +67,7 @@
                     
                     $res = $db->filteredOquery('treatments', "name treatment", "pr_order<=10", 'pr_order asc');
                     if (count($res[0]) <= 0){
-                        header("Location: http://localhost/clinic/pages/appointments.php"); 
+                        header("Location: http://".host."/clinic/pages/appointments.php"); 
                     }
                     echo '<ul>';
                     foreach($res as $r){
@@ -80,14 +81,14 @@
                 <?php
                     $res = $db->filteredOquery('invoices i', "cod_invoice, treatment, amount, created_at, paid_at, ((select sum(p.amount) from payments p where p.cod_invoice = i.cod_invoice)-amount) paid", "i.cod_invoice=".$_GET['id'], 'created_at asc');
                     if (count($res[0]) <= 0){
-                        header("Location: http://localhost/clinic/pages/appointments.php"); 
+                        header("Location: http://".host."/clinic/pages/appointments.php"); 
                     }
                     foreach($res as $r){
                         echo "<span class='font-weight-bold'>Tratamiento aplicado: <span class='font-weight-normal'>{$r['treatment']}</span> </br>Monto Total por el Tratamiento: <span class='font-weight-normal'>". sprintf('$%01.2f', $r['amount']) ."</span></span>";
 
                         $payments = $db->filteredOquery('payments p', "cod_payment, cod_invoice, amount, date_format(paid_at, '%d/%m/%Y') paid_at", "p.cod_invoice=".$r['cod_invoice'], 'paid_at asc');
                         if (count($res[0]) <= 0){
-                            header("Location: http://localhost/clinic/pages/appointments.php"); 
+                            header("Location: http://".host."/clinic/pages/appointments.php"); 
                         }
                         echo "<h6>Historial de Pagos:</h6>";
                         foreach($payments as $p){

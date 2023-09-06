@@ -19,16 +19,17 @@
             </div>
             <div class="col-md-10 pl-md-5">
                 <?php
+                require_once '../core/public.php';
                 session_start();
                 if(!isset($_SESSION['codClinic'])){
-                    header("Location: http://localhost/clinic/login.php?error=1"); 
+                    header("Location: http://".host."/clinic/login.php?error=1"); 
                 }
                 
                 require_once '../core/Connection.php';
                 $db = new DatabaseConnection();
                 $res = $db->filtered_query("clinics", "clinic_name, address, phone_number, wssp_phone", "cod_clinic='{$_SESSION['codClinic']}'");
                 if (count($res[0]) <= 0 || !isset($_GET['id']) || !isset($_GET['p'])){
-                    header("Location: http://localhost/clinic/pages/appointments.php"); 
+                    header("Location: http://".host."/clinic/pages/appointments.php"); 
                 }
                 echo "<h3  style='color:#0a07ba !important; font-family: 'Bernard MT Condensed' !important;'>
                             DEYCAR<span class='font-weight-light'>DENT</span>
@@ -50,7 +51,7 @@
                 <?php
                     $res = $db->filtered_query("patients p", "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", "p.cod_patient='{$_GET['p']}'");
                     if (count($res[0]) <= 0){
-                        header("Location: http://localhost/clinic/pages/appointments.php"); 
+                        header("Location: http://".host."/clinic/pages/appointments.php"); 
                     }
                     echo "<h4><span class='font-weight-bold' style='color:#0a07ba !important;'>Paciente:&nbsp;</span>{$res[0]['name']}</h4>";
                 ?>
@@ -66,7 +67,7 @@
                     
                     $res = $db->filteredOquery('treatments', "name treatment", "pr_order<=10", 'pr_order asc');
                     if (count($res[0]) <= 0){
-                        header("Location: http://localhost/clinic/pages/appointments.php"); 
+                        header("Location: http://".host."/clinic/pages/appointments.php"); 
                     }
                     echo '<ul>';
                     foreach($res as $r){
@@ -88,7 +89,7 @@
                         <?php
                             $res = $db->filteredOquery('mpp m', "m.cod_mpp, (select a.description from medicines a where a.cod_medicine = m.cod_medicine) medicine, m.amount, m.indication, row_number() over (order by cod_mpp) id_mpp", "m.cod_prescription=".$_GET['id'], 'cod_mpp');
                             if (count($res[0]) <= 0){
-                                header("Location: http://localhost/clinic/pages/appointments.php"); 
+                                header("Location: http://".host."/clinic/pages/appointments.php"); 
                             }
                             foreach($res as $r){
                                 echo "<tr>

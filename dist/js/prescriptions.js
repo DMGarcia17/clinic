@@ -228,7 +228,7 @@ let mpp = (id) => {
                 {"data" : "amount"},
                 {"data" : null, render : function (data, type, row, meta) {
                     return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="medicines('+data['cod_prescription']+')"><i class="fa fa-edit"></i></button>'+
-                    '<a class="btn btn-xs btn-default" target="_blank" href="http://localhost/clinic/pages/prescription.php?id='+data['cod_prescription']+'&p='+data['cod_patient']+'"><i class="fas fa-print"></i></a>'+
+                    '<a class="btn btn-xs btn-default" target="_blank" href="http://'+hostname+'/clinic/pages/prescription.php?id='+data['cod_prescription']+'&p='+data['cod_patient']+'"><i class="fas fa-print"></i></a>'+
                     '<button class="btn btn-xs btn-danger" onClick="showDelPresciption('+data['cod_prescription']+')"><i class="fas fa-trash-alt"></i></button></div>';
                 }}
             ],

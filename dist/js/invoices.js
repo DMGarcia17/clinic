@@ -291,7 +291,7 @@ let showInvoicesModal = (id, patient) => {
                 {"data" : null, render : function (data, type, row, meta) {return (new Intl.NumberFormat('en-US', {style: 'currency', currency:'USD'}).format(data['amount']-data['paid']))}},
                 {"data" : null, render : function (data, type, row, meta) {
                     return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="payments('+data['cod_invoice']+','+data['amount']+')"><i class="fa fa-edit"></i></button>'+
-                    '<a class="btn btn-xs btn-default" target="_blank" href="http://localhost/clinic/pages/invoiceResume.php?id='+data['cod_invoice']+'&p='+data['cod_patient']+'"><i class="fas fa-print"></i></a>'+
+                    '<a class="btn btn-xs btn-default" target="_blank" href="http://'+hostname+'/clinic/pages/invoiceResume.php?id='+data['cod_invoice']+'&p='+data['cod_patient']+'"><i class="fas fa-print"></i></a>'+
                     '<button class="btn btn-xs btn-danger" onClick="showDelInvoice('+data['cod_invoice']+')"><i class="fas fa-trash-alt"></i></button></div>';
                 }}
             ],

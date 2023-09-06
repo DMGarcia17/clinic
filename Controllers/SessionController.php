@@ -1,5 +1,6 @@
 <?php
 require_once '../core/Connection.php';
+require_once '../core/public.php';
     function findUser($username, $password){
         $db = new DatabaseConnection();
         $res = $db->filtered_query('users a', 'a.username, a.password, a.complete_name, a.cod_rol, a.add_date, a.user_add, a.mod_date, a.user_mod, a.last_pass_up', "username='{$username}' AND password=md5('{$password}')");
@@ -44,6 +45,6 @@ require_once '../core/Connection.php';
                 session_start();
                 session_unset();
                 session_destroy();
-                header("Location: http://localhost/clinic/login.php?error=0"); 
+                header("Location: http://".host."/clinic/login.php?error=0"); 
         }
     }

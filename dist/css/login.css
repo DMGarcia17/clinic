@@ -1,9 +1,9 @@
-div.card {
-    opacity: 0.9;
+body {
+    min-height: auto;
 }
 
-#logInForm {
-    opacity: 1 !important;
+div.card {
+    opacity: 0.9;
 }
 
 #image {
@@ -16,6 +16,7 @@ div.card {
     background-repeat: no-repeat;
     background-size: 35vw;
     opacity: 0.5;
+    margin-top: -5%;
 }
     
 #card-login {

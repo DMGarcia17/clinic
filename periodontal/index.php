@@ -1,7 +1,8 @@
 <?php
+require_once '../core/public.php';
 session_start();
 if(!isset($_SESSION['codClinic'])){
-    header("Location: http://localhost/clinic/login.php?error=1"); 
+    header("Location: http://".host."/clinic/login.php?error=1"); 
 }
 
 require_once '../core/Connection.php';
@@ -110,14 +111,14 @@ $db = new DatabaseConnection();
         <img src="./img/svg/svg_teeth.svg" height="1600" width="1200">
     </div>
     <div id="periodontal_chart_teeth">
-        <img src="http://localhost/clinic/dist/img/logo_color_trs.png" style="height: 10rem; padding: 3rem;">
+        <img <?php echo 'src="http://'.host.'/clinic/dist/img/logo_color_trs.png"' ?> style="height: 10rem; padding: 3rem;">
     </div>
     <div class="info-patient">
         
         <?php 
         $res = $db->filtered_query("clinics", "clinic_name, address, phone_number, wssp_phone", "cod_clinic='{$_SESSION['codClinic']}'");
         if (count($res[0]) <= 0 || !isset($_GET['id'])){
-            header("Location: http://localhost/clinic/pages/appointments.php"); 
+            header("Location: http://".host."/clinic/pages/appointments.php"); 
         }
         echo "<h3 class='font' style='text-align: center; font-size: 2rem;
         padding-top: 5vw;'>
@@ -137,7 +138,7 @@ $db = new DatabaseConnection();
             <?php
                 $res = $db->filtered_query("patients p", "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", "p.cod_patient='{$_GET['id']}'");
                 if (count($res[0]) <= 0){
-                    header("Location: http://localhost/clinic/pages/appointments.php"); 
+                    header("Location: http://".host."/clinic/pages/appointments.php"); 
                 }
                 echo "<span  style='padding-left: 15vw; font-weight: bold;'>Nombre del paciente: </span><span class='Font-weight-normal'>{$res[0]['name']}</span>"
             ?>

@@ -1,7 +1,17 @@
 <?php
+    require_once './core/public.php';
+    echo "<input type='hidden' id='hostname' value='".host."'>";
     $base = './';
     if(isset($_GET['error']) and $_GET['error'] != ""){
         echo "<input type='hidden' name='error' id='error' value='{$_GET['error']}'>";
+    }
+    
+    session_start();
+    if(isset($_SESSION['user'])){
+        header("Location: http://".host."/clinic/pages/calendar.php"); 
+    }else{
+        session_unset();
+        session_destroy();
     }
 ?>
 <!DOCTYPE html>

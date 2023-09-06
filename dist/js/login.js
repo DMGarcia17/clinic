@@ -1,3 +1,5 @@
+
+const hostname = $('#hostname').val();
 let logIn = () => {
   $.ajax({
     type  : 'post',
@@ -29,7 +31,7 @@ let logIn = () => {
           });
 
           setTimeout(() => {
-            window.location.href = "http://localhost/clinic/pages/calendar.php";
+            window.location.href = "http://"+hostname+"/clinic/pages/calendar.php";
           }, 1000)
           
         }

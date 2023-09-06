@@ -1,4 +1,5 @@
 const process = '../Controllers/AppointmentsController.php';
+const hostname = $('#hostname').val();
 var showed = 0;
 let save = (msg) => {
     $.ajax({
@@ -108,7 +109,7 @@ let edit = (id, show = 0) => {
 let reLocate = () => {
     if(typeof $('#patient').val() == 'number' && $('#patient').val() > 0){
         save();
-        window.location.href = "http://localhost/clinic/pages/appointments.php?app="+$('#appIdCurr').val();
+        window.location.href = "http://"+hostname+"/clinic/pages/appointments.php?app="+$('#appIdCurr').val();
     }
 };
 
@@ -171,20 +172,20 @@ let showPrintsModal = (appointment, patient, disabilityDays) => {
 let showIncapabilityModal = (appointment, patient) => {
     $('#prints').modal('toggle');
     $('#inability').modal('toggle');
-    $('#inabilityForm').attr('action', 'http://localhost/clinic/pages/inabilityConstance.php?id='+appointment+'&p='+patient);
+    $('#inabilityForm').attr('action', 'http://'+hostname+'/clinic/pages/inabilityConstance.php?id='+appointment+'&p='+patient);
     $('#inabilityDays').val($('#daysOff').val());
 }
 
 let showAuth1Modal = (appointment, patient) => {
     $('#prints').modal('toggle');
     $('#auth1').modal('toggle');
-    $('#auth1Form').attr('action', 'http://localhost/clinic/pages/authorization.php?id='+appointment+'&p='+patient);
+    $('#auth1Form').attr('action', 'http://'+hostname+'/clinic/pages/authorization.php?id='+appointment+'&p='+patient);
 }
 
 let showAuth2Modal = (appointment, patient) => {
     $('#prints').hide(300);
     $('#auth2').modal('toggle');
-    $('#auth2Form').attr('action', 'http://localhost/clinic/pages/consent.php?id='+appointment+'&p='+patient);
+    $('#auth2Form').attr('action', 'http://'+hostname+'/clinic/pages/consent.php?id='+appointment+'&p='+patient);
 }
 
 let showDelClinic = (id) => {
@@ -220,7 +221,7 @@ $(document).ready(function() {
             {"data" : "diagnosis_resume"},
             {"data" : null, render : function (data, type, row, meta) {
                 return '<div class="btn-group" role="group"><button class="btn btn-xs btn-success" onClick="edit('+data['cod_appointment']+')"><i class="fa fa-edit"></i></button>'+
-                '<a class="btn btn-xs btn-default" target="_blank" href="http://localhost/clinic/pages/odontograma.php?id='+data['cod_patient']+'"><i class="fas fa-tooth"></i></a>'+
+                '<a class="btn btn-xs btn-default" target="_blank" href="http://'+hostname+'/clinic/pages/odontograma.php?id='+data['cod_patient']+'"><i class="fas fa-tooth"></i></a>'+
                 '<button class="btn btn-xs btn-default" onClick="mpp('+data['cod_appointment']+')"><i class="fas fa-prescription-bottle-medical"></i></button>'+
                 '<button class="btn btn-xs btn-default" onClick="showPrintsModal('+data['cod_appointment']+', '+data['cod_patient']+', '+data['disability_days']+')"><i class="fas fa-print"></i></button>'+
                 '<button class="btn btn-xs btn-default" onClick="showUploadModal('+data['cod_appointment']+', '+data['cod_patient']+')"><i class="fas fa-archive"></i></button>'+

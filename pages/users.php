@@ -1,9 +1,10 @@
 <?php
+    require_once '../core/public.php';
     $base = '../';
     
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['user'] == ''){
-      header("Location: http://localhost/clinic/login.php?error=1"); 
+      header("Location: http://".host."/clinic/login.php?error=1"); 
     }
     require_once '../core/Connection.php';
 ?>

@@ -1,9 +1,10 @@
 <?php
     $base = '../';
+    require_once '../core/public.php';
     
     session_start();
     if(!isset($_SESSION['user']) || $_SESSION['user'] == ''){
-      header("Location: http://localhost/clinic/login.php?error=1"); 
+      header("Location: http://".host."/clinic/login.php?error=1"); 
     }
     if(isset($_GET['ID']) and $_GET['ID'] != ""){
         echo "<input type='hidden' name='patientId' id='patientId' value='{$_GET['ID']}'>";

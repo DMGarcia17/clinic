@@ -54,7 +54,7 @@ let createFilesDT = (id) => {
             {"data" : "id_file", width: 30},
             {"data" : "name", width: 800},
             {"data" : null, render : function (data, type, row, meta) {
-                return '<div class="btn-group" role="group"><a class="btn btn-xs btn-primary" target="_blank" href="http://localhost/clinic/files/'+data['name']+'"><i class="fa fa-external-link-alt"></i></a>'+
+                return '<div class="btn-group" role="group"><a class="btn btn-xs btn-primary" target="_blank" href="http://'+hostname+'/clinic/files/'+data['name']+'"><i class="fa fa-external-link-alt"></i></a>'+
                 '<button class="btn btn-xs btn-danger" onClick="showDelFile('+data['cod_file']+', \''+data['name']+'\')"><i class="fas fa-trash-alt"></i></button></div>';
             }}
         ],

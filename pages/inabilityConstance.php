@@ -1,14 +1,15 @@
 <?php
+    require_once '../core/public.php';
     session_start();
     if(!isset($_SESSION['codClinic'])){
-        #header("Location: http://localhost/clinic/login.php?error=1"); 
+        header("Location: http://".host."/clinic/login.php?error=1"); 
     }
     
     require_once '../core/Connection.php';
     $db = new DatabaseConnection();
     $resUser = $db->filtered_query("users", "complete_name", "username='{$_SESSION['user']}'");
     if (count($resUser[0]) <= 0 || !isset($_GET['id']) || !isset($_GET['p'])){
-        #header("Location: http://localhost/clinic/pages/appointments.php"); 
+        header("Location: http://".host."/clinic/pages/appointments.php"); 
     }
 ?>
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
                                         <div class="col-md-10 pl-md-5">
                                             <?php
                                             if(!isset($_SESSION['codClinic'])){
-                                                header("Location: http://localhost/clinic/login.php?error=1"); 
+                                                header("Location: http://".host."/clinic/login.php?error=1"); 
                                             }
                                             
                                             require_once '../core/Connection.php';
@@ -80,7 +81,7 @@
                 <?php
                     $res = $db->filtered_query("patients p", "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", "p.cod_patient='{$_GET['p']}'");
                     if (count($res[0]) <= 0){
-                        header("Location: http://localhost/clinic/pages/appointments.php"); 
+                        header("Location: http://".host."/clinic/pages/appointments.php"); 
                     }
                     echo "<span><span class='font-weight-bold'></span>{$res[0]['name']}</span>";
                 ?>
@@ -104,7 +105,7 @@
             <div class="col-md-2">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-secondary act-rad float-right" onClick="imprimir();"><em class="fa fa-print"></em></button>
-                    <button class="btn btn-primary act-rad" onClick='window.location.href = "http://localhost/clinic/pages/appointments.php";'>Volver al sistema</button>
+                    <button class="btn btn-primary act-rad" <?php echo 'onClick= "window.location.href = \'http://'.host.'/clinic/pages/appointments.php\'"'?> >Volver al sistema</button>
                 </div>
             </div>
         </div>

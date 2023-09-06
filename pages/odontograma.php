@@ -25,16 +25,17 @@
                             </div>
                             <div class="col-md-10 pl-md-5">
                                 <?php
+                                require_once '../core/public.php';
                                 session_start();
                                 if(!isset($_SESSION['codClinic'])){
-                                    header("Location: http://localhost/clinic/login.php?error=1"); 
+                                    header("Location: http://".host."/clinic/login.php?error=1"); 
                                 }
                                 
                                 require_once '../core/Connection.php';
                                 $db = new DatabaseConnection();
                                 $res = $db->filtered_query("clinics", "clinic_name, address, phone_number", "cod_clinic='{$_SESSION['codClinic']}'");
                                 if (count($res[0]) <= 0 || !isset($_GET['id'])){
-                                    header("Location: http://localhost/clinic/pages/appointments.php"); 
+                                    header("Location: http://".host."/clinic/pages/appointments.php"); 
                                 }
                                 echo "<h3>
                                             {$res[0]['clinic_name']}
@@ -50,7 +51,7 @@
                                 <?php
                                     $res = $db->filtered_query("patients p", "concat_ws(' ', p.first_name, p.second_name, p.first_surname, p.second_surname) name", "p.cod_patient='{$_GET['id']}'");
                                     if (count($res[0]) <= 0){
-                                        header("Location: http://localhost/clinic/pages/appointments.php"); 
+                                        header("Location: http://".host."/clinic/pages/appointments.php"); 
                                     }
                                     echo "<span class='font-weight-bold'>Nombre del paciente: </span><span class='Font-weight-normal'>{$res[0]['name']}</span>"
                                 ?>
