@@ -1,6 +1,6 @@
 <?php
   $base = './';
-  header('Location: http://localhost/clinic/login.php');
+  header('Location: http://'.gethostbyaddr($_SERVER['REMOTE_ADDR']).'/clinic/login.php');
   die();
 ?>
 <!DOCTYPE html>

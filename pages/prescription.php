@@ -87,7 +87,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            $res = $db->filteredOquery('mpp m', "m.cod_mpp, (select a.description from medicines a where a.cod_medicine = m.cod_medicine) medicine, m.amount, m.indication, row_number() over (order by cod_mpp) id_mpp", "m.cod_prescription=".$_GET['id'], 'cod_mpp');
+                            $res = $db->filteredOquery('mpp m', "m.cod_mpp, m.medicine, m.amount, m.indication, row_number() over (order by cod_mpp) id_mpp", "m.cod_prescription=".$_GET['id'], 'cod_mpp');
                             if (count($res[0]) <= 0){
                                 header("Location: http://".host."/clinic/pages/appointments.php"); 
                             }
